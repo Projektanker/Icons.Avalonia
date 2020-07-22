@@ -2,6 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>Sebastian Rumohr</Authors>
+        <Company>Projektanker GmbH</Company>
+        <PackageProjectUrl></PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
+        <PackageTags>avalonia icons fontawesome</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

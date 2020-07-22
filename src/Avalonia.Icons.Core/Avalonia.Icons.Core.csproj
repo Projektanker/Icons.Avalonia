@@ -3,6 +3,11 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>Avalonia.Icons</RootNamespace>
+        <Authors>Sebastian Rumohr</Authors>
+        <Company>Projektanker GmbH</Company>
+        <PackageProjectUrl></PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
+        <PackageTags>avalonia icons</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
