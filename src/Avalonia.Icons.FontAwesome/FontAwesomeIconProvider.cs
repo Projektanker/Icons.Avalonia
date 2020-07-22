@@ -11,11 +11,12 @@ namespace Avalonia.Icons.FontAwesome
     public class FontAwesomeIconProvider : IIconProvider
     {
         private const string _faKeyPrefix = "fa-";
+        private const string _faProviderPrefix = "fa";
         private const string _resource = "Avalonia.Icons.FontAwesome.Assets.icons.json";
         private static readonly Lazy<Dictionary<string, FontAwesomeIcon>> _lazyIcons = new Lazy<Dictionary<string, FontAwesomeIcon>>(Parse);
 
+        public string Prefix => _faProviderPrefix;
         private static Dictionary<string, FontAwesomeIcon> Icons => _lazyIcons.Value;
-
         public static void Register()
         {
             IconProvider.Register(new FontAwesomeIconProvider());

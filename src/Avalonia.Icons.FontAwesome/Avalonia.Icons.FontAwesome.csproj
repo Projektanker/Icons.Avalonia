@@ -5,25 +5,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Update="**\*.xaml.cs">
-            <DependentUpon>%(Filename)</DependentUpon>
-        </Compile>
-        <AvaloniaResource Include="**\*.xaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
+        <Compile Remove="font-awesome\**" />
+        <EmbeddedResource Remove="font-awesome\**" />
+        <None Remove="font-awesome\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Assets\icons.json" />
+        <EmbeddedResource Include="font-awesome\metadata\icons.json" Link="Assets\icons.json" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="0.9.11" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Avalonia.Icons.Core\Avalonia.Icons.Core.csproj" />
+        <ProjectReference Include="..\Avalonia.Icons.Core\Avalonia.Icons.Core.csproj" />
     </ItemGroup>
 
 </Project>
