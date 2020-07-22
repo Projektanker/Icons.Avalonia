@@ -7,8 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      DOTNET_WORKING_DIR: src
+    defaults:
+      run:
+        working-directory: src
     steps:
     - name: Test
       run: echo Hello $DOTNET_WORKING_DIR
@@ -24,9 +25,9 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      working-directory: $DOTNET_WORKING_DIR
       run: dotnet restore
-    - name: Build
-      working-directory: $DOTNET_WORKING_DIR
+    - name: Build      
       run: dotnet build --configuration Release --no-restore
+    - name: Pack
+      run: dotnet pack --configuration Release --no-restore
       
