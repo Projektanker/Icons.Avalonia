@@ -8,6 +8,8 @@
         <PackageProjectUrl></PackageProjectUrl>
         <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
         <PackageTags>avalonia icons</PackageTags>
+        <PackageId>Projektanker.Avalonia.Icons.Core</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>

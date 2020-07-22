@@ -7,6 +7,9 @@
         <PackageProjectUrl></PackageProjectUrl>
         <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
         <PackageTags>avalonia icons fontawesome</PackageTags>
+        <PackageId>Projektanker.Avalonia.Icons.FontAwesome</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,15 +19,17 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove=".gitignore" />
+      <None Remove="clone-font-awesome.sh" />
+    </ItemGroup>
+
+    <ItemGroup>
         <EmbeddedResource Include="font-awesome\metadata\icons.json" Link="Assets\icons.json" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\Avalonia.Icons.Core\Avalonia.Icons.Core.csproj" />
+        <PackageReference Include="Projektanker.Avalonia.Icons.Core" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
