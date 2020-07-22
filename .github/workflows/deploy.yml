@@ -11,8 +11,6 @@ jobs:
       run:
         working-directory: src
     steps:
-    - name: Test
-      run: echo Hello $DOTNET_WORKING_DIR
     - name: Checkout this repository
       uses: actions/checkout@v2
     - name: Checkout FontAwesome
