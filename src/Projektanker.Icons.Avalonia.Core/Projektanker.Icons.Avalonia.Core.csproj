@@ -10,6 +10,7 @@
         <PackageTags>avalonia icons</PackageTags>
         <PackageId>Projektanker.Icons.Avalonia.Core</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>

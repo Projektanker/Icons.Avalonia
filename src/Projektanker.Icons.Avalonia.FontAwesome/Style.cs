@@ -1,4 +1,4 @@
-﻿namespace Avalonia.Icons.FontAwesome
+﻿namespace Projektanker.Icons.Avalonia.FontAwesome
 {
     internal enum Style
     {

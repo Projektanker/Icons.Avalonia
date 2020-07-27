@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Linq;
+using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 
@@ -39,7 +40,7 @@ namespace Projektanker.Icons.Avalonia
             (e.Sender as Icon)?.OnValuePropertyChanged();
         }
 
-        internal void OnValuePropertyChanged()
+        private void OnValuePropertyChanged()
         {
             string path = IconProvider.GetIconPath(Value);
 

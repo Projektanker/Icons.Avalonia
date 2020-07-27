@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Avalonia.Icons.FontAwesome
+namespace Projektanker.Icons.Avalonia.FontAwesome
 {
     internal enum StylePrefix
     {

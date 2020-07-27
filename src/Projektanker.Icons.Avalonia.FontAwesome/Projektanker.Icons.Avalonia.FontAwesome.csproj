@@ -29,7 +29,7 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-        <PackageReference Include="Projektanker.Avalonia.Icons.Core" Version="1.0.0" />
+        <PackageReference Include="Projektanker.Icons.Avalonia.Core" Version="1.0.0" />
     </ItemGroup>
 
 </Project>

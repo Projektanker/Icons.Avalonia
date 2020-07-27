@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Avalonia.Icons.FontAwesome
+namespace Projektanker.Icons.Avalonia.FontAwesome
 {
     public class FontAwesomeIconProvider : IIconProvider
     {
@@ -17,10 +17,7 @@ namespace Avalonia.Icons.FontAwesome
 
         public string Prefix => _faProviderPrefix;
         private static Dictionary<string, FontAwesomeIcon> Icons => _lazyIcons.Value;
-        public static void Register()
-        {
-            IconProvider.Register(new FontAwesomeIconProvider());
-        }
+        
         public bool TryGetIconPath(string value, out string path)
         {
             string[] splitted = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
