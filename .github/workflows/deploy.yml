@@ -30,6 +30,8 @@ jobs:
   
   deploy-font-awesome:
     runs-on: ubuntu-latest
+    env:
+      WORKING_DIR_PATH: src/Projektanker.Icons.Avalonia.FontAwesome
     defaults:
       run:
         working-directory: src/Projektanker.Icons.Avalonia.FontAwesome
@@ -40,7 +42,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: FortAwesome/Font-Awesome
-        path: src/Avalonia.Icons.FontAwesome/font-awesome
+        path: $WORKING_DIR_PATH/font-awesome
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
