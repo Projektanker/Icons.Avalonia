@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektanker.Icons.Avalonia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektanker.Icons.Avalonia.FontAwesome.Test", "Projektanker.Icons.Avalonia.FontAwesome.Test\Projektanker.Icons.Avalonia.FontAwesome.Test.csproj", "{B4E187E5-52CC-4F40-957E-6290E14BA2C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{A611C50D-6101-4BBC-88EE-6757A1E0E361}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{B4E187E5-52CC-4F40-957E-6290E14BA2C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E187E5-52CC-4F40-957E-6290E14BA2C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E187E5-52CC-4F40-957E-6290E14BA2C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A611C50D-6101-4BBC-88EE-6757A1E0E361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A611C50D-6101-4BBC-88EE-6757A1E0E361}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A611C50D-6101-4BBC-88EE-6757A1E0E361}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A611C50D-6101-4BBC-88EE-6757A1E0E361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
