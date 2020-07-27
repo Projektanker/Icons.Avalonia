@@ -14,7 +14,7 @@ A library to easily display icons in an Avalonia App.
 A full example is available in the [demo](demo) directory or at the bottom of this readme.
 
 ### 1. Register icon providers on app start up
-
+Use the `AppBuilder.AfterSetup` method to register a callback. Within this callback register the icon prodider(s). Otherwise the visual designer won't be able to use the registered icon provider(s).
 ```csharp
 class Program
 {
@@ -30,12 +30,17 @@ class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {
+        return AppBuilder.Configure<App>()
+                .AfterSetup(AfterSetupCallback)
+                .UsePlatformDetect()
+                .LogToDebug();
+    }
+    
+    // Called after setup
+    private static void AfterSetupCallback(AppBuilder appBuilder)
+    {
         // Register icon provider(s)
         IconProvider.Register<FontAwesomeIconProvider>();
-
-        return AppBuilder.Configure<App>()
-                       .UsePlatformDetect()
-                       .LogToDebug();
     }
 }
 ```
@@ -71,7 +76,7 @@ using Projektanker.Icons.Avalonia.FontAwesome;
 
 namespace Demo
 {
-    internal class Program
+    class Program
     {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
@@ -85,12 +90,17 @@ namespace Demo
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
         {
+            return AppBuilder.Configure<App>()
+                    .AfterSetup(AfterSetupCallback)
+                    .UsePlatformDetect()
+                    .LogToDebug();
+        }
+
+        // Called after setup
+        private static void AfterSetupCallback(AppBuilder appBuilder)
+        {
             // Register icon provider(s)
             IconProvider.Register<FontAwesomeIconProvider>();
-
-            return AppBuilder.Configure<App>()
-                           .UsePlatformDetect()
-                           .LogToDebug();
         }
     }
 }
