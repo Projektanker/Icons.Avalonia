@@ -47,6 +47,8 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
+    - name: cat icons.json
+      run: cat font-awesome/metadata/icons.json
     - name: Build      
       run: dotnet build --configuration Release --no-restore
     - name: Pack
