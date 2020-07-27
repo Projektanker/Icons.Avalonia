@@ -13,13 +13,6 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         }
 
         [TestMethod]
-        public void NullValue()
-        {
-            string path = IconProvider.GetIconPath(null);
-            Assert.AreEqual(string.Empty, path);
-        }
-
-        [TestMethod]
         public void ArrowLeft()
         {
             string path = IconProvider.GetIconPath("fa-arrow-left");
@@ -31,6 +24,13 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         public void IconNotFound()
         {
             string _ = IconProvider.GetIconPath("fa-you-cant-find-me");
+        }
+
+        [TestMethod]
+        public void NullValue()
+        {
+            string path = IconProvider.GetIconPath(null);
+            Assert.AreEqual(string.Empty, path);
         }
     }
 }

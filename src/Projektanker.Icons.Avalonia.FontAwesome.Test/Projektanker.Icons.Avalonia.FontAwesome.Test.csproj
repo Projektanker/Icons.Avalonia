@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -15,7 +15,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
-      <ProjectReference Include="..\Projektanker.Icons.Avalonia\Projektanker.Icons.Avalonia.csproj" />
     </ItemGroup>
 
 </Project>

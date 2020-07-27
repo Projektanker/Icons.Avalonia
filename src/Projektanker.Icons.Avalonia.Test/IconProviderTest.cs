@@ -22,6 +22,13 @@ namespace Projektanker.Icons.Avalonia.Test
         }
 
         [TestMethod]
+        public void EmptyValue()
+        {
+            string iconPath = IconProvider.GetIconPath(string.Empty);
+            Assert.AreEqual(string.Empty, iconPath);
+        }
+
+        [TestMethod]
         public void NullValue()
         {
             string iconPath = IconProvider.GetIconPath(null);
