@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Avalonia;
 using Avalonia.Controls;
 
-namespace Avalonia.Icons
+namespace Projektanker.Icons.Avalonia
 {
     public class Attached
     {
@@ -15,9 +14,9 @@ namespace Avalonia.Icons
 
         static Attached()
         {
-
             IconProperty.Changed.Subscribe(IconChanged);
         }
+
         public static string GetIcon(ContentControl target)
         {
             return target.GetValue(IconProperty);
@@ -34,6 +33,7 @@ namespace Avalonia.Icons
             {
                 return;
             }
+            
             if (!(evt.Sender is ContentControl target))
             {
                 return;

@@ -5,7 +5,7 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:Class="Avalonia.Icons.Icon">
+             x:Class="Projektanker.Icons.Avalonia.Icon">
 
     <TemplatedControl.Template>
         <ControlTemplate>

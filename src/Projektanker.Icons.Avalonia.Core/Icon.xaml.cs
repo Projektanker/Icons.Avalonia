@@ -1,14 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Reactive.Linq;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 
-namespace Avalonia.Icons
+namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
@@ -54,9 +49,9 @@ namespace Avalonia.Icons
             };
 
             // Bind drawing foreground to icon foreground
-            IObservable<IBrush> foregroundObservable = this.GetObservable(ForegroundProperty);            
+            IObservable<IBrush> foregroundObservable = this.GetObservable(ForegroundProperty);
             drawing.Bind(GeometryDrawing.BrushProperty, foregroundObservable);
-                        
+
             Drawing = drawing;
         }
     }
