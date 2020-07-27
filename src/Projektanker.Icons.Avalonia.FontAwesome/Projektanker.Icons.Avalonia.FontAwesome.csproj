@@ -11,25 +11,21 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Version>1.0.0</Version>
     </PropertyGroup>
-
     <ItemGroup>
-        <Compile Remove="font-awesome\**" />
-        <EmbeddedResource Remove="font-awesome\**" />
-        <None Remove="font-awesome\**" />
+        <EmbeddedResource Include="Assets\icons.json" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove=".gitignore" />
-      <None Remove="clone-font-awesome.sh" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="font-awesome\metadata\icons.json" Link="Assets\icons.json" />
+        <None Remove=".gitignore" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Projektanker.Icons.Avalonia.Core" Version="1.0.0" />
     </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <DownloadFile DestinationFolder="Assets" SourceUrl="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json" />
+    </Target>
 
 </Project>
