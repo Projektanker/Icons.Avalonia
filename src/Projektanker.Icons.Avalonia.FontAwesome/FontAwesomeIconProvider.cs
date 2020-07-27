@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome
 {
+    /// <summary>
+    /// Implements the <see cref="IIconProvider"/> interface to provide font-awesome icons.
+    /// </summary>
     public class FontAwesomeIconProvider : IIconProvider
     {
         private const string _faKeyPrefix = "fa-";
@@ -18,6 +21,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         public string Prefix => _faProviderPrefix;
         private static Dictionary<string, FontAwesomeIcon> Icons => _lazyIcons.Value;
         
+        /// <inheritdoc/>
         public bool TryGetIconPath(string value, out string path)
         {
             string[] splitted = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -67,14 +71,12 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         private static Dictionary<string, FontAwesomeIcon> Parse()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            using (Stream stream = assembly.GetManifestResourceStream(_resource))
-            using (TextReader textReader = new StreamReader(stream))
-            using (JsonReader jsonReader = new JsonTextReader(textReader))
-            {
-                JsonSerializer serializer = JsonSerializer.Create();
-                var result = serializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(jsonReader);
-                return result;
-            }
+            using Stream stream = assembly.GetManifestResourceStream(_resource);
+            using TextReader textReader = new StreamReader(stream);
+            using JsonReader jsonReader = new JsonTextReader(textReader);
+            JsonSerializer serializer = JsonSerializer.Create();
+            var result = serializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(jsonReader);
+            return result;
         }
     }
 }
