@@ -1,7 +1,14 @@
 # Icons.Avalonia
+A library to easily display icons in an Avalonia App.
+
 ![CI / CD](https://github.com/Projektanker/Icons.Avalonia/workflows/CI%20/%20CD/badge.svg?event=push)
 
-A library to easily display icons in an Avalonia App.
+## NuGet
+| Name | Description | Version |
+|:-|:-|:-|
+| Projektanker.Icons.Avalonia | Core library | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia) |
+| Projektanker.Icons.Avalonia.FontAwesome | FontAwesome icons | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
+
 
 ## Usage
 A full example is available in the [demo](demo) directory or at the bottom of this readme.
