@@ -5,11 +5,11 @@
         <Authors>Sebastian Rumohr</Authors>
         <Company>Projektanker GmbH</Company>
         <PackageProjectUrl></PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Projektanker/Icons.Avalonia</RepositoryUrl>
         <PackageTags>avalonia icons fontawesome</PackageTags>
-        <PackageId>Projektanker.Avalonia.Icons.FontAwesome</PackageId>
+        <PackageId>Projektanker.Icons.Avalonia.FontAwesome</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.1</Version>
+        <Version>1.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>

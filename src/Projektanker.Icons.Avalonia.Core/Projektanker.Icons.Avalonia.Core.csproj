@@ -2,13 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>Avalonia.Icons</RootNamespace>
+        <RootNamespace>Projektanker.Icons.Avalonia</RootNamespace>
         <Authors>Sebastian Rumohr</Authors>
         <Company>Projektanker GmbH</Company>
         <PackageProjectUrl></PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Projektanker/Avalonia.Icons</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Projektanker/Icons.Avalonia</RepositoryUrl>
         <PackageTags>avalonia icons</PackageTags>
-        <PackageId>Projektanker.Avalonia.Icons.Core</PackageId>
+        <PackageId>Projektanker.Icons.Avalonia.Core</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
