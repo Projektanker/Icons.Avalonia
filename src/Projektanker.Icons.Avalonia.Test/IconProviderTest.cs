@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -25,6 +26,13 @@ namespace Projektanker.Icons.Avalonia.Test
         {
             string iconPath = IconProvider.GetIconPath(null);
             Assert.AreEqual(string.Empty, iconPath);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void ProviderNotFound()
+        {
+            string _ = IconProvider.GetIconPath("YouCantFindMe");
         }
 
         private static IIconProvider GetMockIconProvider()

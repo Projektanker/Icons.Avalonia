@@ -16,13 +16,13 @@ namespace Projektanker.Icons.Avalonia
         /// Gets the SVG path of the icon associated with the specified value using the registered icon providers.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
-        /// <returns>If <paramref name="value"/> is not <c>null</c> the path of the icon; otherwise <c>string.Empty</c>.</returns>
+        /// <returns>If <paramref name="value"/> is not <c>null</c> or empty the path of the icon; otherwise <c>string.Empty</c>.</returns>
         /// <exception cref="KeyNotFoundException">No provider with prefix matching <paramref name="value"/> found.</exception>
         /// <exception cref="KeyNotFoundException">No icon associated
         /// with the specified <paramref name="value"/> found.</exception>
         public static string GetIconPath(string value)
         {
-            if (value is null)
+            if (string.IsNullOrEmpty(value))
             {
                 return string.Empty;
             }
