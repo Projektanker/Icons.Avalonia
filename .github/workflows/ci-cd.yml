@@ -26,7 +26,7 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release --no-restore
     - name: Pack & Push      
-      if: github.event == push
+      if: ${{ github.event_name == 'push' }}
       run: dotnet pack --configuration Release --no-restore && dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}  
