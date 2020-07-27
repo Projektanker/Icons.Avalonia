@@ -1,11 +1,13 @@
-name: .NET Core
+name: CI / CD
 
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
     
 jobs:
-  deploy:
+  ci/cd:    
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,9 +25,9 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --configuration Release --no-restore
-    - name: Pack
-      run: dotnet pack --configuration Release --no-restore
-    - name: Nuget Push
-      run: dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+    - name: Pack & Push      
+      if: github.event == push
+      run: dotnet pack --configuration Release --no-restore && dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
       env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}  
+      
