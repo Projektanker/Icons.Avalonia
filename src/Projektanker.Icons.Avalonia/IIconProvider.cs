@@ -14,7 +14,9 @@
         /// Gets the SVG path of the requested icon using the registered icon providers.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
-        /// <returns><c>true</c> if the <see cref="IIconProvider"/> contains an icon with the specified value; otherwise, <c>false</c>.</returns>
-        bool TryGetIconPath(string value, out string path);
+        /// <returns>The path of the icon.</returns>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The icon associated
+        /// with the specified <paramref name="value"/> does not exists.</exception>
+        string GetIconPath(string value);
     }
 }

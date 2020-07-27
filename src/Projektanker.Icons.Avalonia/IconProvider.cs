@@ -16,7 +16,10 @@ namespace Projektanker.Icons.Avalonia
         /// Gets the SVG path of the icon associated with the specified value using the registered icon providers.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
-        /// <returns>The path of the icon, if found; otherwise <c>string.Empty</c>.</returns>
+        /// <returns>If <paramref name="value"/> is not <c>null</c> the path of the icon; otherwise <c>string.Empty</c>.</returns>
+        /// <exception cref="KeyNotFoundException">No provider with prefix matching <paramref name="value"/> found.</exception>
+        /// <exception cref="KeyNotFoundException">No icon associated
+        /// with the specified <paramref name="value"/> found.</exception>
         public static string GetIconPath(string value)
         {
             if (value is null)
@@ -24,13 +27,18 @@ namespace Projektanker.Icons.Avalonia
                 return string.Empty;
             }
 
-            var possibleProviders = _iconProvidersByPrefix
-                .Where(kv => value.StartsWith(kv.Key, StringComparison.OrdinalIgnoreCase))
-                .Select(prefixProviderPair => prefixProviderPair.Value);
+            IIconProvider provider = _iconProvidersByPrefix
+                .Select(prefixProviderPair => prefixProviderPair.Value)
+                .FirstOrDefault(provider => value.StartsWith(provider.Prefix, StringComparison.OrdinalIgnoreCase));
 
-            string path = null;
-            var _ = possibleProviders.FirstOrDefault(provider => provider.TryGetIconPath(value, out path));
-            return path ?? string.Empty;
+            if (provider is null)
+            {
+                throw new KeyNotFoundException($"No provider with prefix matching \"{value}\" found.");
+            }
+            else
+            {
+                return provider.GetIconPath(value);
+            }
         }
 
         /// <summary>
