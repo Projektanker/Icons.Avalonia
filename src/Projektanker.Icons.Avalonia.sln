@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektanker.Icons.Avalonia.FontAwesome", "Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj", "{62C76C4B-8E96-4755-8EEC-C77F3F3B6C42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projektanker.Icons.Avalonia.Core", "Projektanker.Icons.Avalonia.Core\Projektanker.Icons.Avalonia.Core.csproj", "{BE748D3C-D04C-49FA-BF3D-FA05F2AA7787}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projektanker.Icons.Avalonia", "Projektanker.Icons.Avalonia\Projektanker.Icons.Avalonia.csproj", "{BE748D3C-D04C-49FA-BF3D-FA05F2AA7787}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

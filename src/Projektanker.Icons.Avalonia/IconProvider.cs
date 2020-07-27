@@ -19,6 +19,11 @@ namespace Projektanker.Icons.Avalonia
         /// <returns>The path of the icon, if found; otherwise <c>string.Empty</c>.</returns>
         public static string GetIconPath(string value)
         {
+            if (value is null)
+            {
+                return string.Empty;
+            }
+
             var possibleProviders = _iconProvidersByPrefix
                 .Where(kv => value.StartsWith(kv.Key, StringComparison.OrdinalIgnoreCase))
                 .Select(prefixProviderPair => prefixProviderPair.Value);

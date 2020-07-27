@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src/Projektanker.Icons.Avalonia.Core
+        working-directory: src/Projektanker.Icons.Avalonia
     steps:
     - name: Checkout this repository
       uses: actions/checkout@v2   
