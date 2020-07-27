@@ -66,102 +66,45 @@ Example: The GitHub icon.
 <Button i:Attached.Icon="fab fa-github" />
 ```
 
-### Full example
-Progamm.cs
-```csharp
-using Avalonia;
-using Avalonia.Logging.Serilog;
-using Projektanker.Icons.Avalonia;
-using Projektanker.Icons.Avalonia.FontAwesome;
-
-namespace Demo
-{
-    class Program
-    {
-        // Initialization code. Don't use any Avalonia, third-party APIs or any
-        // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-        // yet and stuff might break.
-        public static void Main(string[] args)
-        {
-            BuildAvaloniaApp()
-                .StartWithClassicDesktopLifetime(args);
-        }
-
-        // Avalonia configuration, don't remove; also used by visual designer.
-        public static AppBuilder BuildAvaloniaApp()
-        {
-            return AppBuilder.Configure<App>()
-                    .AfterSetup(AfterSetupCallback)
-                    .UsePlatformDetect()
-                    .LogToDebug();
-        }
-
-        // Called after setup
-        private static void AfterSetupCallback(AppBuilder appBuilder)
-        {
-            // Register icon provider(s)
-            IconProvider.Register<FontAwesomeIconProvider>();
-        }
-    }
-}
-```
-
-MainWindow.axaml
-```xaml
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Demo.MainWindow"
-        Title="Demo">
-    <Window.Styles>
-        <Style Selector="TextBlock">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Grid.Column" Value="0"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style Selector="i|Icon">
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Grid.Column" Value="1"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style Selector="Button">
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Grid.Column" Value="2"/>
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="Button i|Icon">
-            <Setter Property="Margin" Value="0" />
-        </Style>
-    </Window.Styles>
-    <Grid RowDefinitions="Auto,Auto,Auto"  Margin="4">
-        <!--Font Awesome-->
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
-            <TextBlock Text="FontAwesome" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}"/>
-            <!--GitHub-->
-            <TextBlock Text="fab fa-github" Grid.Row="1"/>
-            <i:Icon Value="fab fa-github" Grid.Row="1" />
-            <Button i:Attached.Icon="fab fa-github" Grid.Row="1" />
-
-            <!--Address Card-->
-            <TextBlock Text="fas fa-address-card" Grid.Row="2" />
-            <i:Icon Value="fas fa-address-card" Grid.Row="2"/>
-            <Button i:Attached.Icon="fas fa-address-card" Grid.Row="2" />
-            
-            <TextBlock Text="far fa-address-card" Grid.Row="3" />
-            <i:Icon Value="far fa-address-card" Grid.Row="3"/>
-            <Button i:Attached.Icon="far fa-address-card" Grid.Row="3" />
-        </Grid>
-        <!--More icons could follow-->
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4" Grid.Row="1" >
-            <TextBlock Text="More icons could follow" Grid.Row="0" Grid.ColumnSpan="2"  FontSize="{StaticResource FontSizeLarge}"/>
-            
-        </Grid>
-    </Grid>
-</Window>
-```
+### Done
 
 Screenshot  
 ![Screenshot](resources/demo.png)
+
+## Implement your own Icon Provider
+Just implement the `IIconProvider` interface:
+```csharp
+namespace Projektanker.Icons.Avalonia
+{
+    /// <summary>
+    /// Represents an icon provider.
+    /// </summary>
+    public interface IIconProvider
+    {
+        /// <summary>
+        /// Gets the prefix of the <see cref="IIconProvider"/>.
+        /// </summary>
+        string Prefix { get; }
+
+        /// <summary>
+        /// Gets the SVG path of the requested icon using the registered icon providers.
+        /// </summary>
+        /// <param name="value">The value specifying the icon to return it's path from.</param>
+        /// <returns>The path of the icon.</returns>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The icon associated
+        /// with the specified <paramref name="value"/> does not exists.</exception>
+        string GetIconPath(string value);
+    }
+}
+```
+and register it with the `IconProvider`:
+```csharp
+IconProvider.Register<MyCustromIconProvider>()
+```
+or
+```csharp
+IIconProvider provider = new MyCustomIconProvider(/* custom ctor arguments */);
+IconProvider.Register(provider);
+```
+
+The `IIconProvider.Prefix` property have to be unique within all registered providers. It is used to select the right provider. E.g. `FontAwesomeIconProvider`'s prefix is `fa`.
