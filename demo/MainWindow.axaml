@@ -28,7 +28,7 @@
     </Window.Styles>
     <Grid RowDefinitions="Auto,Auto,Auto"  Margin="4">
         <!--Font Awesome-->
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
             <TextBlock Text="FontAwesome" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}"/>
             <!--GitHub-->
             <TextBlock Text="fab fa-github" Grid.Row="1"/>
@@ -43,6 +43,10 @@
             <TextBlock Text="far fa-address-card" Grid.Row="3" />
             <i:Icon Value="far fa-address-card" Grid.Row="3"/>
             <Button i:Attached.Icon="far fa-address-card" Grid.Row="3" />
+
+            <TextBlock Text="fas fa-info" Grid.Row="4" />
+            <i:Icon Value="fas fa-info" Grid.Row="4"/>
+            <Button i:Attached.Icon="fas fa-info-circle" Grid.Row="4" />
         </Grid>
         <!--More icons could follow-->
         <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4" Grid.Row="1" >
