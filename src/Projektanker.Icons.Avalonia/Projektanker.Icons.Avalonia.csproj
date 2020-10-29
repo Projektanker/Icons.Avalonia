@@ -9,12 +9,12 @@
         <PackageTags>avalonia icons</PackageTags>
         <PackageId>Projektanker.Icons.Avalonia</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>2.0.2</Version>
+        <Version>3.0.0</Version>
         <Description>A library to easily display icons in an Avalonia App.</Description>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="0.9.12" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview6" />
     </ItemGroup>
 
 </Project>
