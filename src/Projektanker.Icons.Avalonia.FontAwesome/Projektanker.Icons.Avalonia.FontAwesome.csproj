@@ -9,7 +9,7 @@
         <PackageTags>avalonia icons fontawesome</PackageTags>
         <PackageId>Projektanker.Icons.Avalonia.FontAwesome</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>2.0.2</Version>
+        <Version>3.0.0-pre</Version>
         <Description>A library to easily display FontAwesome icons in an Avalonia App.</Description>
     </PropertyGroup>
     <ItemGroup>
@@ -22,11 +22,10 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-        <PackageReference Include="Projektanker.Icons.Avalonia" Version="2.0.2" />
+        <PackageReference Include="Projektanker.Icons.Avalonia" Version="3.0.0-pre" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
         <DownloadFile DestinationFolder="Assets" SourceUrl="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json" />
     </Target>
-
 </Project>
