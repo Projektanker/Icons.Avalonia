@@ -13,13 +13,19 @@ namespace Projektanker.Icons.Avalonia
             new SortedList<string, IIconProvider>(Comparer<string>.Default);
 
         /// <summary>
-        /// Gets the SVG path of the icon associated with the specified value using the registered icon providers.
+        /// Gets the SVG path of the icon associated with the specified value using the registered
+        /// icon providers.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
-        /// <returns>If <paramref name="value"/> is not <c>null</c> or empty the path of the icon; otherwise <c>string.Empty</c>.</returns>
-        /// <exception cref="KeyNotFoundException">No provider with prefix matching <paramref name="value"/> found.</exception>
-        /// <exception cref="KeyNotFoundException">No icon associated
-        /// with the specified <paramref name="value"/> found.</exception>
+        /// <returns>
+        /// If <paramref name="value"/> is not <c>null</c> or empty the path of the icon; otherwise <c>string.Empty</c>.
+        /// </returns>
+        /// <exception cref="KeyNotFoundException">
+        /// No provider with prefix matching <paramref name="value"/> found.
+        /// </exception>
+        /// <exception cref="KeyNotFoundException">
+        /// No icon associated with the specified <paramref name="value"/> found.
+        /// </exception>
         public static string GetIconPath(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -29,7 +35,7 @@ namespace Projektanker.Icons.Avalonia
 
             IIconProvider provider = _iconProvidersByPrefix
                 .Select(prefixProviderPair => prefixProviderPair.Value)
-                .FirstOrDefault(provider => value.StartsWith(provider.Prefix, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefault(p => value.StartsWith(p.Prefix, StringComparison.OrdinalIgnoreCase));
 
             if (provider is null)
             {

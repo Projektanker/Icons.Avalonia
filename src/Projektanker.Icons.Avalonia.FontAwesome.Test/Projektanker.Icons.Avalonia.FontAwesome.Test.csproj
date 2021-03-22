@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
@@ -14,7 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
+        <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
     </ItemGroup>
-
 </Project>

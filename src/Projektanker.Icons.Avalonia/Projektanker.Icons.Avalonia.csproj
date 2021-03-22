@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Authors>Sebastian Rumohr</Authors>
         <Company>Projektanker GmbH</Company>
         <PackageProjectUrl></PackageProjectUrl>
@@ -9,12 +9,11 @@
         <PackageTags>avalonia icons</PackageTags>
         <PackageId>Projektanker.Icons.Avalonia</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>3.1.0-pre</Version>
+        <Version>3.1.0</Version>
         <Description>A library to easily display icons in an Avalonia App.</Description>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
     </ItemGroup>
-
 </Project>
