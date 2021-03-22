@@ -6,13 +6,20 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
     {
         internal static Style ToStyle(this StylePrefix stylePrefix)
         {
-            return stylePrefix switch
+            switch (stylePrefix)
             {
-                StylePrefix.Fas => Style.Solid,
-                StylePrefix.Far => Style.Regular,
-                StylePrefix.Fab => Style.Brands,
-                _ => throw new NotImplementedException(),
-            };
+                case StylePrefix.Fas:
+                    return Style.Solid;
+
+                case StylePrefix.Far:
+                    return Style.Regular;
+
+                case StylePrefix.Fab:
+                    return Style.Brands;
+
+                default:
+                    throw new NotImplementedException($"Style prefix {stylePrefix} not implemented.");
+            }
         }
     }
 }

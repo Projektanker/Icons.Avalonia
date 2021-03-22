@@ -24,7 +24,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         /// <inheritdoc/>
         public string GetIconPath(string value)
         {
-            string[] splitted = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] splitted = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             string key;
             Style? style;
             if (splitted.Length == 1)
@@ -36,7 +36,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
             {
                 key = splitted[1];
 
-                StylePrefix stylePrefix = Enum.Parse<StylePrefix>(splitted[0], ignoreCase: true);
+                StylePrefix stylePrefix = (StylePrefix)Enum.Parse(typeof(StylePrefix), splitted[0], ignoreCase: true);
                 style = stylePrefix.ToStyle();
             }
             else
@@ -68,12 +68,14 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         private static Dictionary<string, FontAwesomeIcon> Parse()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{_resource}");
-            using TextReader textReader = new StreamReader(stream);
-            using JsonReader jsonReader = new JsonTextReader(textReader);
-            JsonSerializer serializer = JsonSerializer.Create();
-            var result = serializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(jsonReader);
-            return result;
+            using (Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{_resource}"))
+            using (TextReader textReader = new StreamReader(stream))
+            using (JsonReader jsonReader = new JsonTextReader(textReader))
+            {
+                JsonSerializer serializer = JsonSerializer.Create();
+                var result = serializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(jsonReader);
+                return result;
+            }
         }
     }
 }
