@@ -2,37 +2,36 @@ name: CI / CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
-     types: [opened, synchronize, reopened, edited]
-    
+    branches: [master]
+    types: [opened, synchronize, reopened, edited]
+
 jobs:
-  ci-cd:    
+  ci-cd:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: src
     steps:
-    - name: Checkout this repository
-      uses: actions/checkout@v2   
-    - name: Setup .NET Core 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-    - name: Setup .NET Core 5.0
+      - name: Checkout this repository
+        uses: actions/checkout@v2
+      - name: Setup .NET Core 3.1
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build      
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --configuration Release --no-restore
-    - name: Pack & Push      
-      if: ${{ github.event_name == 'push' }}
-      run: dotnet pack --configuration Release --no-restore && dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
-      env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}  
-      
+          dotnet-version: 3.1.x
+      - name: Setup .NET Core 5.0
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --configuration Release --no-restore
+      - name: Pack & Push
+        if: ${{ github.event_name == 'push' }}
+        run: dotnet pack --configuration Release --no-restore && dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

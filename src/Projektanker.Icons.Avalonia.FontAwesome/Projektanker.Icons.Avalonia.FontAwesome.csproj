@@ -26,6 +26,6 @@
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <DownloadFile DestinationFolder="Assets" SourceUrl="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json" />
+        <DownloadFile Condition="!Exists('Assets/icons.json')" Retries="1" RetryDelayMilliseconds="1000" DestinationFolder="Assets" SourceUrl="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json" />
     </Target>
 </Project>
