@@ -10,7 +10,7 @@
     <TemplatedControl.Template>
         <ControlTemplate>
             <Panel Height="{TemplateBinding FontSize}" Width="{TemplateBinding FontSize}">
-                <DrawingPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Drawing="{TemplateBinding Drawing}" />
+                <DrawingPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Drawing="{TemplateBinding Drawing}" />
             </Panel>
         </ControlTemplate>
     </TemplatedControl.Template>
