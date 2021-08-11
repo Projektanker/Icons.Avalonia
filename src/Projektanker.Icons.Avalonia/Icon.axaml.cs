@@ -2,6 +2,7 @@
 using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls.Primitives;
+using Avalonia.Data;
 using Avalonia.Media;
 
 namespace Projektanker.Icons.Avalonia
@@ -9,9 +10,7 @@ namespace Projektanker.Icons.Avalonia
     public class Icon : TemplatedControl
     {
         public static readonly DirectProperty<Icon, Drawing> DrawingProperty =
-            AvaloniaProperty.RegisterDirect<Icon, Drawing>(
-                nameof(Drawing),
-                o => o.Drawing);
+            AvaloniaProperty.RegisterDirect<Icon, Drawing>(nameof(Drawing), o => o.Drawing);
 
         public static readonly StyledProperty<string> ValueProperty =
             AvaloniaProperty.Register<Icon, string>(nameof(Value));
@@ -20,7 +19,15 @@ namespace Projektanker.Icons.Avalonia
 
         static Icon()
         {
-            ValueProperty.Changed.Subscribe(OnValuePropertyChanged);
+            ValueProperty.Changed
+                .Where(e => e.Sender is Icon)
+                .Select(e => new IconPropertyChangedEventArgs<string>(e))
+                .Subscribe(SetDrawing);
+
+            ForegroundProperty.Changed
+                .Where(e => e.Sender is Icon)
+                .Select(e => new IconPropertyChangedEventArgs<IBrush>(e))
+                .Subscribe(SetDrawing);
         }
 
         public Drawing Drawing
@@ -35,25 +42,42 @@ namespace Projektanker.Icons.Avalonia
             set => SetValue(ValueProperty, value);
         }
 
-        private static void OnValuePropertyChanged(AvaloniaPropertyChangedEventArgs e)
+        private static void SetDrawing(IconPropertyChangedEventArgs<string> eventArgs)
         {
-            (e.Sender as Icon)?.OnValuePropertyChanged();
+            var foreground = new BindingValue<IBrush>(eventArgs.Sender.Foreground);
+            eventArgs.Sender.Drawing = GetDrawing(eventArgs.NewValue, foreground);
         }
 
-        private void OnValuePropertyChanged()
+        private static void SetDrawing(IconPropertyChangedEventArgs<IBrush> eventArgs)
         {
-            string path = IconProvider.GetIconPath(Value);
+            var value = new BindingValue<string>(eventArgs.Sender.Value);
+            eventArgs.Sender.Drawing = GetDrawing(value, eventArgs.NewValue);
+        }
 
-            GeometryDrawing drawing = new GeometryDrawing()
+        private static Drawing GetDrawing(BindingValue<string> valueBindingValue, BindingValue<IBrush> brushBindingValue)
+        {
+            var value = valueBindingValue.GetValueOrDefault(string.Empty);
+            var brush = brushBindingValue.GetValueOrDefault();
+
+            string path = IconProvider.GetIconPath(value);
+
+            return new GeometryDrawing()
             {
                 Geometry = Geometry.Parse(path),
+                Brush = brush,
             };
+        }
 
-            // Bind drawing foreground to icon foreground
-            IObservable<IBrush> foregroundObservable = this.GetObservable(ForegroundProperty);
-            drawing.Bind(GeometryDrawing.BrushProperty, foregroundObservable);
+        private class IconPropertyChangedEventArgs<T>
+        {
+            public IconPropertyChangedEventArgs(AvaloniaPropertyChangedEventArgs<T> eventArgs)
+            {
+                Sender = (Icon)eventArgs.Sender;
+                NewValue = eventArgs.NewValue;
+            }
 
-            Drawing = drawing;
+            public Icon Sender { get; set; }
+            public BindingValue<T> NewValue { get; set; }
         }
     }
 }
