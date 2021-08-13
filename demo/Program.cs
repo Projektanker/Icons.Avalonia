@@ -1,5 +1,4 @@
 ﻿using Avalonia;
-using Avalonia.Logging.Serilog;
 using Projektanker.Icons.Avalonia;
 using Projektanker.Icons.Avalonia.FontAwesome;
 
@@ -22,7 +21,7 @@ namespace Demo
             return AppBuilder.Configure<App>()
                 .AfterSetup(AfterSetupCallback)
                 .UsePlatformDetect()
-                .LogToDebug();
+                .LogToTrace();
         }
 
         // Called after setup

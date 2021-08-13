@@ -7,6 +7,6 @@
         <RepositoryUrl>https://github.com/Projektanker/Icons.Avalonia</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>avalonia icons</PackageTags>
-        <Version>3.1.1</Version>
+        <Version>3.1.2</Version>
     </PropertyGroup>
 </Project>
