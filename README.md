@@ -31,9 +31,9 @@ class Program
     public static AppBuilder BuildAvaloniaApp()
     {
         return AppBuilder.Configure<App>()
-                .AfterSetup(AfterSetupCallback)
-                .UsePlatformDetect()
-                .LogToDebug();
+            .AfterSetup(AfterSetupCallback)
+            .UsePlatformDetect()
+            .LogToTrace();
     }
     
     // Called after setup
