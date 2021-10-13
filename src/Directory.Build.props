@@ -7,6 +7,10 @@
         <RepositoryUrl>https://github.com/Projektanker/Icons.Avalonia</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>avalonia icons</PackageTags>
-        <Version>3.1.2</Version>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 </Project>
+
+<ItemGroup Condition="'$(ProjectName.EndsWith(`Test`))' == 'false'">
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+</ItemGroup>

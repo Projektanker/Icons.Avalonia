@@ -1,0 +1,12 @@
+name: '1️⃣2️⃣3️⃣ VERSION from tag'
+description: 'sets VERSION environment variable from tag'
+runs:
+  using: "composite"
+  steps:
+    - name: 1️⃣2️⃣3️⃣ Set VERSION
+      shell: bash
+      run: |
+        echo $GITHUB_REF
+        TEMP=$(echo $GITHUB_REF | grep -oE "[0-9]+.[0-9]+.[0-9]+$")
+        echo $TEMP
+        echo "VERSION=${TEMP}" >> $GITHUB_ENV    
