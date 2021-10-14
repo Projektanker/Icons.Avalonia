@@ -51,7 +51,7 @@ jobs:
       - name: 🟣 Setup .NET Core 5.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.
+          dotnet-version: 5.0.x
 
       - name: 📦 Pack
         run: dotnet pack --configuration Release -p:Version=$VERSION
