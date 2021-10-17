@@ -1,53 +1,59 @@
+using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using Moq;
+using Xunit;
 
 namespace Projektanker.Icons.Avalonia.Test
 {
-    [TestClass]
-    public class IconProviderTest
+    public class IconProviderTest : IClassFixture<IconProviderFixture>
     {
-        [ClassInitialize]
-        public static void ClassSetup(TestContext _)
+        public IconProviderTest(IconProviderFixture iconProviderFixture)
         {
-            IconProvider.Register(GetMockIconProvider());
+            _ = iconProviderFixture;
         }
 
-        [TestMethod]
+        [Fact]
         public void Echo()
         {
-            string value = "Test-test";
-            string iconPath = IconProvider.GetIconPath(value);
-            Assert.AreEqual(value, iconPath);
+            // Arrange
+            const string echo = "Test-test";
+
+            // Act
+            var iconPath = IconProvider.GetIconPath(echo);
+
+            // Assert
+            iconPath.Should().Be(echo);
         }
 
-        [TestMethod]
+        [Fact]
         public void EmptyValue()
         {
-            string iconPath = IconProvider.GetIconPath(string.Empty);
-            Assert.AreEqual(string.Empty, iconPath);
+            // Act
+            var iconPath = IconProvider.GetIconPath(string.Empty);
+
+            // Assert
+            iconPath.Should().BeEmpty();
         }
 
-        [TestMethod]
+        [Fact]
         public void NullValue()
         {
-            string iconPath = IconProvider.GetIconPath(null);
-            Assert.AreEqual(string.Empty, iconPath);
+            // Act
+            var iconPath = IconProvider.GetIconPath(null);
+
+            // Assert
+            iconPath.Should().BeEmpty();
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(KeyNotFoundException))]
+        [Fact]
         public void ProviderNotFound()
         {
-            string _ = IconProvider.GetIconPath("YouCantFindMe");
-        }
+            // Act
+            Func<string> func = () => IconProvider.GetIconPath("YouCantFindMe");
 
-        private static IIconProvider GetMockIconProvider()
-        {
-            Mock<IIconProvider> mock = new Mock<IIconProvider>();
-            mock.Setup(provider => provider.GetIconPath(It.IsAny<string>())).Returns<string>(arg => arg);
-            mock.Setup(provider => provider.Prefix).Returns("Test");
-            return mock.Object;
+            // Assert
+            func.Should().Throw<KeyNotFoundException>();
         }
     }
 }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>A library to easily display Material Design icons in an Avalonia App.</Description>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Assets\*.svg" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Projektanker.Icons.Avalonia\Projektanker.Icons.Avalonia.csproj" />
+    </ItemGroup>
+</Project>

@@ -44,16 +44,13 @@ jobs:
         run: |
           git config --global user.name '${{ secrets.GIT_USER }}'
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
-          git commit -am "🖊 Fontawesome icons changed."
+          git commit -am "🔄 Fontawesome icons changed."
           git tag ${{ env.VERSION }}
           git push --atomic
       
-      - name: 📦 Pack
+      - name: 📦 Pack 🚀 Push
         if: steps.git-check.outputs.modified == 'true'
-        run: dotnet pack --configuration Release -p:Version=$VERSION
-
-      - name: 🚀 Push
-        if: steps.git-check.outputs.modified == 'true'
-        run: dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        uses: ./.github/actions/minor-version
+        with:
+          api-key: ${{ secrets.NUGET_API_KEY }}
+          version: ${{ env.VERSION }}

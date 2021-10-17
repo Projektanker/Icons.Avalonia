@@ -1,0 +1,20 @@
+name: '📦 Pack & Publish NuGet'
+description: 'Pack and publish NuGet package'
+inputs:  
+  api-key:
+    description: 'Access token'
+    required: true
+  version:
+    description: 'Package version'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: 📦 Pack
+      shell: bash
+      run: dotnet pack --configuration Release -p:Version=${{ inputs.version }}
+
+    - name: 🚀 Push
+      shell: bash
+      run: dotnet nuget push **.nupkg -k ${{ inputs.api-key }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      

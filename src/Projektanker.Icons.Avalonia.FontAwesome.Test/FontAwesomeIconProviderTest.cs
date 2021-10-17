@@ -1,36 +1,46 @@
+using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using SkiaSharp;
+using Xunit;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome.Test
 {
-    [TestClass]
     public class FontAwesomeIconProviderTest
     {
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext _)
+        private readonly IIconProvider _iconProvider = new FontAwesomeIconProvider();
+
+        [Theory]
+        [InlineData("fa-github")]
+        [InlineData("fa-arrow-left")]
+        [InlineData("fa-arrow-right")]
+        [InlineData("fab fa-github")]
+        [InlineData("fas fa-arrow-left")]
+        [InlineData("fas fa-arrow-right")]
+        public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string key)
         {
-            IconProvider.Register<FontAwesomeIconProvider>();
+            // Act #1
+            var path = _iconProvider.GetIconPath(key);
+
+            // Assert #1
+            path.Should().NotBeNullOrEmpty();
+
+            // Act #2
+            var skiaPath = SKPath.ParseSvgPathData(path);
+
+            // Assert #2
+            skiaPath.Should().NotBeNull();
+            skiaPath.Bounds.IsEmpty.Should().BeFalse();
         }
 
-        [TestMethod]
-        public void ArrowLeft()
+        [Fact]
+        public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist()
         {
-            string path = IconProvider.GetIconPath("fa-arrow-left");
-            Assert.IsFalse(string.IsNullOrEmpty(path));
-        }
+            // Act
+            Func<string> func = () => _iconProvider.GetIconPath("fa-you-cant-find-me");
 
-        [TestMethod]
-        [ExpectedException(typeof(KeyNotFoundException))]
-        public void IconNotFound()
-        {
-            string _ = IconProvider.GetIconPath("fa-you-cant-find-me");
-        }
-
-        [TestMethod]
-        public void NullValue()
-        {
-            string path = IconProvider.GetIconPath(null);
-            Assert.AreEqual(string.Empty, path);
+            // Assert
+            func.Should().Throw<KeyNotFoundException>();
         }
     }
 }

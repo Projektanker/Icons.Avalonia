@@ -53,10 +53,9 @@ jobs:
         with:
           dotnet-version: 5.0.x
 
-      - name: 📦 Pack
-        run: dotnet pack --configuration Release -p:Version=$VERSION
-
-      - name: 🚀 Push
-        run: dotnet nuget push **.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: 📦 Pack 🚀 Push
+        if: steps.git-check.outputs.modified == 'true'
+        uses: ./.github/actions/minor-version
+        with:
+          api-key: ${{ secrets.NUGET_API_KEY }}
+          version: ${{ env.VERSION }}
