@@ -46,7 +46,7 @@ jobs:
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
           git commit -am "🔄 Fontawesome icons changed."
           git tag ${{ env.VERSION }}
-          git push --atomic
+          git push && git push --tags
       
       - name: 📦 Pack 🚀 Push
         if: steps.git-check.outputs.modified == 'true'
