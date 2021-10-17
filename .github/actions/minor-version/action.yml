@@ -1,0 +1,14 @@
+name: '1️⃣2️⃣3️⃣ Increase minor VERSION from tag'
+description: 'gets version from tag, increases minor and set VERSION environment variable'
+runs:
+  using: "composite"
+  steps:
+    - name: 1️⃣2️⃣3️⃣ Increase minor VERSION
+      shell: bash
+      run: |
+        TAG=$(git describe --tags --abbrev=0)
+        echo $TAG
+        TEMP=$(echo $TAG | grep -oE "[0-9]+.[0-9]+.[0-9]+$")
+        echo $TEMP
+        TEMP=$(echo $TEMP | awk -F. '{print $1 "." (1+$2) ".0"}')
+        echo "VERSION=${TEMP}" >> $GITHUB_ENV    
