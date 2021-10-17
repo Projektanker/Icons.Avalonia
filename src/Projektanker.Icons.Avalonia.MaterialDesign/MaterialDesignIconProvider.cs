@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
 namespace Projektanker.Icons.Avalonia.MaterialDesign
@@ -21,17 +22,9 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign
         /// <inheritdoc/>
         public string GetIconPath(string value)
         {
-            var splitted = value.Split(new[] { '-' }, 2);
-            if (splitted.Length != 2)
+            if (!Icons.TryGetValue(value, out var icon))
             {
-                throw new KeyNotFoundException("Material Design Icon with empty key not found!");
-            }
-
-            var key = splitted[1];
-
-            if (!Icons.TryGetValue(key, out var icon))
-            {
-                throw new KeyNotFoundException($"Material Design Icon \"{key}\" not found!");
+                throw new KeyNotFoundException($"Material Design Icon \"{value}\" not found!");
             }
 
             return icon;
@@ -60,7 +53,7 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign
         private static string IconKeyFromResourceName(string resourceName)
         {
             var parts = resourceName.Split('.');
-            return parts[parts.Length - 2];
+            return $"{_mdiProviderPrefix}-{parts[parts.Length - 2]}";
         }
 
         private static string IconPathFromResource(Assembly assembly, string resourceName)

@@ -8,8 +8,13 @@ A library to easily display icons in an Avalonia App.
 |:-|:-|:-|
 | [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia) |
 | [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
+| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
 
-
+## Icon providers
+| Name | Prefix | Example|
+|:-|:-:|:-|
+|FontAwesome| `fa` | `fa-github`
+|MaterialDesign| `mdi` | `mdi-github`
 ## Usage
 A full example is available in the [demo](demo) directory.
 
@@ -41,6 +46,7 @@ class Program
     {
         // Register icon provider(s)
         IconProvider.Register<FontAwesomeIconProvider>();
+        IconProvider.Register<MaterialDesignIconProvider>();
     }
 }
 ```
@@ -99,7 +105,7 @@ namespace Projektanker.Icons.Avalonia
 ```
 and register it with the `IconProvider`:
 ```csharp
-IconProvider.Register<MyCustromIconProvider>()
+IconProvider.Register<MyCustomIconProvider>()
 ```
 or
 ```csharp

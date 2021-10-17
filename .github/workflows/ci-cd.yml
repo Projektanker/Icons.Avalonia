@@ -54,8 +54,8 @@ jobs:
           dotnet-version: 5.0.x
 
       - name: 📦 Pack 🚀 Push
-        if: steps.git-check.outputs.modified == 'true'
-        uses: ./.github/actions/minor-version
+        uses: ./.github/actions/nuget
         with:
+          working-directory: src
           api-key: ${{ secrets.NUGET_API_KEY }}
           version: ${{ env.VERSION }}

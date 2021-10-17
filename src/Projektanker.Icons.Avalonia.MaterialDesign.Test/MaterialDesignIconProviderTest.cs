@@ -15,10 +15,10 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign.Test
         [InlineData("arrow-left")]
         [InlineData("arrow-right")]
         [InlineData("github")]
-        public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string key)
+        public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string value)
         {
             // Act #1
-            var path = _iconProvider.GetIconPath($"mdi-{key}");
+            var path = _iconProvider.GetIconPath($"mdi-{value}");
 
             // Assert #1
             path.Should().NotBeNullOrEmpty();
@@ -31,14 +31,17 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign.Test
             skiaPath.Bounds.IsEmpty.Should().BeFalse();
         }
 
-        [Fact]
-        public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist()
+        [Theory]
+        [InlineData("mdi-you-cant-find-me")]
+        [InlineData("mdi")]
+        public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist(string value)
         {
             // Act
-            Func<string> func = () => _iconProvider.GetIconPath("mdi-you-cant-find-me");
+            Func<string> func = () => _iconProvider.GetIconPath(value);
 
             // Assert
-            func.Should().Throw<KeyNotFoundException>();
+            func.Should().Throw<KeyNotFoundException>()
+                .WithMessage($"*{value}*");
         }
     }
 }
