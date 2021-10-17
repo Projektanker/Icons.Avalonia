@@ -7,8 +7,9 @@ runs:
       shell: bash
       run: |
         TAG=$(git describe --tags --abbrev=0)
-        echo $TAG
+        echo "TAG: $TAG"
         TEMP=$(echo $TAG | grep -oE "[0-9]+.[0-9]+.[0-9]+$")
-        echo $TEMP
+        echo "VERSION: $TEMP"
         TEMP=$(echo $TEMP | awk -F. '{print $1 "." (1+$2) ".0"}')
+        echo "Increased VERSION: $TEMP"
         echo "VERSION=${TEMP}" >> $GITHUB_ENV    
