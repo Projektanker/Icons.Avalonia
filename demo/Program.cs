@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Projektanker.Icons.Avalonia;
 using Projektanker.Icons.Avalonia.FontAwesome;
+using Projektanker.Icons.Avalonia.MaterialDesign;
 
 namespace Demo
 {
@@ -29,6 +30,7 @@ namespace Demo
         {
             // Register icon provider(s)
             IconProvider.Register<FontAwesomeIconProvider>();
+            IconProvider.Register<MaterialDesignIconProvider>();
         }
     }
 }

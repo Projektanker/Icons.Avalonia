@@ -28,7 +28,7 @@
             <Setter Property="Margin" Value="0" />
         </Style>
     </Window.Styles>
-    <Grid RowDefinitions="Auto,Auto,Auto" Margin="4">
+    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto" Margin="4">
         <!--Font Awesome-->
         <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
             <TextBlock Text="FontAwesome" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
@@ -46,16 +46,35 @@
             <i:Icon Value="far fa-address-card" Grid.Row="3" />
             <Button i:Attached.Icon="far fa-address-card" Grid.Row="3" />
 
-            <TextBlock Text="fas fa-info" Grid.Row="4" />
-            <i:Icon Value="fas fa-info" Grid.Row="4" Foreground="Blue" />
-            <Button i:Attached.Icon="fas fa-info-circle" Grid.Row="4" Foreground="Blue" />
+            <TextBlock Text="fas fa-info(-circle)" Grid.Row="4" />
+            <i:Icon Value="fas fa-info" Grid.Row="4" Foreground="DodgerBlue" />
+            <Button i:Attached.Icon="fas fa-info-circle" Grid.Row="4" Foreground="DodgerBlue" />
         </Grid>
-        <!--More icons could follow-->
-        <DockPanel Margin="4" Grid.Row="1">
-            <TextBlock Text="More icons could follow" FontSize="{StaticResource FontSizeLarge}" />
-        </DockPanel>
+
+        <!--Material Design-->
+        <Grid Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="32,4,4,4">
+            <TextBlock Text="Material Design" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
+            <!--GitHub-->
+            <TextBlock Text="mdi-github" Grid.Row="1" />
+            <i:Icon Value="mdi-github" Grid.Row="1" Foreground="BlueViolet" />
+            <Button i:Attached.Icon="mdi-github" Grid.Row="1" Foreground="BlueViolet" />
+
+            <!--map-marker-->
+            <TextBlock Text="mdi-map-marker" Grid.Row="2" />
+            <i:Icon Value="mdi-map-marker" Grid.Row="2" />
+            <Button i:Attached.Icon="mdi-map-marker" Grid.Row="2" />
+
+            <TextBlock Text="mdi-map-marker-outline" Grid.Row="3" />
+            <i:Icon Value="mdi-map-marker-outline" Grid.Row="3" />
+            <Button i:Attached.Icon="mdi-map-marker-outline" Grid.Row="3" />
+
+            <TextBlock Text="mdi-information(-variant)" Grid.Row="4" />
+            <i:Icon Value="mdi-information-variant" Grid.Row="4" Foreground="DodgerBlue" />
+            <Button i:Attached.Icon="mdi-information" Grid.Row="4" Foreground="DodgerBlue" />
+        </Grid>
+
         <!--Actions-->
-        <DockPanel Margin="4" Grid.Row="2">
+        <DockPanel Margin="4" Grid.Row="1">
             <ToggleSwitch Name="ButtonToggle" OffContent="Buttons disabled" OnContent="Buttons enabled" IsChecked="True" />
         </DockPanel>
     </Grid>
