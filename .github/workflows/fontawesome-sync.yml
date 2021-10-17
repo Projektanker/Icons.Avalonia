@@ -2,7 +2,8 @@ name: 🔄 Sync Fontawesome
 # https://stackoverflow.com/a/58468828
 on:
   workflow_dispatch:
-
+  schedule:
+    - cron: '0 3 * * *'
 defaults:
   run:
     working-directory: src/Projektanker.Icons.Avalonia.FontAwesome
@@ -18,6 +19,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 1️⃣2️⃣3️⃣ Increase minor VERSION
+        uses: ./.github/actions/minor-version
+
       - name: 📥 Download icons.json
         run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json
 
@@ -29,10 +33,7 @@ jobs:
         if: steps.git-check.outputs.modified == 'true'
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.
-
-      - name: 1️⃣2️⃣3️⃣ Increase minor VERSION
-        uses: ./.github/actions/minor-version
+          dotnet-version: 5.0.x
 
       - name: 🧪 dotnet test
         if: steps.git-check.outputs.modified == 'true'
