@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   sync:
-    name: 🔄 Sync Fontawesome
+    name: 🔄 Sync Material Design
     runs-on: ubuntu-latest
     
     steps:
@@ -38,6 +38,9 @@ jobs:
         run: |
           rm -r ./temp
           rm archive.zip
+      
+      - name: ℹ git status
+        run: git status
 
       - name: 🔎 Check for modified files
         id: git-check
