@@ -1,7 +1,7 @@
 # Icons.Avalonia
 A library to easily display icons in an Avalonia App.
 
-![CI / CD](https://github.com/Projektanker/Icons.Avalonia/workflows/CI%20/%20CD/badge.svg?event=push)
+[![CI-CD](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/ci-cd.yml)
 
 ## NuGet
 | Name | Description | Version |
