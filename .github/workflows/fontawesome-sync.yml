@@ -39,8 +39,7 @@ jobs:
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
           git commit -am "🖊 Fontawesome icons changed."
           git tag ${{ env.VERSION }}
-          git push && git push --tags
-
+          git push --atomic
 
   publish:
     name: 📦 Publish to NuGet
