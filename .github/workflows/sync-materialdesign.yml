@@ -32,7 +32,7 @@ jobs:
         run: rm ./Assets/*
 
       - name: 🚚 Move *.svg to Assets directory
-        run: find temp \( -iname '*.svg' \) -type f -exec mv -nv -t 'Assets' -- {} +
+        run: find temp -iname '*.svg' -type f -exec mv -nv -t 'Assets' -- {} +
 
       - name: 🧹 Remove temporary files
         run: |
