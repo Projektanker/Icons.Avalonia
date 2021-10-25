@@ -25,6 +25,9 @@ jobs:
       - name: 📥 Download icons.json
         run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json
 
+      - name: ℹ git status
+        run: git status
+
       - name: 🔎 Check for modified files
         id: git-check
         run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
