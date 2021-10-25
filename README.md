@@ -113,4 +113,4 @@ IIconProvider provider = new MyCustomIconProvider(/* custom ctor arguments */);
 IconProvider.Register(provider);
 ```
 
-The `IIconProvider.Prefix` property have to be unique within all registered providers. It is used to select the right provider. E.g. `FontAwesomeIconProvider`'s prefix is `fa`.
+The `IIconProvider.Prefix` property has to be unique within all registered providers. It is used to select the right provider. E.g. `FontAwesomeIconProvider`'s prefix is `fa`.
