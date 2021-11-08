@@ -78,7 +78,6 @@ Example: The GitHub icon.
 
 ### Done
 
-Screenshot  
 ![Screenshot](resources/demo.png)
 
 ## Implement your own Icon Provider
