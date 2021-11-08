@@ -69,7 +69,7 @@ Example: The GitHub icon.
 
 ### Done
 
-![Screenshot](resources/demo.png)
+![Screenshot](https://github.com/Projektanker/Icons.Avalonia/raw/main/resources/demo.png)
 
 ## Implement your own Icon Provider
 Just implement the `IIconProvider` interface:
