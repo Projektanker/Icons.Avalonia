@@ -40,17 +40,8 @@ class Program
     public static AppBuilder BuildAvaloniaApp()
     {
         return AppBuilder.Configure<App>()
-            .AfterSetup(AfterSetupCallback)
             .UsePlatformDetect()
             .LogToTrace();
-    }
-    
-    // Called after setup
-    private static void AfterSetupCallback(AppBuilder appBuilder)
-    {
-        // Register icon provider(s)
-        IconProvider.Register<FontAwesomeIconProvider>();
-        IconProvider.Register<MaterialDesignIconProvider>();
     }
 }
 ```
