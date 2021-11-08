@@ -4,10 +4,12 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.8" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.8" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.8" />
-        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="3.2.0" />
-        <PackageReference Include="Projektanker.Icons.Avalonia.MaterialDesign" Version="3.2.0" />
+        <PackageReference Include="Avalonia" Version="0.10.10" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
+      <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.MaterialDesign\Projektanker.Icons.Avalonia.MaterialDesign.csproj" />
     </ItemGroup>
 </Project>

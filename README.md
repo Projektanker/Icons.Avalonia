@@ -19,7 +19,7 @@ A library to easily display icons in an Avalonia App.
 A full example is available in the [demo](demo) directory.
 
 ### 1. Register icon providers on app start up
-Use the `AppBuilder.AfterSetup` method to register a callback. Within this callback register the icon prodider(s). Otherwise the visual designer won't be able to use the registered icon provider(s).
+Register the icon provider(s) within the `Main` method before building the Avalonia app. Otherwise the visual designer won't be able to use the registered icon provider(s).
 ```csharp
 class Program
 {
@@ -28,6 +28,10 @@ class Program
     // yet and stuff might break.
     public static void Main(string[] args)
     {
+        // Register icon provider(s)
+        IconProvider.Register<FontAwesomeIconProvider>();
+        IconProvider.Register<MaterialDesignIconProvider>();
+
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
     }

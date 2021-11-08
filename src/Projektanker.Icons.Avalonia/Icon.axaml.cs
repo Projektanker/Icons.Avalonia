@@ -2,20 +2,19 @@
 using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls.Primitives;
-using Avalonia.Data;
 using Avalonia.Media;
 
 namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
-        public static readonly DirectProperty<Icon, Drawing> DrawingProperty =
-            AvaloniaProperty.RegisterDirect<Icon, Drawing>(nameof(Drawing), o => o.Drawing);
+        public static readonly DirectProperty<Icon, DrawingImage> DrawingImageProperty =
+            AvaloniaProperty.RegisterDirect<Icon, DrawingImage>(nameof(DrawingImage), o => o.DrawingImage);
 
         public static readonly StyledProperty<string> ValueProperty =
             AvaloniaProperty.Register<Icon, string>(nameof(Value));
 
-        private Drawing _drawing;
+        private DrawingImage _drawingImage;
 
         static Icon()
         {
@@ -30,10 +29,10 @@ namespace Projektanker.Icons.Avalonia
                 .Subscribe(icon => icon.OnForegroundChanged());
         }
 
-        public Drawing Drawing
+        public DrawingImage DrawingImage
         {
-            get => _drawing;
-            private set => SetAndRaise(DrawingProperty, ref _drawing, value);
+            get => _drawingImage;
+            private set => SetAndRaise(DrawingImageProperty, ref _drawingImage, value);
         }
 
         public string Value
@@ -45,19 +44,20 @@ namespace Projektanker.Icons.Avalonia
         private void OnValueChanged()
         {
             string path = IconProvider.GetIconPath(Value);
-
-            Drawing = new GeometryDrawing()
+            var drawing = new GeometryDrawing()
             {
                 Geometry = Geometry.Parse(path),
-                Brush = Foreground,
+                Brush = Foreground ?? new SolidColorBrush(0),
             };
+
+            DrawingImage = new DrawingImage { Drawing = drawing };
         }
 
         private void OnForegroundChanged()
         {
-            if (Drawing is GeometryDrawing geometryDrawing)
+            if (DrawingImage?.Drawing is GeometryDrawing geometryDrawing)
             {
-                Drawing = new GeometryDrawing
+                DrawingImage.Drawing = new GeometryDrawing
                 {
                     Geometry = geometryDrawing.Geometry,
                     Brush = Foreground,
