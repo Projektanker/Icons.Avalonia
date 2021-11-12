@@ -3,7 +3,7 @@ name: 🔄 Sync Material Design
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * 0'
 defaults:
   run:
     working-directory: src/Projektanker.Icons.Avalonia.MaterialDesign
