@@ -16,11 +16,11 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         [InlineData("fa-arrow-right")]
         [InlineData("fab fa-github")]
         [InlineData("fas fa-arrow-left")]
-        [InlineData("fas fa-arrow-right")]
-        public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string key)
+        [InlineData("far fa-address-book")]
+        public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string value)
         {
             // Act #1
-            var path = _iconProvider.GetIconPath(key);
+            var path = _iconProvider.GetIconPath(value);
 
             // Assert #1
             path.Should().NotBeNullOrEmpty();
@@ -33,11 +33,14 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
             skiaPath.Bounds.IsEmpty.Should().BeFalse();
         }
 
-        [Fact]
-        public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist()
+        [Theory]
+        [InlineData("fa-you-cant-find-me")]
+        [InlineData("fa")]
+        [InlineData("far fa-arrow-left")]
+        public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist(string value)
         {
             // Act
-            Func<string> func = () => _iconProvider.GetIconPath("fa-you-cant-find-me");
+            Func<string> func = () => _iconProvider.GetIconPath(value);
 
             // Assert
             func.Should().Throw<KeyNotFoundException>();

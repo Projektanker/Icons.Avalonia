@@ -12,9 +12,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
     /// </summary>
     public class FontAwesomeIconProvider : IIconProvider
     {
-        private const string _faKeyPrefix = "fa-";
         private const string _faProviderPrefix = "fa";
-        private const string _resource = "Assets.icons.json";
         private static readonly Lazy<Dictionary<string, FontAwesomeIcon>> _lazyIcons = new Lazy<Dictionary<string, FontAwesomeIcon>>(Parse);
 
         public string Prefix => _faProviderPrefix;
@@ -23,51 +21,33 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         /// <inheritdoc/>
         public string GetIconPath(string value)
         {
-            string[] splitted = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            string key;
-            Style? style;
-            if (splitted.Length == 1)
-            {
-                key = splitted[0];
-                style = null;
-            }
-            else if (splitted.Length == 2)
-            {
-                key = splitted[1];
+            var key = FontAwesomeIconKey.TryParse(value, out var temp)
+                ? temp
+                : throw new KeyNotFoundException($"FontAwesome Icon \"{value}\" not found!");
 
-                StylePrefix stylePrefix = (StylePrefix)Enum.Parse(typeof(StylePrefix), splitted[0], ignoreCase: true);
-                style = stylePrefix.ToStyle();
-            }
-            else
+            if (!Icons.TryGetValue(key.Value, out FontAwesomeIcon icon))
             {
-                throw new KeyNotFoundException($"Icon \"{value}\" not found!");
+                throw new KeyNotFoundException($"FontAwesome Icon \"{key.Value}\" not found!");
             }
-
-            // Remove "fa-" substring
-            key = key.Substring(_faKeyPrefix.Length);
-
-            if (!Icons.TryGetValue(key, out FontAwesomeIcon icon))
-            {
-                throw new KeyNotFoundException($"FontAwesome-Icon \"{key}\" not found!");
-            }
-            else if (!style.HasValue)
+            else if (!key.Style.HasValue)
             {
                 return icon.Svg.Values.First().Path;
             }
-            else if (icon.Svg.TryGetValue(style.Value, out Svg svg))
+            else if (icon.Svg.TryGetValue(key.Style.Value, out Svg svg))
             {
                 return svg.Path;
             }
             else
             {
-                throw new KeyNotFoundException($"FontAwesome-Style \"{style}\" not found!");
+                throw new KeyNotFoundException($"FontAwesome Style \"{key.Style}\" not found!");
             }
         }
 
         private static Dictionary<string, FontAwesomeIcon> Parse()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            using (Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{_resource}"))
+            var resourceName = $"{assembly.GetName().Name}.Assets.icons.json";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (TextReader textReader = new StreamReader(stream))
             using (JsonReader jsonReader = new JsonTextReader(textReader))
             {
