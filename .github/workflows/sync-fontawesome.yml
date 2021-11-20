@@ -55,6 +55,6 @@ jobs:
         if: steps.git-check.outputs.modified == 'true'
         uses: ./.github/actions/nuget
         with:
-          working-directory: src/Projektanker.Icons.Avalonia.FontAwesome
+          working-directory: src
           api-key: ${{ secrets.NUGET_API_KEY }}
           version: ${{ env.VERSION }}
