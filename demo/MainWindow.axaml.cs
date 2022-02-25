@@ -12,6 +12,7 @@ namespace Demo
 #if DEBUG
             this.AttachDevTools();
 #endif
+            DataContext = this;
         }
 
         private void InitializeComponent()
