@@ -7,24 +7,11 @@ namespace Projektanker.Icons.Avalonia
     /// <summary>
     /// Class providing the icon paths.
     /// </summary>
-    public class IconProvider
+    public class IconProvider : IIconReader, IIconProviderContainer
     {
         private readonly SortedList<string, IIconProvider> _iconProvidersByPrefix = new(Comparer<string>.Default);
 
-        /// <summary>
-        /// Gets the SVG path of the icon associated with the specified value using the registered
-        /// icon providers.
-        /// </summary>
-        /// <param name="value">The value specifying the icon to return it's path from.</param>
-        /// <returns>
-        /// If <paramref name="value"/> is not <c>null</c> or empty the path of the icon; otherwise <c>string.Empty</c>.
-        /// </returns>
-        /// <exception cref="KeyNotFoundException">
-        /// No provider with prefix matching <paramref name="value"/> found.
-        /// </exception>
-        /// <exception cref="KeyNotFoundException">
-        /// No icon associated with the specified <paramref name="value"/> found.
-        /// </exception>
+        /// <inheritdoc/>
         public string GetIconPath(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -32,7 +19,7 @@ namespace Projektanker.Icons.Avalonia
                 return string.Empty;
             }
 
-            IIconProvider provider = _iconProvidersByPrefix
+            var provider = _iconProvidersByPrefix
                 .Select(prefixProviderPair => prefixProviderPair.Value)
                 .FirstOrDefault(p => value.StartsWith(p.Prefix, StringComparison.OrdinalIgnoreCase));
 
@@ -46,13 +33,8 @@ namespace Projektanker.Icons.Avalonia
             }
         }
 
-        /// <summary>
-        /// Registers an <see cref="IIconProvider"/> with the static <see cref="IconProvider"/> class.
-        /// </summary>
-        /// <param name="iconProvider">The <see cref="IIconProvider"/> to register.</param>
-        /// <returns>A reference to this instance after the registration has completed.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="iconProvider"/> is null.</exception>
-        public IconProvider Register(IIconProvider iconProvider)
+        /// <inheritdoc>/>
+        public IIconProviderContainer Register(IIconProvider iconProvider)
         {
             if (iconProvider is null)
             {
@@ -69,17 +51,8 @@ namespace Projektanker.Icons.Avalonia
             return this;
         }
 
-        /// <summary>
-        /// Registers an <see cref="IIconProvider"/> with the static <see cref="IconProvider"/> class.
-        /// </summary>
-        /// <typeparam name="TIconProvider">
-        /// The type of the <see cref="IIconProvider"/> to register.
-        /// </typeparam>
-        /// <returns>A reference to this instance after the registration has completed.</returns>
-        /// <exception cref="ArgumentException">
-        /// An <see cref="IIconProvider"/> with an conflicting prefix is already registered.
-        /// </exception>
-        public IconProvider Register<TIconProvider>()
+        /// <inheritdoc/>
+        public IIconProviderContainer Register<TIconProvider>()
             where TIconProvider : IIconProvider, new()
         {
             return Register(new TIconProvider());

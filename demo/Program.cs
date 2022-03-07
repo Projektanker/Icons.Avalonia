@@ -21,12 +21,10 @@ namespace Demo
         {
             return AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .WithIcons(iconProvider =>
-                {
-                    iconProvider.Register<FontAwesomeIconProvider>();
-                    iconProvider.Register<MaterialDesignIconProvider>();
-                })
-                .LogToTrace();
+                .LogToTrace()
+                .WithIcons(container => container
+                    .Register<FontAwesomeIconProvider>()
+                    .Register<MaterialDesignIconProvider>());
         }
     }
 }
