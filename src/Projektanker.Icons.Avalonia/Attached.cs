@@ -4,7 +4,7 @@ using Avalonia.Controls;
 
 namespace Projektanker.Icons.Avalonia
 {
-    public class Attached
+    public static class Attached
     {
         /// <summary>
         /// Identifies the FontAwesome.Avalonia.Awesome.Content attached dependency property.
@@ -29,22 +29,20 @@ namespace Projektanker.Icons.Avalonia
 
         private static void IconChanged(AvaloniaPropertyChangedEventArgs evt)
         {
-            if (!(evt.NewValue is string value))
-            {
-                return;
-            }
-            
-            if (!(evt.Sender is ContentControl target))
+            if (evt.NewValue is not string value)
             {
                 return;
             }
 
-            var fa = new Icon()
+            if (evt.Sender is not ContentControl target)
+            {
+                return;
+            }
+
+            target.Content = new Icon()
             {
                 Value = value,
             };
-
-            target.Content = fa;
         }
     }
 }
