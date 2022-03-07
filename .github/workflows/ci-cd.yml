@@ -21,10 +21,10 @@ jobs:
       - name: 🛒 Checkout
         uses: actions/checkout@v2
 
-      - name: 🟣 Setup .NET Core 5.0
+      - name: 🟣 Setup .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 6.0.x
 
       - name: 🌴 dotnet restore
         run: dotnet restore
@@ -48,10 +48,10 @@ jobs:
       - name: 1️⃣2️⃣3️⃣ Set VERSION
         uses: ./.github/actions/version
 
-      - name: 🟣 Setup .NET Core 5.0
+      - name: 🟣 Setup .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 6.0.x
 
       - name: 📦 Pack 🚀 Push
         uses: ./.github/actions/nuget
