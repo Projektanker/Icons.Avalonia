@@ -28,10 +28,6 @@ class Program
     // yet and stuff might break.
     public static void Main(string[] args)
     {
-        // Register icon provider(s)
-        IconProvider.Register<FontAwesomeIconProvider>();
-        IconProvider.Register<MaterialDesignIconProvider>();
-
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
     }
@@ -41,7 +37,12 @@ class Program
     {
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace();
+            .LogToTrace()
+            .WithIcons(iconProvider =>
+            {
+                iconProvider.Register<FontAwesomeIconProvider>();
+                iconProvider.Register<MaterialDesignIconProvider>();
+            });
     }
 }
 ```

@@ -5,12 +5,11 @@ using System.Linq;
 namespace Projektanker.Icons.Avalonia
 {
     /// <summary>
-    /// Static class providing the icon paths.
+    /// Class providing the icon paths.
     /// </summary>
-    public static class IconProvider
+    public class IconProvider
     {
-        private static readonly SortedList<string, IIconProvider> _iconProvidersByPrefix =
-            new SortedList<string, IIconProvider>(Comparer<string>.Default);
+        private readonly SortedList<string, IIconProvider> _iconProvidersByPrefix = new(Comparer<string>.Default);
 
         /// <summary>
         /// Gets the SVG path of the icon associated with the specified value using the registered
@@ -26,7 +25,7 @@ namespace Projektanker.Icons.Avalonia
         /// <exception cref="KeyNotFoundException">
         /// No icon associated with the specified <paramref name="value"/> found.
         /// </exception>
-        public static string GetIconPath(string value)
+        public string GetIconPath(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -51,8 +50,9 @@ namespace Projektanker.Icons.Avalonia
         /// Registers an <see cref="IIconProvider"/> with the static <see cref="IconProvider"/> class.
         /// </summary>
         /// <param name="iconProvider">The <see cref="IIconProvider"/> to register.</param>
+        /// <returns>A reference to this instance after the registration has completed.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="iconProvider"/> is null.</exception>
-        public static void Register(IIconProvider iconProvider)
+        public IconProvider Register(IIconProvider iconProvider)
         {
             if (iconProvider is null)
             {
@@ -66,6 +66,7 @@ namespace Projektanker.Icons.Avalonia
             }
 
             _iconProvidersByPrefix.Add(iconProvider.Prefix, iconProvider);
+            return this;
         }
 
         /// <summary>
@@ -74,13 +75,14 @@ namespace Projektanker.Icons.Avalonia
         /// <typeparam name="TIconProvider">
         /// The type of the <see cref="IIconProvider"/> to register.
         /// </typeparam>
+        /// <returns>A reference to this instance after the registration has completed.</returns>
         /// <exception cref="ArgumentException">
         /// An <see cref="IIconProvider"/> with an conflicting prefix is already registered.
         /// </exception>
-        public static void Register<TIconProvider>()
+        public IconProvider Register<TIconProvider>()
             where TIconProvider : IIconProvider, new()
         {
-            Register(new TIconProvider());
+            return Register(new TIconProvider());
         }
 
         private static bool IsPrefix(string existing, string adding)

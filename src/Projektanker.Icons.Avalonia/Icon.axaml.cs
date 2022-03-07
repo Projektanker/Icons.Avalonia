@@ -43,7 +43,8 @@ namespace Projektanker.Icons.Avalonia
 
         private void OnValueChanged()
         {
-            string path = IconProvider.GetIconPath(Value);
+            var iconProvider = AvaloniaLocator.Current.GetService<IconProvider>();
+            string path = iconProvider.GetIconPath(Value);
             var drawing = new GeometryDrawing()
             {
                 Geometry = Geometry.Parse(path),
