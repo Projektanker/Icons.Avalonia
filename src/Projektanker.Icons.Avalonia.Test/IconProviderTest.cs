@@ -6,11 +6,21 @@ using Xunit;
 
 namespace Projektanker.Icons.Avalonia.Test
 {
-    public class IconProviderTest : IClassFixture<IconProviderFixture>
+    public class IconProviderTest
     {
-        public IconProviderTest(IconProviderFixture iconProviderFixture)
+        private readonly IconProvider _iconProvider;
+
+        public IconProviderTest()
         {
-            _ = iconProviderFixture;
+            var mock = new Mock<IIconProvider>();
+            mock.Setup(provider => provider.GetIconPath(It.IsAny<string>()))
+                .Returns<string>(arg => arg);
+
+            mock.SetupGet(provider => provider.Prefix)
+                .Returns("Test");
+
+            _iconProvider = new();
+            _iconProvider.Register(mock.Object);
         }
 
         [Fact]
@@ -20,7 +30,7 @@ namespace Projektanker.Icons.Avalonia.Test
             const string echo = "Test-test";
 
             // Act
-            var iconPath = IconProvider.GetIconPath(echo);
+            var iconPath = _iconProvider.GetIconPath(echo);
 
             // Assert
             iconPath.Should().Be(echo);
@@ -30,7 +40,7 @@ namespace Projektanker.Icons.Avalonia.Test
         public void EmptyValue()
         {
             // Act
-            var iconPath = IconProvider.GetIconPath(string.Empty);
+            var iconPath = _iconProvider.GetIconPath(string.Empty);
 
             // Assert
             iconPath.Should().BeEmpty();
@@ -40,7 +50,7 @@ namespace Projektanker.Icons.Avalonia.Test
         public void NullValue()
         {
             // Act
-            var iconPath = IconProvider.GetIconPath(null);
+            var iconPath = _iconProvider.GetIconPath(null);
 
             // Assert
             iconPath.Should().BeEmpty();
@@ -50,7 +60,7 @@ namespace Projektanker.Icons.Avalonia.Test
         public void ProviderNotFound()
         {
             // Act
-            Func<string> func = () => IconProvider.GetIconPath("YouCantFindMe");
+            Func<string> func = () => _iconProvider.GetIconPath("YouCantFindMe");
 
             // Assert
             func.Should().Throw<KeyNotFoundException>();

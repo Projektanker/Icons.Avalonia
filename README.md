@@ -6,9 +6,9 @@ A library to easily display icons in an Avalonia App.
 ## NuGet
 | Name | Description | Version |
 |:-|:-|:-|
-| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia) |
-| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
-| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
+| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia) |
+| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
+| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
 
 ## Icon providers
 | Name | Prefix | Example|
@@ -28,10 +28,6 @@ class Program
     // yet and stuff might break.
     public static void Main(string[] args)
     {
-        // Register icon provider(s)
-        IconProvider.Register<FontAwesomeIconProvider>();
-        IconProvider.Register<MaterialDesignIconProvider>();
-
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
     }
@@ -41,7 +37,10 @@ class Program
     {
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace();
+            .LogToTrace()
+            .WithIcons(container => container
+                .Register<FontAwesomeIconProvider>()
+                .Register<MaterialDesignIconProvider>());
     }
 }
 ```
@@ -77,34 +76,41 @@ Just implement the `IIconProvider` interface:
 namespace Projektanker.Icons.Avalonia
 {
     /// <summary>
-    /// Represents an icon provider.
+    /// Represents an icon reader.
     /// </summary>
-    public interface IIconProvider
+    public interface IIconReader
     {
-        /// <summary>
-        /// Gets the prefix of the <see cref="IIconProvider"/>.
-        /// </summary>
-        string Prefix { get; }
-
         /// <summary>
         /// Gets the SVG path of the requested icon using the registered icon providers.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
         /// <returns>The path of the icon.</returns>
-        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The icon associated
-        /// with the specified <paramref name="value"/> does not exists.</exception>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">
+        /// The icon associated with the specified <paramref name="value"/> does not exists.
+        /// </exception>
         string GetIconPath(string value);
+    }
+
+    /// <summary>
+    /// Represents an icon provider.
+    /// </summary>
+    public interface IIconProvider : IIconReader
+    {
+        /// <summary>
+        /// Gets the prefix of the <see cref="IIconProvider"/>.
+        /// </summary>
+        string Prefix { get; }
     }
 }
 ```
-and register it with the `IconProvider`:
+and register it with the `IIconProviderContainer`:
 ```csharp
-IconProvider.Register<MyCustomIconProvider>()
+container.Register<MyCustomIconProvider>()
 ```
 or
 ```csharp
 IIconProvider provider = new MyCustomIconProvider(/* custom ctor arguments */);
-IconProvider.Register(provider);
+container.Register(provider);
 ```
 
 The `IIconProvider.Prefix` property has to be unique within all registered providers. It is used to select the right provider. E.g. `FontAwesomeIconProvider`'s prefix is `fa`.

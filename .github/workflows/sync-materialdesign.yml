@@ -46,11 +46,11 @@ jobs:
         id: git-check
         run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
 
-      - name: 🟣 Setup .NET Core 5.0
+      - name: 🟣 Setup .NET 6.0
         if: steps.git-check.outputs.modified == 'true'
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 6.0.x
 
       - name: 🧪 dotnet test
         if: steps.git-check.outputs.modified == 'true'
