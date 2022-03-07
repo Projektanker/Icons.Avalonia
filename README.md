@@ -6,9 +6,9 @@ A library to easily display icons in an Avalonia App.
 ## NuGet
 | Name | Description | Version |
 |:-|:-|:-|
-| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia) |
-| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
-| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://img.shields.io/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
+| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia) |
+| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
+| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
 
 ## Icon providers
 | Name | Prefix | Example|
@@ -40,7 +40,7 @@ class Program
             .LogToTrace()
             .WithIcons(container => container
                 .Register<FontAwesomeIconProvider>()
-                .Register<MaterialDesignIconProvider>();
+                .Register<MaterialDesignIconProvider>());
     }
 }
 ```
