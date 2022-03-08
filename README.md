@@ -81,7 +81,7 @@ namespace Projektanker.Icons.Avalonia
     public interface IIconReader
     {
         /// <summary>
-        /// Gets the SVG path of the requested icon using the registered icon providers.
+        /// Gets the SVG path of the requested icon.
         /// </summary>
         /// <param name="value">The value specifying the icon to return it's path from.</param>
         /// <returns>The path of the icon.</returns>
