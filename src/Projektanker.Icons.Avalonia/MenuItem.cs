@@ -1,18 +1,18 @@
 ﻿using System;
 using Avalonia;
-using Avalonia.Controls;
+using AvaloniaMenuItem = Avalonia.Controls.MenuItem;
 
 namespace Projektanker.Icons.Avalonia
 {
-    public static class Attached
+    public static class MenuItem
     {
         /// <summary>
         /// Identifies the <seealso cref="IconProperty"/> avalonia attached property.
         /// </summary>
         public static readonly AttachedProperty<string> IconProperty =
-            AvaloniaProperty.RegisterAttached<Icon, ContentControl, string>("Icon", string.Empty);
+            AvaloniaProperty.RegisterAttached<Icon, AvaloniaMenuItem, string>("Icon", string.Empty);
 
-        static Attached()
+        static MenuItem()
         {
             IconProperty.Changed.Subscribe(IconChanged);
         }
@@ -20,7 +20,7 @@ namespace Projektanker.Icons.Avalonia
         /// <summary>
         /// Accessor for attached property <see cref="IconProperty"/>
         /// </summary>
-        public static string GetIcon(ContentControl target)
+        public static string GetIcon(AvaloniaMenuItem target)
         {
             return target.GetValue(IconProperty);
         }
@@ -28,19 +28,19 @@ namespace Projektanker.Icons.Avalonia
         /// <summary>
         /// Accessor for attached property <see cref="IconProperty"/>
         /// </summary>
-        public static void SetIcon(ContentControl target, string value)
+        public static void SetIcon(AvaloniaMenuItem target, string value)
         {
             target.SetValue(IconProperty, value);
         }
 
         private static void IconChanged(AvaloniaPropertyChangedEventArgs evt)
         {
-            if (evt.NewValue is not string value || evt.Sender is not ContentControl target)
+            if (evt.NewValue is not string value || evt.Sender is not AvaloniaMenuItem target)
             {
                 return;
             }
 
-            target.Content = new Icon()
+            target.Icon = new Icon()
             {
                 Value = value,
             };

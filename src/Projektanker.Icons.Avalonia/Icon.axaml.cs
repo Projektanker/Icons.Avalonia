@@ -3,7 +3,6 @@ using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
 
 namespace Projektanker.Icons.Avalonia
 {
@@ -34,23 +33,6 @@ namespace Projektanker.Icons.Avalonia
         {
             get => _drawingImage;
             private set => SetAndRaise(DrawingImageProperty, ref _drawingImage, value);
-        }
-
-        public IBitmap BitmapImage
-        {
-            get
-            {
-                if (_drawingImage is null) return null;
-                var renderBitmap = new RenderTargetBitmap(new PixelSize((int) _drawingImage.Size.Width, (int) _drawingImage.Size.Height));
-                
-                using (var ctx = renderBitmap.CreateDrawingContext(null))
-                using (var dtx = new DrawingContext(ctx))
-                {
-                    _drawingImage.Drawing.Draw(dtx);
-                }
-
-                return renderBitmap;
-            }
         }
 
         public string Value
