@@ -9,12 +9,19 @@ namespace Projektanker.Icons.Avalonia
         /// <summary>
         /// Identifies the <seealso cref="IconProperty"/> avalonia attached property.
         /// </summary>
-        public static readonly AttachedProperty<string> IconProperty =
+        public static readonly AttachedProperty<string> ContentControlIconProperty =
             AvaloniaProperty.RegisterAttached<Icon, ContentControl, string>("Icon", string.Empty);
+
+        /// <summary>
+        /// Identifies the FontAwesome.Avalonia.Awesome.Content attached dependency property.
+        /// </summary>
+        public static readonly AttachedProperty<string> MenuItemIconProperty =
+            AvaloniaProperty.RegisterAttached<Icon, MenuItem, string>("Icon", string.Empty);
 
         static Attached()
         {
-            IconProperty.Changed.Subscribe(IconChanged);
+            ContentControlIconProperty.Changed.Subscribe(IconChanged);
+            MenuItemIconProperty.Changed.Subscribe(IconChanged);
         }
 
         /// <summary>
@@ -22,7 +29,7 @@ namespace Projektanker.Icons.Avalonia
         /// </summary>
         public static string GetIcon(ContentControl target)
         {
-            return target.GetValue(IconProperty);
+            return target.GetValue(ContentControlIconProperty);
         }
 
         /// <summary>
@@ -30,7 +37,17 @@ namespace Projektanker.Icons.Avalonia
         /// </summary>
         public static void SetIcon(ContentControl target, string value)
         {
-            target.SetValue(IconProperty, value);
+            target.SetValue(ContentControlIconProperty, value);
+        }
+
+        public static string GetIcon(MenuItem target)
+        {
+            return target.GetValue(MenuItemIconProperty);
+        }
+
+        public static void SetIcon(MenuItem target, string value)
+        {
+            target.SetValue(MenuItemIconProperty, value);
         }
 
         private static void IconChanged(AvaloniaPropertyChangedEventArgs evt)
@@ -40,12 +57,20 @@ namespace Projektanker.Icons.Avalonia
                 return;
             }
 
-            if (evt.Sender is not ContentControl target)
+            switch (evt.Sender)
             {
-                return;
+                case ContentControl target:
+                    target.Content = MakeIcon(value);
+                    break;
+                case MenuItem target:
+                    target.Icon = MakeIcon(value);
+                    break;
             }
+        }
 
-            target.Content = new Icon()
+        private static Icon MakeIcon(string value)
+        {
+            return new Icon
             {
                 Value = value,
             };
