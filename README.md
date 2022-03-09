@@ -50,20 +50,25 @@ class Program
 Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"` to your view.
 
 ### 3. Use the icon
-Example: The GitHub icon.  
-[FontAwesome](https://fontawesome.com/icons/github?style=brands)
-```html
-<i class="fab fa-github"></i>
-```
 
 **Standalone**
-```xaml
+```xml
 <i:Icon Value="fab fa-github" />
 ```
 
-**Attached**
-```xaml
+**Attached to ContentControl (e.g. Button)**
+```xml
 <Button i:Attached.Icon="fab fa-github" />
+```
+
+**Attached to MenuItem**
+```xml
+<Style Selector="MenuItem i|Icon">
+    <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
+    <Setter Property="Margin" Value="0" />
+</Style>
+
+<MenuItem Header="About" i:MenuItem.Icon="fas fa-info-circle" />
 ```
 
 ### Done
