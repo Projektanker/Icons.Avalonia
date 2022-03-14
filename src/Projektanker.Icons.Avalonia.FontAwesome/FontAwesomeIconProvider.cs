@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome
 {
@@ -21,38 +21,42 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         /// <inheritdoc/>
         public string GetIconPath(string value)
         {
-            var key = FontAwesomeIconKey.TryParse(value, out var temp)
-                ? temp
-                : throw new KeyNotFoundException($"FontAwesome Icon \"{value}\" not found!");
-
+            if (!FontAwesomeIconKey.TryParse(value, out FontAwesomeIconKey key))
+            {
+                throw new KeyNotFoundException($"FontAwesome Icon \"{value}\" not found!");
+            }
+            
             if (!Icons.TryGetValue(key.Value, out FontAwesomeIcon icon))
             {
                 throw new KeyNotFoundException($"FontAwesome Icon \"{key.Value}\" not found!");
             }
-            else if (!key.Style.HasValue)
+
+            if (!key.Style.HasValue)
             {
                 return icon.Svg.Values.First().Path;
             }
-            else if (icon.Svg.TryGetValue(key.Style.Value, out Svg svg))
+
+            if (icon.Svg.TryGetValue(key.Style.Value, out Svg svg))
             {
                 return svg.Path;
             }
-            else
-            {
-                throw new KeyNotFoundException($"FontAwesome Style \"{key.Style}\" not found!");
-            }
+
+            throw new KeyNotFoundException($"FontAwesome Style \"{key.Style}\" not found!");
         }
 
         private static Dictionary<string, FontAwesomeIcon> Parse()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"{assembly.GetName().Name}.Assets.icons.json";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (TextReader textReader = new StreamReader(stream))
-            using (JsonReader jsonReader = new JsonTextReader(textReader))
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
             {
-                JsonSerializer serializer = JsonSerializer.Create();
-                var result = serializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(jsonReader);
+                var result = JsonSerializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(stream, 
+                    new JsonSerializerOptions()
+                    {
+                        PropertyNameCaseInsensitive = true,
+                        Converters = { new JsonStringEnumConverter() }
+                    });
+
                 return result;
             }
         }
