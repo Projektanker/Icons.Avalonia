@@ -25,18 +25,15 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
             {
                 throw new KeyNotFoundException($"FontAwesome Icon \"{value}\" not found!");
             }
-            
-            if (!Icons.TryGetValue(key.Value, out FontAwesomeIcon icon))
+            else if (!Icons.TryGetValue(key.Value, out FontAwesomeIcon icon))
             {
                 throw new KeyNotFoundException($"FontAwesome Icon \"{key.Value}\" not found!");
             }
-
-            if (!key.Style.HasValue)
+            else if (!key.Style.HasValue)
             {
                 return icon.Svg.Values.First().Path;
             }
-
-            if (icon.Svg.TryGetValue(key.Style.Value, out Svg svg))
+            else if (icon.Svg.TryGetValue(key.Style.Value, out Svg svg))
             {
                 return svg.Path;
             }
@@ -50,7 +47,8 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
             var resourceName = $"{assembly.GetName().Name}.Assets.icons.json";
             using (var stream = assembly.GetManifestResourceStream(resourceName))
             {
-                var result = JsonSerializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(stream, 
+                var result = JsonSerializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(
+                    stream,
                     new JsonSerializerOptions()
                     {
                         PropertyNameCaseInsensitive = true,
