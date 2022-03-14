@@ -13,7 +13,7 @@
 			<Setter Property="Grid.Column" Value="0" />
 			<Setter Property="Margin" Value="5" />
 		</Style>
-		<Style Selector="i|Icon">
+		<Style Selector="Grid > i|Icon">
 			<Setter Property="FontSize" Value="24" />
 			<Setter Property="Grid.Column" Value="1" />
 			<Setter Property="Margin" Value="5" />
@@ -23,13 +23,6 @@
 			<Setter Property="Grid.Column" Value="2" />
 			<Setter Property="Margin" Value="5" />
 			<Setter Property="IsEnabled" Value="{Binding #ButtonToggle.IsChecked}" />
-		</Style>
-		<Style Selector="Button i|Icon">
-			<Setter Property="Margin" Value="0" />
-		</Style>
-		<Style Selector="MenuItem i|Icon">
-			<Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
-			<Setter Property="Margin" Value="0" />
 		</Style>
 	</Window.Styles>
 

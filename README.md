@@ -63,11 +63,6 @@ Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Ic
 
 **Attached to MenuItem**
 ```xml
-<Style Selector="MenuItem i|Icon">
-    <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
-    <Setter Property="Margin" Value="0" />
-</Style>
-
 <MenuItem Header="About" i:MenuItem.Icon="fas fa-info-circle" />
 ```
 
