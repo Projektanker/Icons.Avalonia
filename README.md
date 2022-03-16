@@ -19,7 +19,7 @@ A library to easily display icons in an Avalonia App.
 A full example is available in the [demo](demo) directory.
 
 ### 1. Register icon providers on app start up
-Register the icon provider(s) within the `Main` method before building the Avalonia app. Otherwise the visual designer won't be able to use the registered icon provider(s).
+Register the icon provider(s) with the `AppBuilder`.
 ```csharp
 class Program
 {
