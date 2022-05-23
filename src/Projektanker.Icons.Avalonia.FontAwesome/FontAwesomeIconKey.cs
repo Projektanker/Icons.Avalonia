@@ -2,7 +2,7 @@
 
 namespace Projektanker.Icons.Avalonia.FontAwesome
 {
-    internal class FontAwesomeIconKey
+    internal partial class FontAwesomeIconKey
     {
         private const string _faKeyPrefix = "fa-";
         public string Value { get; set; }
@@ -57,11 +57,13 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
             }
         }
 
-        private static string GetValue(string value)
+        private static string GetValue(string input)
         {
-            return value.Length <= _faKeyPrefix.Length
+            var value = input.Length <= _faKeyPrefix.Length
                 ? string.Empty
-                : value.Substring(_faKeyPrefix.Length);
+                : input.Substring(_faKeyPrefix.Length);
+
+            return SupportLegacy(value);
         }
     }
 }
