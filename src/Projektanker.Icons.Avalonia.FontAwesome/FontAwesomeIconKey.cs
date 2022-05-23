@@ -40,12 +40,15 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         {
             switch (value.ToUpperInvariant())
             {
+                case "FA-SOLID":
                 case "FAS":
                     return FontAwesome.Style.Solid;
 
+                case "FA-REGULAR":
                 case "FAR":
                     return FontAwesome.Style.Regular;
 
+                case "FA-BRANDS":
                 case "FAB":
                     return FontAwesome.Style.Brands;
 

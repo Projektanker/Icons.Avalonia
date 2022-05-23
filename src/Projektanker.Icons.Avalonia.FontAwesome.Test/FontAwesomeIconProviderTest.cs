@@ -14,9 +14,9 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         [InlineData("fa-github")]
         [InlineData("fa-arrow-left")]
         [InlineData("fa-arrow-right")]
-        [InlineData("fab fa-github")]
-        [InlineData("fas fa-arrow-left")]
-        [InlineData("far fa-address-book")]
+        [InlineData("fa-brands fa-github")]
+        [InlineData("fa-solid fa-arrow-left")]
+        [InlineData("fa-regular fa-address-book")]
         public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string value)
         {
             // Act #1
@@ -31,6 +31,20 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
             // Assert #2
             skiaPath.Should().NotBeNull();
             skiaPath.Bounds.IsEmpty.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("fab fa-github", "fa-brands fa-github")]
+        [InlineData("fas fa-arrow-left", "fa-solid fa-arrow-left")]
+        [InlineData("far fa-address-book", "fa-regular fa-address-book")]
+        public void Legacy_Style_Should_Still_Work(string legacy, string version6)
+        {
+            // Act
+            var legacyPath = _iconProvider.GetIconPath(legacy);
+            var version6Path = _iconProvider.GetIconPath(version6);
+
+            // Assert
+            legacyPath.Should().Be(version6Path);
         }
 
         [Theory]

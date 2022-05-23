@@ -7,13 +7,13 @@ A library to easily display icons in an Avalonia App.
 | Name | Description | Version |
 |:-|:-|:-|
 | [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia) |
-| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome Free](https://fontawesome.com) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
+| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome 6 Free](https://fontawesome.com) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
 | [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
 
 ## Icon providers
 | Name | Prefix | Example|
 |:-|:-:|:-|
-|FontAwesome| `fa` | `fa-github`
+|FontAwesome 6| `fa` | `fa-github`
 |MaterialDesign| `mdi` | `mdi-github`
 ## Usage
 A full example is available in the [demo](demo) directory.
@@ -53,17 +53,17 @@ Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Ic
 
 **Standalone**
 ```xml
-<i:Icon Value="fab fa-github" />
+<i:Icon Value="fa-brands fa-github" />
 ```
 
 **Attached to ContentControl (e.g. Button)**
 ```xml
-<Button i:Attached.Icon="fab fa-github" />
+<Button i:Attached.Icon="fa-brands fa-github" />
 ```
 
 **Attached to MenuItem**
 ```xml
-<MenuItem Header="About" i:MenuItem.Icon="fas fa-info-circle" />
+<MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
 ```
 
 ### Done

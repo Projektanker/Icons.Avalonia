@@ -23,7 +23,7 @@ jobs:
         uses: ./.github/actions/minor-version
 
       - name: 📥 Download icons.json
-        run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json
+        run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/metadata/icons.json
 
       - name: ℹ git status
         run: git status

@@ -29,8 +29,8 @@
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="File">
-				<MenuItem Header="About" i:MenuItem.Icon="fas fa-info-circle" />
-				<MenuItem Header="Quit" Command="{Binding Close}" i:MenuItem.Icon="fas fa-sign-out-alt" />
+				<MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
+				<MenuItem Header="Quit" Command="{Binding Close}" i:MenuItem.Icon="fa-solid fa-right-from-bracket" />
 			</MenuItem>
 		</Menu>
 
@@ -39,22 +39,22 @@
 			<Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
 				<TextBlock Text="FontAwesome" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
 				<!--GitHub-->
-				<TextBlock Text="fab fa-github" Grid.Row="1" />
-				<i:Icon Value="fab fa-github" Grid.Row="1" Foreground="BlueViolet" />
-				<Button i:Attached.Icon="fab fa-github" Grid.Row="1" Foreground="BlueViolet" />
+				<TextBlock Text="fa-brands fa-github" Grid.Row="1" />
+				<i:Icon Value="fa-brands fa-github" Grid.Row="1" Foreground="BlueViolet" />
+				<Button i:Attached.Icon="fa-brands fa-github" Grid.Row="1" Foreground="BlueViolet" />
 
 				<!--Address Card-->
-				<TextBlock Text="fas fa-address-card" Grid.Row="2" />
-				<i:Icon Value="fas fa-address-card" Grid.Row="2" />
-				<Button i:Attached.Icon="fas fa-address-card" Grid.Row="2" />
+				<TextBlock Text="fa-solid fa-address-card" Grid.Row="2" />
+				<i:Icon Value="fa-solid fa-address-card" Grid.Row="2" />
+				<Button i:Attached.Icon="fa-solid fa-address-card" Grid.Row="2" />
 
-				<TextBlock Text="far fa-address-card" Grid.Row="3" />
-				<i:Icon Value="far fa-address-card" Grid.Row="3" />
-				<Button i:Attached.Icon="far fa-address-card" Grid.Row="3" />
+				<TextBlock Text="fa-regular fa-address-card" Grid.Row="3" />
+				<i:Icon Value="fa-regular fa-address-card" Grid.Row="3" />
+				<Button i:Attached.Icon="fa-regular fa-address-card" Grid.Row="3" />
 
-				<TextBlock Text="fas fa-info(-circle)" Grid.Row="4" />
-				<i:Icon Value="fas fa-info" Grid.Row="4" Foreground="DodgerBlue" />
-				<Button i:Attached.Icon="fas fa-info-circle" Grid.Row="4" Foreground="DodgerBlue" />
+				<TextBlock Text="fa-solid fa(-circle)-info" Grid.Row="4" />
+				<i:Icon Value="fa-solid fa-info" Grid.Row="4" Foreground="DodgerBlue" />
+				<Button i:Attached.Icon="fa-solid fa-circle-info" Grid.Row="4" Foreground="DodgerBlue" />
 			</Grid>
 
 			<!--Material Design-->
