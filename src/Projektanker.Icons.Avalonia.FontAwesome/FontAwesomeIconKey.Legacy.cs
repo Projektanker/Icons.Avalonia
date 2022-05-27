@@ -240,6 +240,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
             ["money-check-alt"] = "money-check-dollar",
             ["mouse"] = "computer-mouse",
             ["mouse-pointer"] = "arrow-pointer",
+            ["paint-brush"] = "paintbrush",
             ["parking"] = "square-parking",
             ["pastafarianism"] = "spaghetti-monster-flying",
             ["pause-circle"] = "circle-pause",

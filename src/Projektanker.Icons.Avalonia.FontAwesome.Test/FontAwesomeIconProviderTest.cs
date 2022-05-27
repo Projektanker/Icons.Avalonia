@@ -295,6 +295,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         [InlineData("money-check-alt", "money-check-dollar")]
         [InlineData("mouse", "computer-mouse")]
         [InlineData("mouse-pointer", "arrow-pointer")]
+        [InlineData("paint-brush", "paintbrush")]
         [InlineData("parking", "square-parking")]
         [InlineData("pastafarianism", "spaghetti-monster-flying")]
         [InlineData("pause-circle", "circle-pause")]
