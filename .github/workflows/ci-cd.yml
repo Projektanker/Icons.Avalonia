@@ -51,7 +51,7 @@ jobs:
 
       - name: 📜 Version
         run: |
-          echo success: ${{ steps.get-version.outputs.success }}; version: ${{ steps.get-version.outputs.version }}
+          echo "success: ${{ steps.get-version.outputs.success }}; version: ${{ steps.get-version.outputs.version }}"
 
 
   publish:
