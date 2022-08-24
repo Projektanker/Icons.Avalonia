@@ -13,7 +13,7 @@ runs:
         TAG=$(git describe --tags --abbrev=0)
         echo "TAG: $TAG"
         VERSION=$(echo $TAG | grep -oE "[0-9]+.[0-9]+.[0-9]+$")
-        echo "VERSION: $VERSION"
+        echo "original version: $VERSION"
         VERSION=$(echo $VERSION | awk -F. '{print $1 "." (1+$2) ".0"}')
-        echo "Increased VERSION: $VERSION"
+        echo "increased version: $VERSION"
         echo "::set-output name=version::$(echo $VERSION)"
