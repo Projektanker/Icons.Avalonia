@@ -42,9 +42,13 @@ jobs:
       success: ${{ steps.get-version.outputs.success }}
       version: ${{ steps.get-version.outputs.version }}
     steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v2
+
       - name: 1️⃣2️⃣3️⃣ Get VERSION
         id: get-version
         uses: ./.github/actions/version
+
       - name: 📜 Version
         run: |
           echo success: ${{ steps.get-version.outputs.success }}; version: ${{ steps.get-version.outputs.version }}
