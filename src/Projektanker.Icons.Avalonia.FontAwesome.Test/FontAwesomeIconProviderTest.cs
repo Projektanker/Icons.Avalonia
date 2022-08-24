@@ -303,7 +303,6 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         [InlineData("pen-square", "square-pen")]
         [InlineData("pencil-alt", "pencil")]
         [InlineData("pencil-ruler", "pen-ruler")]
-        [InlineData("people-arrows", "people-arrows-left-right")]
         [InlineData("percentage", "percent")]
         [InlineData("phone-alt", "phone-flip")]
         [InlineData("phone-square", "square-phone")]
