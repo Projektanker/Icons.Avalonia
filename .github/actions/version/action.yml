@@ -1,12 +1,20 @@
 name: '1️⃣2️⃣3️⃣ VERSION from tag'
 description: 'sets VERSION environment variable from tag'
+outputs:
+  version:
+    value: ${{ steps.get-version.outputs.version}}
+  success:
+    value: ${{ steps.get-version.outputs.success}}
 runs:
   using: "composite"
   steps:
-    - name: 1️⃣2️⃣3️⃣ Set VERSION
+    - id: get-version      
       shell: bash
       run: |
         echo $GITHUB_REF
-        TEMP=$(echo $GITHUB_REF | grep -oE "[0-9]+.[0-9]+.[0-9]+$")
-        echo $TEMP
-        echo "VERSION=${TEMP}" >> $GITHUB_ENV    
+        VERSION=$(echo $GITHUB_REF | grep -oE "[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9]+)?$" || true)
+        SUCCESS=$([ -z "$VERSION" ] && echo "false" || echo "true")
+        echo $VERSION
+        echo $SUCCESS
+        echo "::set-output name=version::$(echo $VERSION)"
+        echo "::set-output name=success::$(echo $SUCCESS)"
