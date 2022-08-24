@@ -2,8 +2,8 @@ name: CI-CD
 
 on:
   push:
-    tags: [ "[0-9]+.[0-9]+.[0-9]+" ]
-    branches: [ '**' ] 
+    tags:
+    branches:
   pull_request:
     branches: [ '**' ]
     types: [opened, synchronize, reopened, edited]
@@ -35,19 +35,33 @@ jobs:
       - name: 🧪 dotnet test
         run: dotnet test --configuration Release --no-restore
 
+  version:
+    name: 1️⃣2️⃣3️⃣ VERSION from tag
+    runs-on: ubuntu-latest
+    outputs:
+      success: ${{ steps.get-version.outputs.success }}
+      version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - name: 1️⃣2️⃣3️⃣ Get VERSION
+        id: get-version
+        uses: ./.github/actions/version
+      - name: 📜 Version
+        run: |
+          echo success: ${{ steps.get-version.outputs.success }}; version: ${{ steps.get-version.outputs.version }}
+
+
   publish:
     name: 📦 Publish to NuGet
     runs-on: ubuntu-latest
-    needs: test
-    if: startsWith(github.ref, 'refs/tags/') && needs.test.result == 'success'
+    needs: 
+      - test
+      - version
+    if: needs.test.result == 'success' && needs.version.outputs.success == 'true'
 
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v2
       
-      - name: 1️⃣2️⃣3️⃣ Set VERSION
-        uses: ./.github/actions/version
-
       - name: 🟣 Setup .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
@@ -58,4 +72,4 @@ jobs:
         with:
           working-directory: src
           api-key: ${{ secrets.NUGET_API_KEY }}
-          version: ${{ env.VERSION }}
+          version: ${{ needs.version.outputs.success }}
