@@ -49,11 +49,6 @@ jobs:
         id: get-version
         uses: ./.github/actions/version
 
-      - name: 📜 Version
-        run: |
-          echo "success: ${{ steps.get-version.outputs.success }}; version: ${{ steps.get-version.outputs.version }}"
-
-
   publish:
     name: 📦 Publish to NuGet
     runs-on: ubuntu-latest
