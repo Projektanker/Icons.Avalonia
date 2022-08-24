@@ -76,4 +76,4 @@ jobs:
         with:
           working-directory: src
           api-key: ${{ secrets.NUGET_API_KEY }}
-          version: ${{ needs.version.outputs.success }}
+          version: ${{ needs.version.outputs.version }}
