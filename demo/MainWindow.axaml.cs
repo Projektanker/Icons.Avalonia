@@ -1,6 +1,9 @@
-﻿using Avalonia;
+﻿using System;
+using System.Collections.Generic;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Projektanker.Icons.Avalonia;
 
 namespace Demo
 {
@@ -14,6 +17,8 @@ namespace Demo
 #endif
             DataContext = this;
         }
+
+        public IEnumerable<IconAnimation> Animations => Enum.GetValues<IconAnimation>();
 
         private void InitializeComponent()
         {
