@@ -38,6 +38,11 @@
 			</Style.Animations>
 		</Style>
 	</TemplatedControl.Styles>
+	<TemplatedControl.RenderTransform>
+		<TransformGroup>
+			<RotateTransform/>
+		</TransformGroup>
+	</TemplatedControl.RenderTransform>
 	<TemplatedControl.Template>
 		<ControlTemplate>
 			<Image Height="{TemplateBinding FontSize}"
