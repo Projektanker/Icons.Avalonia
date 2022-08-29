@@ -66,12 +66,12 @@ Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Ic
 <MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
 ```
 
-**Animated**
+**Animated**  
+⚠️ There is currently a bug in Avalonia 11: https://github.com/AvaloniaUI/Avalonia/issues/8791
 ```xml
 <i:Icon Value="fa-spinner" Animation="Pulse" />
 <i:Icon Value="fa-sync" Animation="Spin" />
 ```
-
 
 ### Done
 

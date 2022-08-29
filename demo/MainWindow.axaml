@@ -88,7 +88,7 @@
 
 			<!--Animations-->
 			<Grid Grid.Column="2" RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="32,4,4,4">
-				<TextBlock Text="Animations" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
+				<TextBlock Text="Animations" Grid.Row="0" Grid.ColumnSpan="2"  Classes="h1" />
 
 				<TextBlock Text="fa-spinner (Pulse)" Grid.Row="1" />
 				<i:Icon Value="fa-spinner" Animation="Pulse" Grid.Row="1" />
