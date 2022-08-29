@@ -18,6 +18,10 @@
 			<Setter Property="Grid.Column" Value="1" />
 			<Setter Property="Margin" Value="5" />
 		</Style>
+		<Style Selector="StackPanel > i|Icon">
+			<Setter Property="FontSize" Value="24" />
+			<Setter Property="Margin" Value="5" />
+		</Style>
 		<Style Selector="Button">
 			<Setter Property="FontSize" Value="24" />
 			<Setter Property="Grid.Column" Value="2" />
@@ -34,7 +38,7 @@
 			</MenuItem>
 		</Menu>
 
-		<Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto" Margin="4">
+		<Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto, Auto" Margin="4">
 			<!--Font Awesome-->
 			<Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="4">
 				<TextBlock Text="FontAwesome" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
@@ -77,6 +81,35 @@
 				<TextBlock Text="mdi-information(-variant)" Grid.Row="4" />
 				<i:Icon Value="mdi-information-variant" Grid.Row="4" Foreground="DodgerBlue" />
 				<Button i:Attached.Icon="mdi-information" Grid.Row="4" Foreground="DodgerBlue" />
+			</Grid>
+
+			<!--Animations-->
+			<Grid Grid.Column="2" RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto, Auto" Margin="32,4,4,4">
+				<TextBlock Text="Animations" Grid.Row="0" Grid.ColumnSpan="2" FontSize="{StaticResource FontSizeLarge}" />
+
+				<TextBlock Text="fa-spinner (Pulse)" Grid.Row="1" />
+				<i:Icon Value="fa-spinner" Animation="Pulse" Grid.Row="1" />
+				<Button Grid.Row="1">
+					<i:Icon Value="fa-spinner" Animation="Pulse" />
+				</Button>
+
+				<TextBlock Text="fa-sync (Spin)" Grid.Row="2" />
+				<i:Icon Value="fa-sync" Animation="Spin" Grid.Row="2" />
+				<Button Grid.Row="2">
+					<i:Icon Value="fa-sync" Animation="Spin" />
+				</Button>
+
+				<TextBlock Text="mdi-cog (Spin)" Grid.Row="3" />
+				<i:Icon Value="mdi-cog" Animation="Spin" Grid.Row="3" />
+				<Button Grid.Row="3">
+					<i:Icon Value="fa-cog" Animation="Spin" />
+				</Button>
+
+				<TextBlock Text="mdi-progress-helper (Pulse)" Grid.Row="4" />
+				<i:Icon Value="mdi-progress-helper" Animation="Pulse" Grid.Row="4" />
+				<Button Grid.Row="4">
+					<i:Icon Value="mdi-progress-helper" Animation="Pulse" />
+				</Button>
 			</Grid>
 
 			<!--Actions-->

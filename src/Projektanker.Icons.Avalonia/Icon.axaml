@@ -2,18 +2,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		     xmlns:local="clr-namespace:Projektanker.Icons.Avalonia"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:Class="Projektanker.Icons.Avalonia.Icon">
 
-    <TemplatedControl.Template>
-        <ControlTemplate>
-            <Image Height="{TemplateBinding FontSize}"
+	<TemplatedControl.Styles>
+		<Style Selector="local|Icon[Animation=Spin]">
+			<Style.Animations>
+				<Animation Duration="0:0:2" IterationCount="INFINITE">
+					<KeyFrame Cue="0%">
+						<Setter Property="RotateTransform.Angle" Value="0" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="RotateTransform.Angle" Value="360" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="local|Icon[Animation=Pulse]">
+			<Style.Animations>
+				<Animation Duration="0:0:2"
+						   IterationCount="INFINITE">
+					<Animation.Easing>
+						<local:PulseEasing />
+					</Animation.Easing>
+					<KeyFrame Cue="0%">
+						<Setter Property="RotateTransform.Angle" Value="0" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="RotateTransform.Angle" Value="360" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+	</TemplatedControl.Styles>
+	<TemplatedControl.Template>
+		<ControlTemplate>
+			<Image Height="{TemplateBinding FontSize}"
                    Width="{TemplateBinding FontSize}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Source="{TemplateBinding DrawingImage}" />
-        </ControlTemplate>
-    </TemplatedControl.Template>
+		</ControlTemplate>
+	</TemplatedControl.Template>
 </TemplatedControl>
