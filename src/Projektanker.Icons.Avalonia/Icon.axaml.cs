@@ -14,6 +14,9 @@ namespace Projektanker.Icons.Avalonia
         public static readonly StyledProperty<string> ValueProperty =
             AvaloniaProperty.Register<Icon, string>(nameof(Value));
 
+        public static readonly StyledProperty<IconAnimation> AnimationProperty =
+            AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
+
         private DrawingImage _drawingImage;
 
         static Icon()
@@ -39,6 +42,12 @@ namespace Projektanker.Icons.Avalonia
         {
             get => GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
+        }
+
+        public IconAnimation Animation
+        {
+            get => GetValue(AnimationProperty);
+            set => SetValue(AnimationProperty, value);
         }
 
         private void OnValueChanged()

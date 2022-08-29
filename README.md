@@ -66,6 +66,13 @@ Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Ic
 <MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
 ```
 
+**Animated**
+```xml
+<i:Icon Value="fa-spinner" Animation="Pulse" />
+<i:Icon Value="fa-sync" Animation="Spin" />
+```
+
+
 ### Done
 
 ![Screenshot](https://github.com/Projektanker/Icons.Avalonia/raw/main/resources/demo.png)
