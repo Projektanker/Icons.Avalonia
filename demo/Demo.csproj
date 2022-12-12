@@ -4,11 +4,11 @@
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview1" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview1" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview1" />
-        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview1" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview1" />
+        <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview4" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview4" />
+        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview4" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview4" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
