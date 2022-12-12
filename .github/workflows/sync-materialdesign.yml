@@ -3,7 +3,7 @@ name: 🔄 Sync Material Design
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * 0'
+    - cron: "0 3 * * 0"
 defaults:
   run:
     working-directory: src/Projektanker.Icons.Avalonia.MaterialDesign
@@ -12,14 +12,14 @@ jobs:
   sync:
     name: 🔄 Sync Material Design
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 🛒 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: 1️⃣2️⃣3️⃣ Increase minor VERSION      
+      - name: 1️⃣2️⃣3️⃣ Increase minor VERSION
         id: get-version
         uses: ./.github/actions/minor-version
 
@@ -28,7 +28,7 @@ jobs:
 
       - name: 📦 unzip archive
         run: unzip archive.zip -d temp
-      
+
       - name: 🧹 Clear Assets directory
         run: rm ./Assets/*
 
@@ -39,7 +39,7 @@ jobs:
         run: |
           rm -r ./temp
           rm archive.zip
-      
+
       - name: ℹ git status
         run: git status
 
@@ -49,7 +49,7 @@ jobs:
 
       - name: 🟣 Setup .NET 6.0
         if: steps.git-check.outputs.modified == 'true'
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
 
@@ -66,7 +66,7 @@ jobs:
           git commit -m "🔄 Material Design icons changed."
           git tag ${{ steps.get-version.outputs.version }}
           git push && git push --tags
-      
+
       - name: 📦 Pack 🚀 Push
         if: steps.git-check.outputs.modified == 'true'
         uses: ./.github/actions/nuget
@@ -74,4 +74,3 @@ jobs:
           working-directory: src
           api-key: ${{ secrets.NUGET_API_KEY }}
           version: ${{ steps.get-version.outputs.version }}
-
