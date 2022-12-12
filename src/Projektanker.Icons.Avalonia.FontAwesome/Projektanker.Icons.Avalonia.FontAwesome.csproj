@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <Description>A library to easily display FontAwesome icons in an Avalonia App.</Description>
+		<LangVersion>9</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <EmbeddedResource Include="Assets\icons.json" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Text.Json" Version="6.0.2" />
+        <PackageReference Include="System.Text.Json" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>

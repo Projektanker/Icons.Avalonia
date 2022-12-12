@@ -1,5 +1,5 @@
-name: '1️⃣2️⃣3️⃣ Increase minor VERSION from tag'
-description: 'gets version from tag, increases minor'
+name: "1️⃣2️⃣3️⃣ Increase minor VERSION from tag"
+description: "gets version from tag, increases minor"
 outputs:
   version:
     value: ${{ steps.get-version.outputs.version}}
@@ -16,4 +16,4 @@ runs:
         echo "original version: $VERSION"
         VERSION=$(echo $VERSION | awk -F. '{print $1 "." (1+$2) ".0"}')
         echo "increased version: $VERSION"
-        echo "::set-output name=version::$(echo $VERSION)"
+        echo "version=$(echo $VERSION)" >> $GITHUB_OUTPUT
