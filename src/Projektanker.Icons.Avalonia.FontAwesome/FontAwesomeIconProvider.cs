@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome
 {
@@ -45,18 +44,13 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"{assembly.GetName().Name}.Assets.icons.json";
-            using (var stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                var result = JsonSerializer.Deserialize<Dictionary<string, FontAwesomeIcon>>(
-                    stream,
-                    new JsonSerializerOptions()
-                    {
-                        PropertyNameCaseInsensitive = true,
-                        Converters = { new JsonStringEnumConverter() }
-                    });
+            using var stream = assembly.GetManifestResourceStream(resourceName);
 
-                return result;
-            }
+            var result = JsonSerializer.Deserialize(
+                stream,
+                FontAwesomeIconsJsonContext.Default.DictionaryStringFontAwesomeIcon);
+
+            return result;
         }
     }
 }

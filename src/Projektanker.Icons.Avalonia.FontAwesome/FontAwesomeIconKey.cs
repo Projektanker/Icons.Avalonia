@@ -38,23 +38,13 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
 
         private static Style? GetStyle(string value)
         {
-            switch (value.ToUpperInvariant())
+            return value.ToUpperInvariant() switch
             {
-                case "FA-SOLID":
-                case "FAS":
-                    return FontAwesome.Style.Solid;
-
-                case "FA-REGULAR":
-                case "FAR":
-                    return FontAwesome.Style.Regular;
-
-                case "FA-BRANDS":
-                case "FAB":
-                    return FontAwesome.Style.Brands;
-
-                default:
-                    return null;
-            }
+                "FA-SOLID" or "FAS" => (Style?)FontAwesome.Style.Solid,
+                "FA-REGULAR" or "FAR" => (Style?)FontAwesome.Style.Regular,
+                "FA-BRANDS" or "FAB" => (Style?)FontAwesome.Style.Brands,
+                _ => null,
+            };
         }
 
         private static string GetValue(string input)
