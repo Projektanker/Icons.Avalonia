@@ -48,7 +48,7 @@ jobs:
         run: |
           git config --global user.name '${{ secrets.GIT_USER }}'
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
-          git commit -am "🔄 Fontawesome icons changed."
+          git commit -am "feat(FontAwesome): 🔄 icons changed."
           git tag ${{ steps.get-version.outputs.version }}
           git push && git push --tags
 

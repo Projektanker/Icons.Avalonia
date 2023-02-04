@@ -63,7 +63,7 @@ jobs:
           git config --global user.name '${{ secrets.GIT_USER }}'
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
           git add .
-          git commit -m "🔄 Material Design icons changed."
+          git commit -m "feat(Material Design): 🔄 icons changed."
           git tag ${{ steps.get-version.outputs.version }}
           git push && git push --tags
 
