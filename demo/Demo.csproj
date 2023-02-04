@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview4" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview4" />
-        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview4" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview4" />
+        <PackageReference Include="Avalonia" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview5" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />

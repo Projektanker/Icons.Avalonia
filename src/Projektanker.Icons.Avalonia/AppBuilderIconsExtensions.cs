@@ -1,12 +1,11 @@
 ﻿using System;
-using Avalonia.Controls;
+using Avalonia;
 
 namespace Projektanker.Icons.Avalonia
 {
     public static class AppBuilderIconsExtensions
     {
-        public static TAppBuilder WithIcons<TAppBuilder>(this TAppBuilder appBuilder, Action<IIconProviderContainer> configure)
-             where TAppBuilder : AppBuilderBase<TAppBuilder>, new()
+        public static AppBuilder WithIcons(this AppBuilder appBuilder, Action<IIconProviderContainer> configure)
         {
             var iconProvider = new IconProvider();
             configure(iconProvider);
