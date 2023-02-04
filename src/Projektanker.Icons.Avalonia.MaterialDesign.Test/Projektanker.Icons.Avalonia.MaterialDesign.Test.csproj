@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview4" />
+    <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview5" />
     <PackageReference Include="FluentAssertions" Version="6.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
