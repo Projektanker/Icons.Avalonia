@@ -22,11 +22,11 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         {
             if (!FontAwesomeIconKey.TryParse(value, out FontAwesomeIconKey key))
             {
-                throw new KeyNotFoundException($"FontAwesome Icon \"{value}\" not found!");
+                throw new KeyNotFoundException($"FontAwesome icon \"{value}\" not found!");
             }
             else if (!Icons.TryGetValue(key.Value, out FontAwesomeIcon icon))
             {
-                throw new KeyNotFoundException($"FontAwesome Icon \"{key.Value}\" not found!");
+                throw new KeyNotFoundException($"FontAwesome icon \"{key.Value}\" not found!");
             }
             else if (!key.Style.HasValue)
             {
@@ -37,7 +37,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
                 return svg.Path;
             }
 
-            throw new KeyNotFoundException($"FontAwesome Style \"{key.Style}\" not found!");
+            throw new KeyNotFoundException($"FontAwesome style \"{key.Style}\" not found for icon \"{key.Value}\". Maybe you are trying to use an unsupported pro icon.");
         }
 
         private static Dictionary<string, FontAwesomeIcon> Parse()
