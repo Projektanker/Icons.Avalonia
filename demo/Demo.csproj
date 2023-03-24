@@ -2,13 +2,14 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
+		<AvaloniaNameGeneratorIsEnabled>false</AvaloniaNameGeneratorIsEnabled>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview5" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview5" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview5" />
-        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview5" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia.Skia" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview6" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
