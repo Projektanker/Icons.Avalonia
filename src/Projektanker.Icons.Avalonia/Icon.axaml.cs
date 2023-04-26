@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Linq;
+using System.Text;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
@@ -53,7 +54,18 @@ namespace Projektanker.Icons.Avalonia
         private void OnValueChanged()
         {
             var iconProvider = AvaloniaLocator.Current.GetService<IIconReader>();
-            string path = iconProvider.GetIconPath(Value);
+
+            if (iconProvider is null)
+            {
+                var msg = new StringBuilder()
+                    .AppendLine($"No {nameof(IIconProvider)} was registered with the application during startup.")
+                    .AppendLine($"Please use the extension method {nameof(AppBuilderIconsExtensions.WithIcons)} to register at least one {nameof(IIconProvider)}")
+                    .ToString();
+
+                throw new ArgumentException(msg);
+            }
+
+            var path = iconProvider.GetIconPath(Value);
             var drawing = new GeometryDrawing()
             {
                 Geometry = Geometry.Parse(path),
