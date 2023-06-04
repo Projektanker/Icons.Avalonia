@@ -7,10 +7,8 @@ namespace Projektanker.Icons.Avalonia
     {
         public static AppBuilder WithIcons(this AppBuilder appBuilder, Action<IIconProviderContainer> configure)
         {
-            var iconProvider = new IconProvider();
-            configure(iconProvider);
-            appBuilder.With<IIconReader>(iconProvider);
-
+            IconProvider.Shared = new();
+            configure(IconProvider.Shared);
             return appBuilder;
         }
     }

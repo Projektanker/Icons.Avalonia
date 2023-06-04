@@ -53,7 +53,7 @@ namespace Projektanker.Icons.Avalonia
 
         private void OnValueChanged()
         {
-            var iconProvider = AvaloniaLocator.Current.GetService<IIconReader>();
+            var iconProvider = IconProvider.Shared;
 
             if (iconProvider is null)
             {
