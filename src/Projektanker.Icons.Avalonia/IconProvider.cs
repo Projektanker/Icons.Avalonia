@@ -9,6 +9,10 @@ namespace Projektanker.Icons.Avalonia
     /// </summary>
     public class IconProvider : IIconReader, IIconProviderContainer
     {
+#nullable enable
+        public static IconProvider? Shared { get; internal set; }
+#nullable disable
+
         private readonly SortedList<string, IIconProvider> _iconProvidersByPrefix = new(Comparer<string>.Default);
 
         /// <inheritdoc/>
