@@ -53,19 +53,7 @@ namespace Projektanker.Icons.Avalonia
 
         private void OnValueChanged()
         {
-            var iconProvider = IconProvider.Shared;
-
-            if (iconProvider is null)
-            {
-                var msg = new StringBuilder()
-                    .AppendLine($"No {nameof(IIconProvider)} was registered with the application during startup.")
-                    .AppendLine($"Please use the extension method {nameof(AppBuilderIconsExtensions.WithIcons)} to register at least one {nameof(IIconProvider)}")
-                    .ToString();
-
-                throw new ArgumentException(msg);
-            }
-
-            var path = iconProvider.GetIconPath(Value);
+            var path = IconProvider.Current.GetIconPath(Value);
             var drawing = new GeometryDrawing()
             {
                 Geometry = Geometry.Parse(path),

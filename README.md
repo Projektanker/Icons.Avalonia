@@ -19,7 +19,7 @@ A library to easily display icons in an Avalonia App.
 A full example is available in the [demo](demo) directory.
 
 ### 1. Register icon providers on app start up
-Register the icon provider(s) with the `AppBuilder`.
+Register the icon provider(s) with the `IconProvider.Current`.
 ```csharp
 class Program
 {
@@ -35,12 +35,13 @@ class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {
+        IconProvider.Current
+            .Register<FontAwesomeIconProvider>()
+            .Register<MaterialDesignIconProvider>();
+
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace()
-            .WithIcons(container => container
-                .Register<FontAwesomeIconProvider>()
-                .Register<MaterialDesignIconProvider>());
+            .LogToTrace();
     }
 }
 ```

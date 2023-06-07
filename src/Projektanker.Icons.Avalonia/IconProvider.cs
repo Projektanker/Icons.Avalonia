@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Projektanker.Icons.Avalonia
 {
@@ -9,11 +10,8 @@ namespace Projektanker.Icons.Avalonia
     /// </summary>
     public class IconProvider : IIconReader, IIconProviderContainer
     {
-#nullable enable
-        public static IconProvider? Shared { get; internal set; }
-#nullable disable
-
         private readonly SortedList<string, IIconProvider> _iconProvidersByPrefix = new(Comparer<string>.Default);
+        public static IconProvider Current { get; } = new IconProvider();
 
         /// <inheritdoc/>
         public string GetIconPath(string value)
@@ -29,7 +27,11 @@ namespace Projektanker.Icons.Avalonia
 
             if (provider is null)
             {
-                throw new KeyNotFoundException($"No provider with prefix matching \"{value}\" found.");
+                var msg = new StringBuilder()
+                    .AppendLine($"No {nameof(IIconProvider)} with prefix matching \"{value}\" was registered with the application during startup.")
+                    .AppendLine($"Please use {nameof(IconProvider)}.{nameof(Current)}.{nameof(Register)} to register at least one {nameof(IIconProvider)}")
+                    .ToString();
+                throw new KeyNotFoundException(msg);
             }
             else
             {
