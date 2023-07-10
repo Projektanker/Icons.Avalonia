@@ -45,11 +45,11 @@
 	</TemplatedControl.RenderTransform>
 	<TemplatedControl.Template>
 		<ControlTemplate>
-			<Image Height="{TemplateBinding FontSize}"
-                   Width="{TemplateBinding FontSize}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Source="{TemplateBinding DrawingImage}" />
+			<PathIcon Height="{TemplateBinding FontSize}"
+                      Width="{TemplateBinding FontSize}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Data="{TemplateBinding SvgGeometry}" />
 		</ControlTemplate>
 	</TemplatedControl.Template>
 </TemplatedControl>

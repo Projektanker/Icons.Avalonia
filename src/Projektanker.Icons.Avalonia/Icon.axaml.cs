@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reactive.Linq;
-using System.Text;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
@@ -9,8 +8,8 @@ namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
-        public static readonly DirectProperty<Icon, DrawingImage> DrawingImageProperty =
-            AvaloniaProperty.RegisterDirect<Icon, DrawingImage>(nameof(DrawingImage), o => o.DrawingImage);
+        public static readonly DirectProperty<Icon, Geometry> SvgGeometryProperty =
+            AvaloniaProperty.RegisterDirect<Icon, Geometry>(nameof(SvgGeometry), o => o.SvgGeometry);
 
         public static readonly StyledProperty<string> ValueProperty =
             AvaloniaProperty.Register<Icon, string>(nameof(Value));
@@ -18,25 +17,12 @@ namespace Projektanker.Icons.Avalonia
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
 
-        private DrawingImage _drawingImage;
+        private Geometry _svgGeometry;
 
-        static Icon()
+        public Geometry SvgGeometry
         {
-            ValueProperty.Changed
-                .Select(e => e.Sender)
-                .OfType<Icon>()
-                .Subscribe(icon => icon.OnValueChanged());
-
-            ForegroundProperty.Changed
-                .Select(e => e.Sender)
-                .OfType<Icon>()
-                .Subscribe(icon => icon.OnForegroundChanged());
-        }
-
-        public DrawingImage DrawingImage
-        {
-            get => _drawingImage;
-            private set => SetAndRaise(DrawingImageProperty, ref _drawingImage, value);
+            get => _svgGeometry;
+            private set => SetAndRaise(SvgGeometryProperty, ref _svgGeometry, value);
         }
 
         public string Value
@@ -51,27 +37,13 @@ namespace Projektanker.Icons.Avalonia
             set => SetValue(AnimationProperty, value);
         }
 
-        private void OnValueChanged()
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
         {
-            var path = IconProvider.Current.GetIconPath(Value);
-            var drawing = new GeometryDrawing()
-            {
-                Geometry = Geometry.Parse(path),
-                Brush = Foreground ?? new SolidColorBrush(0),
-            };
+            base.OnPropertyChanged(e);
 
-            DrawingImage = new DrawingImage { Drawing = drawing };
-        }
-
-        private void OnForegroundChanged()
-        {
-            if (DrawingImage?.Drawing is GeometryDrawing geometryDrawing)
+            if (ReferenceEquals(e.Property, ValueProperty))
             {
-                DrawingImage.Drawing = new GeometryDrawing
-                {
-                    Geometry = geometryDrawing.Geometry,
-                    Brush = Foreground,
-                };
+                SvgGeometry = Geometry.Parse(IconProvider.Current.GetIconPath(Value));
             }
         }
     }
