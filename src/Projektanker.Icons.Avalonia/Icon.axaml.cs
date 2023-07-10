@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reactive.Linq;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 
