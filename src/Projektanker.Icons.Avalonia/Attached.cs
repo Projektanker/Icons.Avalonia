@@ -1,5 +1,4 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 
 namespace Projektanker.Icons.Avalonia
@@ -14,7 +13,7 @@ namespace Projektanker.Icons.Avalonia
 
         static Attached()
         {
-            IconProperty.Changed.Subscribe(IconChanged);
+            IconProperty.Changed.Subscribe(HandleIconChanged);
         }
 
         /// <summary>
@@ -33,16 +32,16 @@ namespace Projektanker.Icons.Avalonia
             target.SetValue(IconProperty, value);
         }
 
-        private static void IconChanged(AvaloniaPropertyChangedEventArgs evt)
+        private static void HandleIconChanged(AvaloniaPropertyChangedEventArgs<string> args)
         {
-            if (evt.NewValue is not string value || evt.Sender is not ContentControl target)
+            if (args.Sender is not ContentControl target)
             {
                 return;
             }
 
             target.Content = new Icon()
             {
-                Value = value,
+                Value = args.NewValue.GetValueOrDefault(string.Empty)
             };
         }
     }
