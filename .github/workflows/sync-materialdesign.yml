@@ -1,4 +1,4 @@
-name: 🔄 Sync Material Design
+name: 🔄 Material Design
 # https://stackoverflow.com/a/58468828
 on:
   workflow_dispatch:

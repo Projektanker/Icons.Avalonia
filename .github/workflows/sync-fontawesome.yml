@@ -1,4 +1,4 @@
-name: 🔄 Sync Fontawesome
+name: 🔄 Fontawesome
 # https://stackoverflow.com/a/58468828
 on:
   workflow_dispatch:
