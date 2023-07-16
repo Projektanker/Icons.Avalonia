@@ -53,7 +53,7 @@ jobs:
         if: steps.git-check.outputs.modified == 'true'
         run: dotnet test --configuration Release
 
-      - name: 💬 Commit latest release version
+      - name: 💬 Commit and push
         if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --global user.name '${{ secrets.GIT_USER }}'
