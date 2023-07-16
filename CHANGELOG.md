@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.0](https://github.com/Projektanker/Icons.Avalonia/compare/v7.0.0...v7.1.0) (2023-07-16)
+
+
+### Features
+
+* **FontAwesome:** 🔄 icons changed. ([f599933](https://github.com/Projektanker/Icons.Avalonia/commit/f5999331f0094d0d2b62bf69e65dd162fc6327b7))
+* **Material Design:** 🔄 icons changed. ([90a46bb](https://github.com/Projektanker/Icons.Avalonia/commit/90a46bb292338ad2ac604380a04995dcb3fb4479))
+
 ## [7.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v6.6.0...v7.0.0) (2023-07-16)
 
 
