@@ -19,6 +19,7 @@ namespace Projektanker.Icons.Avalonia
 
         static Icon()
         {
+            AffectsRender<Icon>(ValueProperty, AnimationProperty);
             ValueProperty.Changed.Subscribe(e => HandleValueChanged(e));
         }
 
