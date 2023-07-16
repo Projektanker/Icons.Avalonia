@@ -48,7 +48,7 @@ class Program
 
 ### 2. Add xml namespace
 
-Add `xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"` to your view.
+Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 
 ### 3. Use the icon
 
