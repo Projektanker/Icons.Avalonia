@@ -1,0 +1,10 @@
+name: 🧪 Test
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    name: 🧪 Test
+    uses: ./.github/workflows/call-test.yml

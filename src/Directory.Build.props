@@ -8,6 +8,9 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>avalonia icons</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+		<!--x-release-please-start-version-->
+		<Version>6.6.0</Version>
+		<!--x-release-please-end-->
     </PropertyGroup>
 
     <ItemGroup Condition="'$(ProjectName.EndsWith(`Test`))' == 'false'">

@@ -1,0 +1,20 @@
+name: 🚀 Push
+
+on:
+  push:
+    branches: ["**"]
+
+defaults:
+  run:
+    working-directory: src
+
+jobs:
+  test:
+    name: 🧪 Test
+    uses: ./.github/workflows/call-test.yml
+
+  release-please:
+    name: ✨ Release Please
+    uses: ./.github/workflows/call-release-please.yml
+    secrets:
+      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
