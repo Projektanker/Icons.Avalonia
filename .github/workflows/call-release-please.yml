@@ -1,4 +1,4 @@
-name: ✨ Release Please
+name: 📞 Release Please
 
 on:
   workflow_call:
