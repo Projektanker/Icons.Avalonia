@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/Projektanker/Icons.Avalonia/compare/v7.0.0...v7.0.1) (2023-07-16)
+
+
+### Bug Fixes
+
+* Fixes workflow status badges in README ([8054d9f](https://github.com/Projektanker/Icons.Avalonia/commit/8054d9fb5c2cb8c593331a9e3d0c36ca0e7a48dc))
+
 ## [7.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v6.6.0...v7.0.0) (2023-07-16)
 
 
