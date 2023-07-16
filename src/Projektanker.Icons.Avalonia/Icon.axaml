@@ -40,16 +40,17 @@
 	</TemplatedControl.Styles>
 	<TemplatedControl.RenderTransform>
 		<TransformGroup>
-			<RotateTransform/>
+			<RotateTransform />
 		</TransformGroup>
 	</TemplatedControl.RenderTransform>
 	<TemplatedControl.Template>
 		<ControlTemplate>
-			<Image Height="{TemplateBinding FontSize}"
-                   Width="{TemplateBinding FontSize}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Source="{TemplateBinding DrawingImage}" />
+			<Viewbox Width="{TemplateBinding FontSize}"
+					 Height="{TemplateBinding FontSize}">
+				<Path Data="{TemplateBinding PathData}"
+					  Fill="{TemplateBinding Foreground}"
+					  Stretch="Uniform" />
+			</Viewbox>
 		</ControlTemplate>
 	</TemplatedControl.Template>
 </TemplatedControl>

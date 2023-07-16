@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reactive.Linq;
-using System.Text;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
@@ -9,8 +8,8 @@ namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
-        public static readonly DirectProperty<Icon, DrawingImage> DrawingImageProperty =
-            AvaloniaProperty.RegisterDirect<Icon, DrawingImage>(nameof(DrawingImage), o => o.DrawingImage);
+        public static readonly DirectProperty<Icon, Geometry> PathDataProperty =
+            AvaloniaProperty.RegisterDirect<Icon, Geometry>(nameof(PathData), o => o.PathData);
 
         public static readonly StyledProperty<string> ValueProperty =
             AvaloniaProperty.Register<Icon, string>(nameof(Value));
@@ -18,25 +17,17 @@ namespace Projektanker.Icons.Avalonia
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
 
-        private DrawingImage _drawingImage;
+        private Geometry _pathData;
 
         static Icon()
         {
-            ValueProperty.Changed
-                .Select(e => e.Sender)
-                .OfType<Icon>()
-                .Subscribe(icon => icon.OnValueChanged());
-
-            ForegroundProperty.Changed
-                .Select(e => e.Sender)
-                .OfType<Icon>()
-                .Subscribe(icon => icon.OnForegroundChanged());
+            ValueProperty.Changed.Subscribe(e => HandleValueChanged(e));
         }
 
-        public DrawingImage DrawingImage
+        public Geometry PathData
         {
-            get => _drawingImage;
-            private set => SetAndRaise(DrawingImageProperty, ref _drawingImage, value);
+            get => _pathData;
+            private set => SetAndRaise(PathDataProperty, ref _pathData, value);
         }
 
         public string Value
@@ -51,28 +42,16 @@ namespace Projektanker.Icons.Avalonia
             set => SetValue(AnimationProperty, value);
         }
 
-        private void OnValueChanged()
+        private static void HandleValueChanged(AvaloniaPropertyChangedEventArgs<string> args)
         {
-            var path = IconProvider.Current.GetIconPath(Value);
-            var drawing = new GeometryDrawing()
+            if (args.Sender is not Icon icon)
             {
-                Geometry = Geometry.Parse(path),
-                Brush = Foreground ?? new SolidColorBrush(0),
-            };
-
-            DrawingImage = new DrawingImage { Drawing = drawing };
-        }
-
-        private void OnForegroundChanged()
-        {
-            if (DrawingImage?.Drawing is GeometryDrawing geometryDrawing)
-            {
-                DrawingImage.Drawing = new GeometryDrawing
-                {
-                    Geometry = geometryDrawing.Geometry,
-                    Brush = Foreground,
-                };
+                return;
             }
+
+            var value = args.NewValue.GetValueOrDefault(string.Empty);
+            var path = IconProvider.Current.GetIconPath(value);
+            icon.PathData = StreamGeometry.Parse(path);
         }
     }
 }
