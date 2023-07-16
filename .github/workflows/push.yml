@@ -16,6 +16,7 @@ jobs:
   release-please:
     name: ✨ Release Please
     needs: test
+    if: ${{ github.ref_name == 'main' }}
     uses: ./.github/workflows/call-release-please.yml
     secrets:
       nuget_api_key: ${{ secrets.NUGET_API_KEY }}
