@@ -12,7 +12,8 @@ jobs:
   sync:
     name: 🔄 Sync Material Design
     runs-on: ubuntu-latest
-
+    outputs:
+      modified: ${{ steps.git-check.outputs.modified }}
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v3
@@ -44,17 +45,17 @@ jobs:
         run: echo modified=$([ -z "`git status --porcelain`" ] && echo "false" || echo "true") >> $GITHUB_OUTPUT
 
       - name: 🟣 Setup .NET 7.0
-        if: steps.git-check.outputs.modified == 'true'
+        if: ${{ steps.git-check.outputs.modified == 'true' }}
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
 
       - name: 🧪 dotnet test
-        if: steps.git-check.outputs.modified == 'true'
+        if: ${{ steps.git-check.outputs.modified == 'true' }}
         run: dotnet test --configuration Release
 
       - name: 💬 Commit and push
-        if: steps.git-check.outputs.modified == 'true'
+        if: ${{ steps.git-check.outputs.modified == 'true' }}
         run: |
           git config --global user.name '${{ secrets.GIT_USER }}'
           git config --global user.email '${{ secrets.GIT_EMAIL }}'
@@ -65,6 +66,7 @@ jobs:
   release-please:
     name: ✨ Release Please
     needs: sync
+    if: ${{ needs.sync.outputs.modified == 'true' }}
     uses: ./.github/workflows/call-release-please.yml
     secrets:
       nuget_api_key: ${{ secrets.NUGET_API_KEY }}
