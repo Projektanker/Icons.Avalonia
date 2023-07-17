@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v7.0.1...v8.0.0) (2023-07-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `Icon` got an additional `Canvas` encapsulating the `Path`. This may affect styling.
+
+### Bug Fixes
+
+* Do not stretch icon paths to full size. Otherwise icons like [circle-medium](https://pictogrammers.com/library/mdi/icon/circle-medium/) won't be rendered as expected. ([8182200](https://github.com/Projektanker/Icons.Avalonia/commit/81822006afcee08301e93b9464d9055b9ce72f28))
+
 ## [7.0.1](https://github.com/Projektanker/Icons.Avalonia/compare/v7.0.0...v7.0.1) (2023-07-16)
 
 
