@@ -13,7 +13,7 @@ namespace Projektanker.Icons.Avalonia
 
         static MenuItem()
         {
-            IconProperty.Changed.Subscribe(IconChanged);
+            IconProperty.Changed.Subscribe(HandleIconChanged);
         }
 
         /// <summary>
@@ -32,16 +32,16 @@ namespace Projektanker.Icons.Avalonia
             target.SetValue(IconProperty, value);
         }
 
-        private static void IconChanged(AvaloniaPropertyChangedEventArgs evt)
+        private static void HandleIconChanged(AvaloniaPropertyChangedEventArgs<string> args)
         {
-            if (evt.NewValue is not string value || evt.Sender is not AvaloniaMenuItem target)
+            if (args.Sender is not AvaloniaMenuItem target)
             {
                 return;
             }
 
             target.Icon = new Icon()
             {
-                Value = value,
+                Value = args.NewValue.GetValueOrDefault(string.Empty),
             };
         }
     }
