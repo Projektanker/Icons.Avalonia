@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Description>A library to easily display FontAwesome icons in an Avalonia App.</Description>
     </PropertyGroup>
@@ -7,7 +7,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Text.Json" Version="7.0.0" />
+        <PackageReference Include="System.Text.Json" Version="7.0.3" />
     </ItemGroup>
 
     <ItemGroup>
