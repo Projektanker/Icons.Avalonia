@@ -1,5 +1,4 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using AvaloniaMenuItem = Avalonia.Controls.MenuItem;
 
 namespace Projektanker.Icons.Avalonia

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Projektanker.Icons.Avalonia.Models
+﻿namespace Projektanker.Icons.Avalonia.Models
 {
     public record ViewBoxModel(int X, int Y, int Width, int Height)
     {
