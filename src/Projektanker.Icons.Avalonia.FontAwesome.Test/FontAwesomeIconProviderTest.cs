@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Projektanker.Icons.Avalonia.Models;
 using SkiaSharp;
 using Xunit;
 
@@ -19,16 +20,11 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         [InlineData("fa-regular fa-address-book")]
         public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string value)
         {
-            // Act #1
-            var path = _iconProvider.GetIconPath(value);
+            // Act
+            var icon = _iconProvider.GetIcon(value);
+            var skiaPath = SKPath.ParseSvgPathData(icon.Path);
 
-            // Assert #1
-            path.Should().NotBeNullOrEmpty();
-
-            // Act #2
-            var skiaPath = SKPath.ParseSvgPathData(path);
-
-            // Assert #2
+            // Assert
             skiaPath.Should().NotBeNull();
             skiaPath.Bounds.IsEmpty.Should().BeFalse();
         }
@@ -40,7 +36,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist(string value)
         {
             // Act
-            Func<string> func = () => _iconProvider.GetIconPath(value);
+            Func<IconModel> func = () => _iconProvider.GetIcon(value);
 
             // Assert
             func.Should().Throw<KeyNotFoundException>();
@@ -53,11 +49,11 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         public void Legacy_Style_Should_Still_Work(string legacy, string version6)
         {
             // Act
-            var legacyPath = _iconProvider.GetIconPath(legacy);
-            var version6Path = _iconProvider.GetIconPath(version6);
+            var legacyIcon = _iconProvider.GetIcon(legacy);
+            var version6Icon = _iconProvider.GetIcon(version6);
 
             // Assert
-            legacyPath.Should().Be(version6Path);
+            legacyIcon.Should().Be(version6Icon);
         }
 
         [Theory]
@@ -456,11 +452,11 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
         public void Legacy_Value_Should_Be_Mapped_To_Version6(string legacy, string version6)
         {
             // Act
-            var legacyPath = _iconProvider.GetIconPath($"fa-{legacy}");
-            var version6Path = _iconProvider.GetIconPath($"fa-{version6}");
+            var legacyIcon = _iconProvider.GetIcon($"fa-{legacy}");
+            var version6Icon = _iconProvider.GetIcon($"fa-{version6}");
 
             // Assert
-            legacyPath.Should().Be(version6Path);
+            legacyIcon.Should().Be(version6Icon);
         }
     }
 }

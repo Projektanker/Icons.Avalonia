@@ -1,4 +1,5 @@
 ﻿using System;
+using Projektanker.Icons.Avalonia.FontAwesome.Models;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome
 {
@@ -40,9 +41,9 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
         {
             return value.ToUpperInvariant() switch
             {
-                "FA-SOLID" or "FAS" => (Style?)FontAwesome.Style.Solid,
-                "FA-REGULAR" or "FAR" => (Style?)FontAwesome.Style.Regular,
-                "FA-BRANDS" or "FAB" => (Style?)FontAwesome.Style.Brands,
+                "FA-SOLID" or "FAS" => (Style?)Models.Style.Solid,
+                "FA-REGULAR" or "FAR" => (Style?)Models.Style.Regular,
+                "FA-BRANDS" or "FAB" => (Style?)Models.Style.Brands,
                 _ => null,
             };
         }

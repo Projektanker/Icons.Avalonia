@@ -4,7 +4,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome
 {
     internal partial class FontAwesomeIconKey
     {
-        private static readonly Dictionary<string, string> _legacyToVersion6 = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> _legacyToVersion6 = new()
         {
             ["ad"] = "rectangle-ad",
             ["adjust"] = "circle-half-stroke",

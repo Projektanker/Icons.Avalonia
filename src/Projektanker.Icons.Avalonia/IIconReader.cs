@@ -1,4 +1,6 @@
-﻿namespace Projektanker.Icons.Avalonia
+﻿using Projektanker.Icons.Avalonia.Models;
+
+namespace Projektanker.Icons.Avalonia
 {
     /// <summary>
     /// Represents an icon reader.
@@ -13,6 +15,6 @@
         /// <exception cref="System.Collections.Generic.KeyNotFoundException">
         /// The icon associated with the specified <paramref name="value"/> does not exists.
         /// </exception>
-        string GetIconPath(string value);
+        IconModel GetIcon(string value);
     }
 }

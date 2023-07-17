@@ -1,6 +1,7 @@
 <Project>
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>10</LangVersion>
         <Authors>Sebastian Rumohr</Authors>
         <Company>Projektanker GmbH</Company>
         <PackageProjectUrl></PackageProjectUrl>

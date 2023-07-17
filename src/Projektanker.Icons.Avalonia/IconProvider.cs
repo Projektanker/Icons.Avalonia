@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Projektanker.Icons.Avalonia.Models;
 
 namespace Projektanker.Icons.Avalonia
 {
@@ -14,11 +15,11 @@ namespace Projektanker.Icons.Avalonia
         public static IconProvider Current { get; } = new IconProvider();
 
         /// <inheritdoc/>
-        public string GetIconPath(string value)
+        public IconModel GetIcon(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
-                return string.Empty;
+                return new IconModel(new ViewBoxModel(0, 0, 0, 0), new PathModel(string.Empty));
             }
 
             var provider = _iconProvidersByPrefix
@@ -35,7 +36,7 @@ namespace Projektanker.Icons.Avalonia
             }
             else
             {
-                return provider.GetIconPath(value);
+                return provider.GetIcon(value);
             }
         }
 

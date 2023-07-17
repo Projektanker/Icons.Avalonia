@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Projektanker.Icons.Avalonia.Models;
 
 namespace Projektanker.Icons.Avalonia.MaterialDesign
 {
@@ -15,13 +16,14 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign
         private static readonly string _resourceNameTemplate
             = $"{typeof(MaterialDesignIconProvider).Assembly.GetName().Name}.Assets.{{0}}.svg";
 
+        private static readonly Regex _viewBoxRegex = new Regex("viewBox=\"([0-9 -]+)\"");
         private static readonly Regex _pathRegex = new Regex("<path d=\"(.+)\"");
-        private readonly Dictionary<string, string> _icons = new Dictionary<string, string>();
+        private readonly Dictionary<string, IconModel> _icons = new Dictionary<string, IconModel>();
 
         public string Prefix => _mdiProviderPrefix;
 
         /// <inheritdoc/>
-        public string GetIconPath(string value)
+        public IconModel GetIcon(string value)
         {
             if (_icons.TryGetValue(value, out var icon))
             {
@@ -32,15 +34,19 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign
             return _icons[value] = icon;
         }
 
-        private static string GetIconFromResource(string value)
+        private static IconModel GetIconFromResource(string value)
         {
             using (Stream stream = GetIconResourceStream(value))
             using (TextReader textReader = new StreamReader(stream))
             {
                 var svg = textReader.ReadToEnd();
+                var viewBoxMath = _viewBoxRegex.Match(svg);
+                var viewBox = viewBoxMath.Groups[1].Value;
                 var pathMatch = _pathRegex.Match(svg);
                 var path = pathMatch.Groups[1].Value;
-                return path;
+                return new IconModel(
+                    ViewBoxModel.Parse(viewBox),
+                    new PathModel(path));
             }
         }
 

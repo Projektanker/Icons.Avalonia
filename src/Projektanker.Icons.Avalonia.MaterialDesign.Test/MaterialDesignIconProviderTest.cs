@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Projektanker.Icons.Avalonia.Models;
 using SkiaSharp;
 using Xunit;
 
@@ -17,16 +18,11 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign.Test
         [InlineData("github")]
         public void Icon_Should_Exist_And_Be_Valid_SVG_Path(string value)
         {
-            // Act #1
-            var path = _iconProvider.GetIconPath($"mdi-{value}");
+            // Act
+            var icon = _iconProvider.GetIcon($"mdi-{value}");
+            var skiaPath = SKPath.ParseSvgPathData(icon.Path);
 
-            // Assert #1
-            path.Should().NotBeNullOrEmpty();
-
-            // Act #2
-            var skiaPath = SKPath.ParseSvgPathData(path);
-
-            // Assert #2
+            // Assert
             skiaPath.Should().NotBeNull();
             skiaPath.Bounds.IsEmpty.Should().BeFalse();
         }
@@ -37,7 +33,7 @@ namespace Projektanker.Icons.Avalonia.MaterialDesign.Test
         public void IconProvider_Should_Throw_Exception_If_Icon_Does_Not_Exist(string value)
         {
             // Act
-            Func<string> func = () => _iconProvider.GetIconPath(value);
+            Func<IconModel> func = () => _iconProvider.GetIcon(value);
 
             // Assert
             func.Should().Throw<KeyNotFoundException>()

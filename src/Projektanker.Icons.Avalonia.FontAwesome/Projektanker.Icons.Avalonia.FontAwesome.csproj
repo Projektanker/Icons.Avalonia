@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Description>A library to easily display FontAwesome icons in an Avalonia App.</Description>
-		<LangVersion>9</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <EmbeddedResource Include="Assets\icons.json" />

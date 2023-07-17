@@ -3,8 +3,7 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:i="https://github.com/projektanker/icons.avalonia"
-		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-		x:Class="Demo.MainWindow"
+		mc:Ignorable="d" x:Class="Demo.MainWindow"
 		SizeToContent="WidthAndHeight"
 		Title="Demo">
 	<Window.Styles>
@@ -73,10 +72,10 @@
 				<i:Icon Value="mdi-github" Grid.Row="1" Foreground="BlueViolet" />
 				<Button i:Attached.Icon="mdi-github" Grid.Row="1" Foreground="BlueViolet" IsEnabled="{Binding IsEnabled}" />
 
-				<!--map-marker-->
-				<TextBlock Text="mdi-map-marker" Grid.Row="2" />
-				<i:Icon Value="mdi-map-marker" Grid.Row="2" />
-				<Button i:Attached.Icon="mdi-map-marker" Grid.Row="2"  IsEnabled="{Binding IsEnabled}" />
+				<!--circle-medium-->
+				<TextBlock Text="mdi-circle-medium" Grid.Row="2" />
+				<i:Icon Value="mdi-circle-medium" Grid.Row="2" />
+				<Button i:Attached.Icon="mdi-circle-medium" Grid.Row="2"  IsEnabled="{Binding IsEnabled}" />
 
 				<TextBlock Text="mdi-map-marker-outline" Grid.Row="3" />
 				<i:Icon Value="mdi-map-marker-outline" Grid.Row="3" />
