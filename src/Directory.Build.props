@@ -10,7 +10,7 @@
         <PackageTags>avalonia icons</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
 		<!--x-release-please-start-version-->
-		<Version>7.0.1</Version>
+		<Version>8.0.0</Version>
 		<!--x-release-please-end-->
     </PropertyGroup>
 
