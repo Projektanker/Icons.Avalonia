@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.1.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.0.0...v8.1.0) (2023-07-26)
+
+
+### Features
+
+* Sign assemblies with a strong key. ([1101b51](https://github.com/Projektanker/Icons.Avalonia/commit/1101b51262d2ecb5ff0d5387ea98110943e955bd)), closes [#55](https://github.com/Projektanker/Icons.Avalonia/issues/55)
+
+
+### Bug Fixes
+
+* Fixes the outdated interface documentation ([e695c03](https://github.com/Projektanker/Icons.Avalonia/commit/e695c038b15483b93cef8c9b559214f03c1fa9eb))
+
 ## [8.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v7.0.1...v8.0.0) (2023-07-17)
 
 
