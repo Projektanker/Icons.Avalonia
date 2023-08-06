@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.1.0...v8.2.0) (2023-08-06)
+
+
+### Features
+
+* **FontAwesome:** 🔄 icons changed. ([8e17fbc](https://github.com/Projektanker/Icons.Avalonia/commit/8e17fbc9dcb8bf511ac0d50320558c0f4dc44c2b))
+
 ## [8.1.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.0.0...v8.1.0) (2023-07-26)
 
 
