@@ -56,17 +56,22 @@ Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 
 **Standalone**
 ```xml
-<i:Icon Value="fa-brands fa-github" />
+<i:Icon Value="fa-brands fa-anchor" />
 ```
 
 **Attached to ContentControl (e.g. Button)**
 ```xml
-<Button i:Attached.Icon="fa-brands fa-github" />
+<Button i:Attached.Icon="fa-brands fa-anchor" />
 ```
 
 **Attached to MenuItem**
 ```xml
 <MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
+```
+
+**Custom icon size**  
+```xml
+<i:Icon Value="fa-brands fa-anchor" FontSize="24" />
 ```
 
 **Animated**  
