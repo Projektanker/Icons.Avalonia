@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <IsPackable>false</IsPackable>
@@ -8,7 +8,7 @@
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="11.0.2" />
         <PackageReference Include="Avalonia.Diagnostics" Version="11.0.2" />
-        <PackageReference Include="Avalonia.Skia" Version="11.0.2" />
+        <PackageReference Include="Avalonia.Skia" Version="11.0.3" />
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.2" />
         <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.2" />
     </ItemGroup>
