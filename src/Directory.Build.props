@@ -10,7 +10,7 @@
         <PackageTags>avalonia icons</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
 		<!--x-release-please-start-version-->
-		<Version>8.2.0</Version>
+		<Version>8.3.0</Version>
 		<!--x-release-please-end-->
 		<SignAssembly>True</SignAssembly>
 		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Projektanker.Icons.Avalonia.snk</AssemblyOriginatorKeyFile>
