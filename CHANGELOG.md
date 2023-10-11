@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.2.0...v8.3.0) (2023-10-08)
+
+
+### Features
+
+* **Material Design:** 🔄 icons changed. ([5804439](https://github.com/Projektanker/Icons.Avalonia/commit/5804439b434f8a8451bbd33b881a1d2bb829c581))
+
 ## [8.2.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.1.0...v8.2.0) (2023-08-06)
 
 
