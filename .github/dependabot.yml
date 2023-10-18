@@ -8,4 +8,10 @@ updates:
     labels:
       - "dependencies"
     commit-message:
-      prefix: "build(deps)"
+      prefix: "build"
+      include: "scope"
+    ignore:
+      - dependency-name: "Avalonia*"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
