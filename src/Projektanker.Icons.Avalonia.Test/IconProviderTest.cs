@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Moq;
+using NSubstitute;
 using Projektanker.Icons.Avalonia.Models;
 using Xunit;
 
@@ -13,15 +13,15 @@ namespace Projektanker.Icons.Avalonia.Test
 
         public IconProviderTest()
         {
-            var mock = new Mock<IIconProvider>();
-            mock.Setup(provider => provider.GetIcon(It.IsAny<string>()))
-                .Returns<string>(arg => new IconModel(new ViewBoxModel(0, 0, 0, 0), new PathModel(arg)));
+            var reader = Substitute.For<IIconProvider>();
+            reader.GetIcon(Arg.Any<string>())
+                .Returns(info => new IconModel(new ViewBoxModel(0, 0, 0, 0), new PathModel(info.Arg<string>())));
 
-            mock.SetupGet(provider => provider.Prefix)
+            reader.Prefix
                 .Returns("Test");
 
             _iconProvider = new();
-            _iconProvider.Register(mock.Object);
+            _iconProvider.Register(reader);
         }
 
         [Fact]
