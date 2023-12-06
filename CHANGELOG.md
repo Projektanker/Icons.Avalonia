@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.0.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.0.0...v9.0.1) (2023-12-06)
+
+
+### Bug Fixes
+
+* `IconImage` raises `IAffectsRender.Invalidated` event for changes to be rendered. ([dadf0cd](https://github.com/Projektanker/Icons.Avalonia/commit/dadf0cd1c6573664cc8904449f32087ae340a60d))
+
 ## [9.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.4.0...v9.0.0) (2023-12-06)
 
 
