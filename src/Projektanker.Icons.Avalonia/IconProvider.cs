@@ -11,7 +11,7 @@ namespace Projektanker.Icons.Avalonia
     /// </summary>
     public class IconProvider : IIconReader, IIconProviderContainer
     {
-        private readonly SortedList<string, IIconProvider> _iconProvidersByPrefix = new(Comparer<string>.Default);
+        private readonly List<IIconProvider> _iconProviders = new();
         public static IconProvider Current { get; } = new IconProvider();
 
         /// <inheritdoc/>
@@ -22,8 +22,7 @@ namespace Projektanker.Icons.Avalonia
                 return new IconModel(new ViewBoxModel(0, 0, 0, 0), new PathModel(string.Empty));
             }
 
-            var provider = _iconProvidersByPrefix
-                .Select(prefixProviderPair => prefixProviderPair.Value)
+            var provider = _iconProviders
                 .FirstOrDefault(p => value.StartsWith(p.Prefix, StringComparison.OrdinalIgnoreCase));
 
             if (provider is null)
@@ -48,13 +47,14 @@ namespace Projektanker.Icons.Avalonia
                 throw new ArgumentNullException(nameof(iconProvider));
             }
 
-            var conflicting = _iconProvidersByPrefix.Values.FirstOrDefault(existing => IsPrefix(existing.Prefix, iconProvider.Prefix));
+            var conflicting = _iconProviders
+                .FirstOrDefault(existing => IsPrefix(existing.Prefix, iconProvider.Prefix));
             if (conflicting != null)
             {
                 throw new ArgumentException($"Prefix \"{iconProvider.Prefix}\" conflicts with existing icon provider prefix \"{conflicting.Prefix}\".");
             }
 
-            _iconProvidersByPrefix.Add(iconProvider.Prefix, iconProvider);
+            _iconProviders.Add(iconProvider);
             return this;
         }
 
