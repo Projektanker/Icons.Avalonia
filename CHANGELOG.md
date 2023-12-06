@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.0.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.4.0...v9.0.0) (2023-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Uses the new `IconImage` inside the `Icon` template. This may affect styling.
+
+### Features
+
+* Adds `IconImage` ([ddd7bb4](https://github.com/Projektanker/Icons.Avalonia/commit/ddd7bb406cb742906e66da449d14f2ecc72ed022))
+* Uses the new `IconImage` inside the `Icon` template. This may affect styling. ([ddd7bb4](https://github.com/Projektanker/Icons.Avalonia/commit/ddd7bb406cb742906e66da449d14f2ecc72ed022))
+
 ## [8.4.0](https://github.com/Projektanker/Icons.Avalonia/compare/v8.3.0...v8.4.0) (2023-12-05)
 
 
