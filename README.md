@@ -83,7 +83,9 @@ Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 **As an [Image](https://docs.avaloniaui.net/docs/reference/controls/image) source**
 ```xml
 <Image>
-  <i:IconImage Value="fa-brands fa-anchor" Brush="(defaults to black)" />
+  <Image.Source>
+    <i:IconImage Value="fa-brands fa-anchor" Brush="(defaults to black)" />
+  </Image.Source>
 </Image>
 ```
 
