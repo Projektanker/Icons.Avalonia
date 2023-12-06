@@ -1,11 +1,12 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Media;
 
 #nullable enable
 
 namespace Projektanker.Icons.Avalonia
 {
-    public class IconImage : AvaloniaObject, IImage
+    public class IconImage : DrawingImage, IImage
     {
         public static readonly StyledProperty<string?> ValueProperty =
             AvaloniaProperty.Register<IconImage, string?>(nameof(Value));
@@ -17,7 +18,6 @@ namespace Projektanker.Icons.Avalonia
             AvaloniaProperty.Register<IconImage, IPen?>(nameof(Pen));
 
         private Rect _bounds;
-        private GeometryDrawing? _drawing;
 
         public IconImage() : this(string.Empty, new SolidColorBrush(Colors.Black))
         {
@@ -50,7 +50,10 @@ namespace Projektanker.Icons.Avalonia
         }
 
         /// <inheritdoc>
-        public Size Size => _bounds.Size;
+        public new Size Size => _bounds.Size;
+
+        /// <inheritdoc>
+        Size IImage.Size => _bounds.Size;
 
         /// <inheritdoc/>
         void IImage.Draw(
@@ -58,7 +61,7 @@ namespace Projektanker.Icons.Avalonia
             Rect sourceRect,
             Rect destRect)
         {
-            var drawing = _drawing;
+            var drawing = Drawing;
             if (drawing == null)
             {
                 return;
@@ -85,14 +88,17 @@ namespace Projektanker.Icons.Avalonia
             if (change.Property == ValueProperty)
             {
                 HandleValueChanged();
+                RaiseInvalidated(EventArgs.Empty);
             }
             else if (change.Property == BrushProperty)
             {
                 HandleBrushChanged();
+                RaiseInvalidated(EventArgs.Empty);
             }
             else if (change.Property == PenProperty)
             {
                 HandlePenChanged();
+                RaiseInvalidated(EventArgs.Empty);
             }
         }
 
@@ -124,7 +130,7 @@ namespace Projektanker.Icons.Avalonia
 
         private GeometryDrawing GetGeometryDrawing()
         {
-            return _drawing ??= new GeometryDrawing();
+            return (GeometryDrawing)(Drawing ??= new GeometryDrawing());
         }
     }
 }
