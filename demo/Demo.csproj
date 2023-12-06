@@ -5,6 +5,9 @@
         <TargetFramework>net7.0</TargetFramework>
         <AvaloniaNameGeneratorIsEnabled>false</AvaloniaNameGeneratorIsEnabled>
     </PropertyGroup>
+    <PropertyGroup>
+        <PublishTrimmed>true</PublishTrimmed>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="11.0.2" />
         <PackageReference Include="Avalonia.Diagnostics" Version="11.0.2" />

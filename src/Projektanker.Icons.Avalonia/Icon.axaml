@@ -40,17 +40,12 @@
 	</TemplatedControl.RenderTransform>
 	<TemplatedControl.Template>
 		<ControlTemplate>
-			<Viewbox Width="{TemplateBinding FontSize}"
-					 Height="{TemplateBinding FontSize}">
-				<Canvas Width="{Binding Canvas.Width, RelativeSource={RelativeSource TemplatedParent}}"
-						Height="{Binding Canvas.Height, RelativeSource={RelativeSource TemplatedParent}}"
-						ClipToBounds="True">
-					<Path Canvas.Left="{Binding Path.Left, RelativeSource={RelativeSource TemplatedParent}}"
-						  Canvas.Top="{Binding Path.Right, RelativeSource={RelativeSource TemplatedParent}}"
-						  Data="{Binding Path.Data, RelativeSource={RelativeSource TemplatedParent}}"
-						  Fill="{TemplateBinding Foreground}" />
-				</Canvas>
-			</Viewbox>
+			<Image Width="{TemplateBinding FontSize}"
+				   Height="{TemplateBinding FontSize}"
+				   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+				   Stretch="Uniform"
+				   Source="{TemplateBinding Image}" />
 		</ControlTemplate>
 	</TemplatedControl.Template>
 </TemplatedControl>

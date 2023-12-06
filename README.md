@@ -80,6 +80,13 @@ Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 <i:Icon Value="fa-sync" Animation="Spin" />
 ```
 
+**As an [Image](https://docs.avaloniaui.net/docs/reference/controls/image) source**
+```xml
+<Image>
+  <i:IconImage Value="fa-brands fa-anchor" Brush="(defaults to black)" />
+</Image>
+```
+
 ### Done
 
 ![Screenshot](/resources/demo.png?raw=true)
@@ -119,12 +126,12 @@ namespace Projektanker.Icons.Avalonia
 ```
 and register it with the `IIconProviderContainer`:
 ```csharp
-container.Register<MyCustomIconProvider>()
+IconProvider.Current.Register<MyCustomIconProvider>()
 ```
 or
 ```csharp
 IIconProvider provider = new MyCustomIconProvider(/* custom ctor arguments */);
-container.Register(provider);
+IconProvider.Current.Register(provider);
 ```
 
 The `IIconProvider.Prefix` property has to be unique within all registered providers. It is used to select the right provider. E.g. `FontAwesomeIconProvider`'s prefix is `fa`.
