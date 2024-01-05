@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.0.1...v9.1.0) (2024-01-05)
+
+
+### Features
+
+* **Material Design:** 🔄 icons changed. ([f820a8a](https://github.com/Projektanker/Icons.Avalonia/commit/f820a8a6d66680c66d609b383ca0dbd736384afa))
+
 ## [9.0.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.0.0...v9.0.1) (2023-12-06)
 
 
