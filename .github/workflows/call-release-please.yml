@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: 🛒 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🟣 Setup .NET 7.0
         uses: actions/setup-dotnet@v3
