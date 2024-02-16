@@ -9,6 +9,10 @@ updates:
     commit-message:
       prefix: "build"
       include: "scope"
+    groups:
+      avalonia:
+        patterns:
+          - "Avalonia*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
