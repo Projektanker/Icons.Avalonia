@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: ✨ Release Please
         id: release
-        uses: google-github-actions/release-please-action@v3
+        uses: google-github-actions/release-please-action@v4
         with:
           bootstrap-sha: c99f654b0c88658aeb7437e3acb93330cceda23b
           release-type: simple
