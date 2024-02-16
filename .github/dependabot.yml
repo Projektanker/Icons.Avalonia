@@ -1,17 +1,20 @@
 version: 2
 updates:
-  - package-ecosystem: nuget
+  - package-ecosystem: "nuget"
     directory: "/"
     schedule:
-      interval: daily
-    open-pull-requests-limit: 5
+      interval: "weekly"
     labels:
       - "dependencies"
     commit-message:
       prefix: "build"
       include: "scope"
-    ignore:
-      - dependency-name: "Avalonia*"
-        update-types:
-          - "version-update:semver-minor"
-          - "version-update:semver-patch"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "build"
+      include: "scope"
