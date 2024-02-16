@@ -13,7 +13,7 @@
         <PackageReference Include="Avalonia.Diagnostics" Version="11.0.2" />
         <PackageReference Include="Avalonia.Skia" Version="11.0.2" />
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.9" />
-        <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.2" />
+        <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.9" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
