@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using Avalonia;
 using Avalonia.Media;
+using Avalonia.Media.Immutable;
 
 #nullable enable
 
@@ -8,22 +9,27 @@ namespace Projektanker.Icons.Avalonia
 {
     public class IconImage : DrawingImage, IImage
     {
-        public static readonly StyledProperty<string?> ValueProperty =
-            AvaloniaProperty.Register<IconImage, string?>(nameof(Value));
+        public static readonly StyledProperty<string> ValueProperty = AvaloniaProperty.Register<
+            IconImage,
+            string
+        >(nameof(Value), string.Empty);
 
-        public static readonly StyledProperty<IBrush?> BrushProperty =
-            AvaloniaProperty.Register<IconImage, IBrush?>(nameof(Brush));
+        public static readonly StyledProperty<IBrush> BrushProperty = AvaloniaProperty.Register<
+            IconImage,
+            IBrush
+        >(nameof(Brush), new SolidColorBrush(Colors.Black));
 
-        public static readonly StyledProperty<IPen?> PenProperty =
-            AvaloniaProperty.Register<IconImage, IPen?>(nameof(Pen));
+        public static readonly StyledProperty<IPen> PenProperty = AvaloniaProperty.Register<
+            IconImage,
+            IPen
+        >(nameof(Pen), new ImmutablePen(Colors.Black.ToUInt32(), 0));
 
         private Rect _bounds;
 
-        public IconImage() : this(string.Empty, new SolidColorBrush(Colors.Black))
-        {
-        }
+        public IconImage()
+            : this(string.Empty, new SolidColorBrush(Colors.Black)) { }
 
-        public IconImage(string? value, IBrush? brush)
+        public IconImage(string value, IBrush brush)
         {
             Value = value;
             Brush = brush;
@@ -31,19 +37,19 @@ namespace Projektanker.Icons.Avalonia
             HandleBrushChanged();
         }
 
-        public string? Value
+        public string Value
         {
             get => GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 
-        public IBrush? Brush
+        public IBrush Brush
         {
             get => GetValue(BrushProperty);
             set => SetValue(BrushProperty, value);
         }
 
-        public IPen? Pen
+        public IPen Pen
         {
             get => GetValue(PenProperty);
             set => SetValue(PenProperty, value);
@@ -56,10 +62,7 @@ namespace Projektanker.Icons.Avalonia
         Size IImage.Size => _bounds.Size;
 
         /// <inheritdoc/>
-        void IImage.Draw(
-            DrawingContext context,
-            Rect sourceRect,
-            Rect destRect)
+        void IImage.Draw(DrawingContext context, Rect sourceRect, Rect destRect)
         {
             var drawing = Drawing;
             if (drawing == null)
@@ -70,10 +73,12 @@ namespace Projektanker.Icons.Avalonia
             var bounds = _bounds;
             var scale = Matrix.CreateScale(
                 destRect.Width / sourceRect.Width,
-                destRect.Height / sourceRect.Height);
+                destRect.Height / sourceRect.Height
+            );
             var translate = Matrix.CreateTranslation(
                 -sourceRect.X + destRect.X - bounds.X,
-                -sourceRect.Y + destRect.Y - bounds.Y);
+                -sourceRect.Y + destRect.Y - bounds.Y
+            );
 
             using (context.PushClip(destRect))
             using (context.PushTransform(translate * scale))
@@ -110,7 +115,8 @@ namespace Projektanker.Icons.Avalonia
                 x: iconModel.ViewBox.X,
                 y: iconModel.ViewBox.Y,
                 width: iconModel.ViewBox.Width,
-                height: iconModel.ViewBox.Height);
+                height: iconModel.ViewBox.Height
+            );
 
             var drawing = GetGeometryDrawing();
             drawing.Geometry = StreamGeometry.Parse(iconModel.Path);

@@ -8,7 +8,7 @@ namespace Projektanker.Icons.Avalonia
     public class Icon : TemplatedControl
     {
         public static readonly StyledProperty<string> ValueProperty =
-            AvaloniaProperty.Register<Icon, string>(nameof(Value));
+            AvaloniaProperty.Register<Icon, string>(nameof(Value), string.Empty);
 
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
