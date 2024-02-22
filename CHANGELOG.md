@@ -1,5 +1,30 @@
 # Changelog
 
+## [9.1.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.0...v9.1.1) (2024-02-22)
+
+
+### 🐛 Bug Fixes
+
+* `Icon` creates new `IconImage`on change to avoid errors in bindings. ([#112](https://github.com/Projektanker/Icons.Avalonia/issues/112)) ([e6718c7](https://github.com/Projektanker/Icons.Avalonia/commit/e6718c72b88d48f4df992a60c6c06cfd401945d0))
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump actions/checkout from 3 to 4 ([#115](https://github.com/Projektanker/Icons.Avalonia/issues/115)) ([6ff4db9](https://github.com/Projektanker/Icons.Avalonia/commit/6ff4db9a4b87aa084db24ac7c08b2c6925cb75dd))
+* **deps:** bump actions/setup-dotnet from 3 to 4 ([#114](https://github.com/Projektanker/Icons.Avalonia/issues/114)) ([8a33597](https://github.com/Projektanker/Icons.Avalonia/commit/8a3359736b6053304fbe6b902e55b29075d0febe))
+* **deps:** bump Avalonia.Themes.Fluent and Avalonia ([#121](https://github.com/Projektanker/Icons.Avalonia/issues/121)) ([b85372f](https://github.com/Projektanker/Icons.Avalonia/commit/b85372fa86a99ae2aa893cd0081095a04092e17d))
+* **deps:** bump google-github-actions/release-please-action from 3 to 4 ([#116](https://github.com/Projektanker/Icons.Avalonia/issues/116)) ([3612f54](https://github.com/Projektanker/Icons.Avalonia/commit/3612f54762320229c52767d435adf30e15a5d09b))
+* **deps:** bump Microsoft.NET.Test.Sdk from 17.8.0 to 17.9.0 ([#111](https://github.com/Projektanker/Icons.Avalonia/issues/111)) ([3607f5d](https://github.com/Projektanker/Icons.Avalonia/commit/3607f5d15b491db21f752018ae6c9aee53498e21))
+* **deps:** bump System.Text.Json from 8.0.0 to 8.0.1 ([#109](https://github.com/Projektanker/Icons.Avalonia/issues/109)) ([2f3fe13](https://github.com/Projektanker/Icons.Avalonia/commit/2f3fe13369138723b964146f0d672cec7494317f))
+* **deps:** bump System.Text.Json from 8.0.1 to 8.0.2 ([#113](https://github.com/Projektanker/Icons.Avalonia/issues/113)) ([fa6bb98](https://github.com/Projektanker/Icons.Avalonia/commit/fa6bb9827b26002b1945a92d20dc5c7c25327f76))
+* **deps:** bump the avalonia group with 3 updates ([#126](https://github.com/Projektanker/Icons.Avalonia/issues/126)) ([d9efda5](https://github.com/Projektanker/Icons.Avalonia/commit/d9efda5373515bbec3e03a1f82bf46b8dd576219))
+* **deps:** bump the avalonia group with 5 updates ([#125](https://github.com/Projektanker/Icons.Avalonia/issues/125)) ([cba0519](https://github.com/Projektanker/Icons.Avalonia/commit/cba05191371a6247696964bedad25ff09a7e25df))
+* **deps:** bump xunit from 2.6.4 to 2.6.5 ([#108](https://github.com/Projektanker/Icons.Avalonia/issues/108)) ([bb9ee90](https://github.com/Projektanker/Icons.Avalonia/commit/bb9ee9094c0ec32e12dd10f1af7fe3d57db2889c))
+* **deps:** bump xunit from 2.6.5 to 2.6.6 ([#110](https://github.com/Projektanker/Icons.Avalonia/issues/110)) ([9897593](https://github.com/Projektanker/Icons.Avalonia/commit/989759319e256d4b14c477da790261013ae26bd9))
+* **deps:** bump xunit from 2.6.6 to 2.7.0 ([#122](https://github.com/Projektanker/Icons.Avalonia/issues/122)) ([7f1e802](https://github.com/Projektanker/Icons.Avalonia/commit/7f1e802a9ac82fdb066cb2d1af162b7d6cfa9a1f))
+* **deps:** bump xunit.runner.visualstudio from 2.5.6 to 2.5.7 ([#118](https://github.com/Projektanker/Icons.Avalonia/issues/118)) ([f516f24](https://github.com/Projektanker/Icons.Avalonia/commit/f516f24a92ec0ad4d135631887b3f8d68c360c44))
+* Use .NET 8 in demo project. ([717b9d1](https://github.com/Projektanker/Icons.Avalonia/commit/717b9d1253ee80b991167440aa56c9760b9da0ea))
+
 ## [9.1.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.0.1...v9.1.0) (2024-01-05)
 
 
