@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls.Primitives;
+using Avalonia.Media;
 
 #nullable enable
 
@@ -7,12 +8,20 @@ namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
-        public static readonly StyledProperty<string> ValueProperty =
-            AvaloniaProperty.Register<Icon, string>(nameof(Value), string.Empty);
+        private static readonly SolidColorBrush _fallbackForeground = new(Colors.Black);
+
+        public static readonly StyledProperty<string> ValueProperty = AvaloniaProperty.Register<
+            Icon,
+            string
+        >(nameof(Value), string.Empty);
 
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
 
+        internal static readonly DirectProperty<Icon, IconImage?> ImageProperty =
+            AvaloniaProperty.RegisterDirect<Icon, IconImage?>(nameof(Image), o => o.Image);
+
+        private IconImage? _image;
         public string Value
         {
             get => GetValue(ValueProperty);
@@ -23,6 +32,26 @@ namespace Projektanker.Icons.Avalonia
         {
             get => GetValue(AnimationProperty);
             set => SetValue(AnimationProperty, value);
+        }
+
+        internal IconImage? Image
+        {
+            get => _image;
+            private set => SetAndRaise(ImageProperty, ref _image, value);
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+            if (change.Property == ValueProperty || change.Property == ForegroundProperty)
+            {
+                UpdateIconImage();
+            }
+        }
+
+        private void UpdateIconImage()
+        {
+            Image = new IconImage(Value, Foreground ?? _fallbackForeground);
         }
     }
 }

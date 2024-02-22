@@ -41,12 +41,8 @@
 	<TemplatedControl.Template>
 		<ControlTemplate>
 			<Image Width="{TemplateBinding FontSize}"
-				   Height="{TemplateBinding FontSize}">
-				<Image.Source>
-					<local:IconImage Value="{Binding Value, RelativeSource={RelativeSource TemplatedParent}}"
-									 Brush="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
-				</Image.Source>
-			</Image>
+				   Height="{TemplateBinding FontSize}"
+				   Source="{TemplateBinding Image}" />
 		</ControlTemplate>
 	</TemplatedControl.Template>
 </TemplatedControl>

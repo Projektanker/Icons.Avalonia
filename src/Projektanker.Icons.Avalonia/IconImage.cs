@@ -33,8 +33,6 @@ namespace Projektanker.Icons.Avalonia
         {
             Value = value;
             Brush = brush;
-            HandleValueChanged();
-            HandleBrushChanged();
         }
 
         public string Value
