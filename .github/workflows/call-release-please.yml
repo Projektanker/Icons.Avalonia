@@ -21,10 +21,8 @@ jobs:
         id: release
         uses: google-github-actions/release-please-action@v4
         with:
-          bootstrap-sha: c99f654b0c88658aeb7437e3acb93330cceda23b
-          release-type: simple
-          extra-files: |
-            src/Directory.Build.props
+          config-file: release-please/config.json
+          manifest-file: release-please/manifest.json
 
   publish:
     name: 📦 Publish to NuGet
@@ -44,13 +42,13 @@ jobs:
 
       - name: 📦 Pack
         run: >
-          dotnet pack 
+          dotnet pack
           --configuration Release
 
       - name: 🚀 Push
         run: >
-          dotnet nuget push 
-          **.nupkg 
-          -k ${{ secrets.nuget_api_key }} 
-          -s https://api.nuget.org/v3/index.json 
+          dotnet nuget push
+          **.nupkg
+          -k ${{ secrets.nuget_api_key }}
+          -s https://api.nuget.org/v3/index.json
           --skip-duplicate
