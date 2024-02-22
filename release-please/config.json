@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "packages": {
+      ".": {
+        "release-type": "simple",
+        "extra-files": ["src/Directory.Build.props"],
+        "changelog-sections": [
+          {
+            "type": "feat",
+            "section": "🚀 Features",
+            "hidden": false
+          },
+          {
+            "type": "fix",
+            "section": "🐛 Bug Fixes",
+            "hidden": false
+          },
+          {
+            "type": "build",
+            "section": "📦️ Build System, Dependencies",
+            "hidden": false
+          }
+        ]
+      }
+    }
+  }
