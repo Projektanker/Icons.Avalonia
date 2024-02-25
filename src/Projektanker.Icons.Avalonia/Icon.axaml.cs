@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls.Primitives;
+using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 
 #nullable enable
@@ -18,10 +19,15 @@ namespace Projektanker.Icons.Avalonia
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
 
-        internal static readonly DirectProperty<Icon, IconImage?> ImageProperty =
-            AvaloniaProperty.RegisterDirect<Icon, IconImage?>(nameof(Image), o => o.Image);
+        internal static readonly DirectProperty<Icon, IconImage> ImageProperty =
+            AvaloniaProperty.RegisterDirect<Icon, IconImage>(nameof(Image), o => o.Image);
 
-        private IconImage? _image;
+        public Icon()
+        {
+            Image = new();
+            AvaloniaXamlLoader.Load(this);
+        }
+
         public string Value
         {
             get => GetValue(ValueProperty);
@@ -34,24 +40,19 @@ namespace Projektanker.Icons.Avalonia
             set => SetValue(AnimationProperty, value);
         }
 
-        internal IconImage? Image
-        {
-            get => _image;
-            private set => SetAndRaise(ImageProperty, ref _image, value);
-        }
+        internal IconImage Image { get; }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
-            if (change.Property == ValueProperty || change.Property == ForegroundProperty)
+            if (change.Property == ValueProperty)
             {
-                UpdateIconImage();
+                Image.Value = Value;
             }
-        }
-
-        private void UpdateIconImage()
-        {
-            Image = new IconImage(Value, Foreground ?? _fallbackForeground);
+            else if (change.Property == ForegroundProperty)
+            {
+                Image.Brush = Foreground ?? _fallbackForeground;
+            }
         }
     }
 }
