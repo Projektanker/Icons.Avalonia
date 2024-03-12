@@ -1,5 +1,15 @@
 # Changelog
 
+## [9.1.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.1...v9.1.2) (2024-03-12)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump coverlet.collector from 6.0.0 to 6.0.1 ([#129](https://github.com/Projektanker/Icons.Avalonia/issues/129)) ([c08659b](https://github.com/Projektanker/Icons.Avalonia/commit/c08659b3fdfaac3481c02d722fc3f830424446ab))
+* **deps:** bump the avalonia group with 1 update ([#131](https://github.com/Projektanker/Icons.Avalonia/issues/131)) ([8dafaba](https://github.com/Projektanker/Icons.Avalonia/commit/8dafaba1d6d5c30ada9738e5756069125c95c69b))
+* **deps:** bump the avalonia group with 2 updates ([#128](https://github.com/Projektanker/Icons.Avalonia/issues/128)) ([5ddd345](https://github.com/Projektanker/Icons.Avalonia/commit/5ddd3454c02ad1716017581049097b7919fb95ce))
+* **deps:** bump the avalonia group with 6 updates ([#132](https://github.com/Projektanker/Icons.Avalonia/issues/132)) ([610deb2](https://github.com/Projektanker/Icons.Avalonia/commit/610deb268a398dd2972b4ce147118ac1983a3c7a))
+
 ## [9.1.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.0...v9.1.1) (2024-02-22)
 
 
