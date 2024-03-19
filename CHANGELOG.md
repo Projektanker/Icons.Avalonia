@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.1.3](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.2...v9.1.3) (2024-03-19)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump coverlet.collector from 6.0.1 to 6.0.2 ([#133](https://github.com/Projektanker/Icons.Avalonia/issues/133)) ([4c4619c](https://github.com/Projektanker/Icons.Avalonia/commit/4c4619c4d2e636e9a3d20d0823f028dfb152517d))
+* **deps:** bump System.Text.Json from 8.0.2 to 8.0.3 ([#134](https://github.com/Projektanker/Icons.Avalonia/issues/134)) ([783848d](https://github.com/Projektanker/Icons.Avalonia/commit/783848d86e17d956c3a2fb0e7517207cb5ef92a1))
+
 ## [9.1.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.1...v9.1.2) (2024-03-12)
 
 
