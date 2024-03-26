@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using FluentAssertions;
 using Projektanker.Icons.Avalonia.Models;
 using SkiaSharp;
@@ -10,6 +12,7 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
     public class FontAwesomeIconProviderTest
     {
         private readonly IIconProvider _iconProvider = new FontAwesomeIconProvider();
+        private readonly IIconProvider _customCollectionIconProvider = new FontAwesomeIconProvider<FontAwesomeCustomIconCollection>();
 
         [Theory]
         [InlineData("fa-github")]
@@ -457,6 +460,41 @@ namespace Projektanker.Icons.Avalonia.FontAwesome.Test
 
             // Assert
             legacyIcon.Should().Be(version6Icon);
+        }
+
+        [Theory]
+        [InlineData("fa-github")]
+        [InlineData("fa-brands fa-github")]
+        public void Icon_From_Custom_Collection_Should_Exist(string value)
+        {
+            // Act
+            var icon = _customCollectionIconProvider.GetIcon(value);
+
+            // Assert
+            icon.Should().NotBeNull();
+            icon.Path.ToString().Should().NotBeNullOrEmpty();
+        }
+
+        [Theory]
+        [InlineData("fa-arrow-left")]
+        [InlineData("fa-arrow-right")]
+        public void IconProvider_Should_Throw_Exception_If_Icon_From_Custom_Collection_Does_Not_Exist(string value)
+        {
+            // Act
+            Func<IconModel> func = () => _customCollectionIconProvider.GetIcon(value);
+
+            // Assert
+            func.Should().Throw<KeyNotFoundException>();
+        }
+    }
+
+    internal sealed class FontAwesomeCustomIconCollection : FontAwesomeIconCollection
+    {
+        protected override Stream GetIconsStream()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = $"{assembly.GetName().Name}.icons.json";
+            return assembly.GetManifestResourceStream(resourceName);
         }
     }
 }
