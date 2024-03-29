@@ -3,9 +3,9 @@ using System.Reflection;
 
 namespace Projektanker.Icons.Avalonia.FontAwesome;
 
-public sealed class FontAwesomeFreeIconCollection : FontAwesomeIconCollection
+public sealed class FontAwesomeFreeUtf8JsonStreamProvider : IFontAwesomeUtf8JsonStreamProvider
 {
-    protected override Stream GetIconsStream()
+    public Stream GetUtf8JsonStream()
     {
         var assembly = Assembly.GetExecutingAssembly();
         var resourceName = $"{assembly.GetName().Name}.Assets.icons.json";
