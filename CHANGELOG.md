@@ -1,5 +1,18 @@
 # Changelog
 
+## [9.2.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.2...v9.2.0) (2024-03-29)
+
+
+### 🚀 Features
+
+* Adds (experimental) support for custom font awesome icons collection ([#136](https://github.com/Projektanker/Icons.Avalonia/issues/136)) ([f9a8f35](https://github.com/Projektanker/Icons.Avalonia/commit/f9a8f35477ed7d1c962ef18f7d27c29ebda8b975))
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump coverlet.collector from 6.0.1 to 6.0.2 ([#133](https://github.com/Projektanker/Icons.Avalonia/issues/133)) ([4c4619c](https://github.com/Projektanker/Icons.Avalonia/commit/4c4619c4d2e636e9a3d20d0823f028dfb152517d))
+* **deps:** bump System.Text.Json from 8.0.2 to 8.0.3 ([#134](https://github.com/Projektanker/Icons.Avalonia/issues/134)) ([783848d](https://github.com/Projektanker/Icons.Avalonia/commit/783848d86e17d956c3a2fb0e7517207cb5ef92a1))
+
 ## [9.1.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.1...v9.1.2) (2024-03-12)
 
 
