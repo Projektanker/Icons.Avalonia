@@ -1,5 +1,5 @@
 name: 🔄 Material Design
-# https://stackoverflow.com/a/58468828
+
 on:
   workflow_dispatch:
   schedule:
@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: 📥 Download repository archive
         run: wget -O archive.zip https://github.com/Templarian/MaterialDesign-SVG/archive/master.zip
@@ -52,19 +50,10 @@ jobs:
         if: ${{ steps.git-check.outputs.modified == 'true' }}
         run: dotnet test --configuration Release
 
-      - name: 💬 Commit and push
+      - name: 💬 Create Pull Request
         if: ${{ steps.git-check.outputs.modified == 'true' }}
-        run: |
-          git config --global user.name '${{ secrets.GIT_USER }}'
-          git config --global user.email '${{ secrets.GIT_EMAIL }}'
-          git add .
-          git commit -m "feat(Material Design): 🔄 icons changed."
-          git push
-
-  release-please:
-    name: ✨ Release Please
-    needs: sync
-    if: ${{ needs.sync.outputs.modified == 'true' }}
-    uses: ./.github/workflows/call-release-please.yml
-    secrets:
-      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: material-design
+          commit-message: "Material Design icons changed."
+          title: "feat(Material Design): 🔄 icons changed."
