@@ -9,8 +9,6 @@ namespace Projektanker.Icons.Avalonia
 {
     public class Icon : TemplatedControl
     {
-        private static readonly SolidColorBrush _fallbackForeground = new(Colors.Black);
-
         public static readonly StyledProperty<string> ValueProperty = AvaloniaProperty.Register<
             Icon,
             string
@@ -19,8 +17,10 @@ namespace Projektanker.Icons.Avalonia
         public static readonly StyledProperty<IconAnimation> AnimationProperty =
             AvaloniaProperty.Register<Icon, IconAnimation>(nameof(Animation));
 
-        internal static readonly DirectProperty<Icon, IconImage> ImageProperty =
-            AvaloniaProperty.RegisterDirect<Icon, IconImage>(nameof(Image), o => o.Image);
+        internal static readonly StyledProperty<IconImage> ImageProperty =
+            AvaloniaProperty.Register<Icon, IconImage>(nameof(Image));
+
+        private static readonly SolidColorBrush _fallbackForeground = new(Colors.Black);
 
         public Icon()
         {
@@ -40,18 +40,20 @@ namespace Projektanker.Icons.Avalonia
             set => SetValue(AnimationProperty, value);
         }
 
-        internal IconImage Image { get; }
+        internal IconImage Image
+        {
+            get => GetValue(ImageProperty);
+            set => SetValue(ImageProperty, value);
+        }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
-            if (change.Property == ValueProperty)
+            if (change.Property == ValueProperty || change.Property == ForegroundProperty)
             {
-                Image.Value = Value;
-            }
-            else if (change.Property == ForegroundProperty)
-            {
-                Image.Brush = Foreground ?? _fallbackForeground;
+                // Create new IconImage to prevent https://github.com/Projektanker/Icons.Avalonia/issues/138
+                // Otherwise the Image.Draw method is not invoked
+                Image = new IconImage(Value, Foreground ?? _fallbackForeground);
             }
         }
     }
