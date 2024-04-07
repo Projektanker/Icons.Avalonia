@@ -1,4 +1,5 @@
 # Icons.Avalonia
+
 A library to easily display icons in an Avalonia App.
 
 [![🚀 Push](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/push.yml/badge.svg)](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/push.yml)
@@ -6,22 +7,28 @@ A library to easily display icons in an Avalonia App.
 [![🔄 Sync Material Design](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/sync-materialdesign.yml/badge.svg)](https://github.com/Projektanker/Icons.Avalonia/actions/workflows/sync-materialdesign.yml)
 
 ## NuGet
-| Name | Description | Version |
-|:-|:-|:-|
-| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/) | Core library | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia) |
-| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/) | [Font Awesome 6 Free](https://fontawesome.com) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome) |
-| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://materialdesignicons.com/) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
+
+| Name                                                                                                                     | Description                                                     | Version                                                                         |
+| :----------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------ |
+| [Projektanker.Icons.Avalonia](https://www.nuget.org/packages/Projektanker.Icons.Avalonia/)                               | Core library                                                    | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia)                |
+| [Projektanker.Icons.Avalonia.FontAwesome](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.FontAwesome/)       | [Font Awesome 6 Free](https://fontawesome.com)                  | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.FontAwesome)    |
+| [Projektanker.Icons.Avalonia.MaterialDesign](https://www.nuget.org/packages/Projektanker.Icons.Avalonia.MaterialDesign/) | [Material Design Icons](https://pictogrammers.com/library/mdi/) | ![Nuget](https://badgen.net/nuget/v/Projektanker.Icons.Avalonia.MaterialDesign) |
 
 ## Icon providers
-| Name | Prefix | Example|
-|:-|:-:|:-|
-|FontAwesome 6| `fa` | `fa-github`
-|MaterialDesign| `mdi` | `mdi-github`
+
+| Name           | Prefix | Example      |
+| :------------- | :----: | :----------- |
+| FontAwesome 6  |  `fa`  | `fa-github`  |
+| MaterialDesign | `mdi`  | `mdi-github` |
+
 ## Usage
+
 A full example is available in the [demo](demo) directory.
 
 ### 1. Register icon providers on app start up
+
 Register the icon provider(s) with the `IconProvider.Current`.
+
 ```csharp
 class Program
 {
@@ -55,32 +62,38 @@ Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 ### 3. Use the icon
 
 **Standalone**
+
 ```xml
 <i:Icon Value="fa-brands fa-anchor" />
 ```
 
 **Attached to ContentControl (e.g. Button)**
+
 ```xml
 <Button i:Attached.Icon="fa-brands fa-anchor" />
 ```
 
 **Attached to MenuItem**
+
 ```xml
 <MenuItem Header="About" i:MenuItem.Icon="fa-solid fa-circle-info" />
 ```
 
-**Custom icon size**  
+**Custom icon size**
+
 ```xml
 <i:Icon Value="fa-brands fa-anchor" FontSize="24" />
 ```
 
-**Animated**  
+**Animated**
+
 ```xml
 <i:Icon Value="fa-spinner" Animation="Pulse" />
 <i:Icon Value="fa-sync" Animation="Spin" />
 ```
 
 **As an [Image](https://docs.avaloniaui.net/docs/reference/controls/image) source**
+
 ```xml
 <Image>
   <Image.Source>
@@ -94,7 +107,9 @@ Add `xmlns:i="https://github.com/projektanker/icons.avalonia"` to your view.
 ![Screenshot](/resources/demo.png?raw=true)
 
 ## Implement your own Icon Provider
+
 Just implement the `IIconProvider` interface:
+
 ```csharp
 namespace Projektanker.Icons.Avalonia
 {
@@ -126,11 +141,15 @@ namespace Projektanker.Icons.Avalonia
     }
 }
 ```
+
 and register it with the `IIconProviderContainer`:
+
 ```csharp
 IconProvider.Current.Register<MyCustomIconProvider>()
 ```
+
 or
+
 ```csharp
 IIconProvider provider = new MyCustomIconProvider(/* custom ctor arguments */);
 IconProvider.Current.Register(provider);
