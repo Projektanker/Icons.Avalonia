@@ -35,10 +35,8 @@ jobs:
       - name: 🛒 Checkout
         uses: actions/checkout@v4
 
-      - name: 🟣 Setup .NET 7.0
+      - name: 🟣 Setup .NET
         uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 7.0.x
 
       - name: 📦 Pack
         run: >
