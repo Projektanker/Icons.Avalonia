@@ -59,32 +59,6 @@ namespace Projektanker.Icons.Avalonia
         /// <inheritdoc>
         Size IImage.Size => _bounds.Size;
 
-        /// <inheritdoc/>
-        void IImage.Draw(DrawingContext context, Rect sourceRect, Rect destRect)
-        {
-            var drawing = Drawing;
-            if (drawing == null)
-            {
-                return;
-            }
-
-            var bounds = _bounds;
-            var scale = Matrix.CreateScale(
-                destRect.Width / sourceRect.Width,
-                destRect.Height / sourceRect.Height
-            );
-            var translate = Matrix.CreateTranslation(
-                -sourceRect.X + destRect.X - bounds.X,
-                -sourceRect.Y + destRect.Y - bounds.Y
-            );
-
-            using (context.PushClip(destRect))
-            using (context.PushTransform(translate * scale))
-            {
-                drawing.Draw(context);
-            }
-        }
-
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
@@ -135,6 +109,32 @@ namespace Projektanker.Icons.Avalonia
         private GeometryDrawing GetGeometryDrawing()
         {
             return (GeometryDrawing)(Drawing ??= new GeometryDrawing());
+        }
+
+        /// <inheritdoc/>
+        void IImage.Draw(DrawingContext context, Rect sourceRect, Rect destRect)
+        {
+            var drawing = Drawing;
+            if (drawing == null)
+            {
+                return;
+            }
+
+            var bounds = _bounds;
+            var scale = Matrix.CreateScale(
+                destRect.Width / sourceRect.Width,
+                destRect.Height / sourceRect.Height
+            );
+            var translate = Matrix.CreateTranslation(
+                -sourceRect.X + destRect.X - bounds.X,
+                -sourceRect.Y + destRect.Y - bounds.Y
+            );
+
+            using (context.PushClip(destRect))
+            using (context.PushTransform(translate * scale))
+            {
+                drawing.Draw(context);
+            }
         }
     }
 }
