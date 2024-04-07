@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.3.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.2.0...v9.3.0) (2024-04-07)
+
+
+### 🚀 Features
+
+* **FontAwesome:** 🔄 icons changed. ([#140](https://github.com/Projektanker/Icons.Avalonia/issues/140)) ([08ca93e](https://github.com/Projektanker/Icons.Avalonia/commit/08ca93e83a578b4733a9f26ba276cbbbefe4d5dd))
+
+
+### 🐛 Bug Fixes
+
+* Create a new `IconImage` every time `Icon.Value` or `Icon.Foreground` changes to fix [#138](https://github.com/Projektanker/Icons.Avalonia/issues/138). ([3241dfb](https://github.com/Projektanker/Icons.Avalonia/commit/3241dfb575d91c68ab215e111615efcbc4cf8e8e))
+
 ## [9.2.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.1.2...v9.2.0) (2024-03-29)
 
 
