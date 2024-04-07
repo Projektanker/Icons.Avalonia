@@ -8,6 +8,10 @@ defaults:
   run:
     working-directory: src/Projektanker.Icons.Avalonia.FontAwesome
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   sync:
     name: 🔄 Sync Fontawesome
@@ -17,8 +21,7 @@ jobs:
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
       - name: 📥 Download icons.json
         run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/metadata/icons.json
 
@@ -37,18 +40,10 @@ jobs:
         if: ${{ steps.git-check.outputs.modified == 'true' }}
         run: dotnet test --configuration Release
 
-      - name: 💬 Commit and push
+      - name: 💬 Create Pull Request
         if: ${{ steps.git-check.outputs.modified == 'true' }}
-        run: |
-          git config --global user.name '${{ secrets.GIT_USER }}'
-          git config --global user.email '${{ secrets.GIT_EMAIL }}'
-          git commit -am "feat(FontAwesome): 🔄 icons changed."
-          git push
-
-  release-please:
-    name: ✨ Release Please
-    needs: sync
-    if: ${{ needs.sync.outputs.modified == 'true' }}
-    uses: ./.github/workflows/call-release-please.yml
-    secrets:
-      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: fontawesome
+          commit-message: "FontAwesome icons changed."
+          title: "feat(FontAwesome): 🔄 icons changed."
