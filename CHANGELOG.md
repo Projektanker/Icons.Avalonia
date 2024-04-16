@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.3.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.3.0...v9.3.1) (2024-04-16)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump the xunit group with 2 updates ([#142](https://github.com/Projektanker/Icons.Avalonia/issues/142)) ([509a974](https://github.com/Projektanker/Icons.Avalonia/commit/509a9741321da5be8a9a585cb0ab3a94378712ff))
+
 ## [9.3.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.2.0...v9.3.0) (2024-04-07)
 
 
