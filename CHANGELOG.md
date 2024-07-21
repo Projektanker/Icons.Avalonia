@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.4.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.3.0...v9.4.0) (2024-07-21)
+
+
+### 🚀 Features
+
+* **FontAwesome:** 🔄 icons changed. ([#146](https://github.com/Projektanker/Icons.Avalonia/issues/146)) ([f1b5952](https://github.com/Projektanker/Icons.Avalonia/commit/f1b5952551d4d80bbd194f3cf29ae37a75ca835b))
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump the xunit group with 2 updates ([#142](https://github.com/Projektanker/Icons.Avalonia/issues/142)) ([509a974](https://github.com/Projektanker/Icons.Avalonia/commit/509a9741321da5be8a9a585cb0ab3a94378712ff))
+
 ## [9.3.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.2.0...v9.3.0) (2024-04-07)
 
 
