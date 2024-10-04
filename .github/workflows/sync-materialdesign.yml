@@ -52,7 +52,7 @@ jobs:
 
       - name: 💬 Create Pull Request
         if: ${{ steps.git-check.outputs.modified == 'true' }}
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           branch: material-design
           commit-message: "Material Design icons changed."
