@@ -1,5 +1,23 @@
 # Changelog
 
+## [9.4.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.0...v9.4.1) (2024-10-04)
+
+
+### 🐛 Bug Fixes
+
+* Make `IsExternalInit` `internal` (fixes [#147](https://github.com/Projektanker/Icons.Avalonia/issues/147)) ([9284637](https://github.com/Projektanker/Icons.Avalonia/commit/9284637561bd454ce4ec92f979cc6af16f151fe9))
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump FluentAssertions from 6.12.0 to 6.12.1 in /src ([#154](https://github.com/Projektanker/Icons.Avalonia/issues/154)) ([486e41f](https://github.com/Projektanker/Icons.Avalonia/commit/486e41f5fcbd993cbd48c6717e68fc71c3540430))
+* **deps:** bump Microsoft.NET.Test.Sdk from 17.9.0 to 17.11.1 in /src ([#152](https://github.com/Projektanker/Icons.Avalonia/issues/152)) ([4025a98](https://github.com/Projektanker/Icons.Avalonia/commit/4025a98238fdb75ba413c6543d6053d6b0842303))
+* **deps:** bump peter-evans/create-pull-request from 6 to 7 ([#148](https://github.com/Projektanker/Icons.Avalonia/issues/148)) ([458a979](https://github.com/Projektanker/Icons.Avalonia/commit/458a97968433ae5a07c2278e674154af5190267c))
+* **deps:** bump System.Text.Json from 8.0.3 to 8.0.4 in /src ([#153](https://github.com/Projektanker/Icons.Avalonia/issues/153)) ([0f0abd3](https://github.com/Projektanker/Icons.Avalonia/commit/0f0abd3ecb031231232880a5ef475d3139880c31))
+* **deps:** bump the avalonia group in /src with 6 updates ([#150](https://github.com/Projektanker/Icons.Avalonia/issues/150)) ([4bdcfa8](https://github.com/Projektanker/Icons.Avalonia/commit/4bdcfa8cf45e2ac1258177e0c73cbacc324c32c7))
+* **deps:** bump the xunit group in /src with 2 updates ([#151](https://github.com/Projektanker/Icons.Avalonia/issues/151)) ([22d7985](https://github.com/Projektanker/Icons.Avalonia/commit/22d79855a7d009e691154ee5268b94b8ebdf07c3))
+* Fix dependabot ([d8292c1](https://github.com/Projektanker/Icons.Avalonia/commit/d8292c1050c3289188f27b67d67429dcd406cf88))
+
 ## [9.4.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.3.0...v9.4.0) (2024-07-21)
 
 
