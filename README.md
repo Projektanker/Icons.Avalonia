@@ -23,7 +23,7 @@ A library to easily display icons in an Avalonia App.
 
 ## Usage
 
-A full example is available in the [demo](demo) directory.
+A full example is available in the [Demo project](src/Demo/Demo.csproj).
 
 ### 1. Register icon providers on app start up
 

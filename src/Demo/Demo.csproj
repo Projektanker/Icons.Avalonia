@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <IsPackable>false</IsPackable>
@@ -16,7 +16,7 @@
         <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.10" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
-        <ProjectReference Include="..\src\Projektanker.Icons.Avalonia.MaterialDesign\Projektanker.Icons.Avalonia.MaterialDesign.csproj" />
+        <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
+        <ProjectReference Include="..\Projektanker.Icons.Avalonia.MaterialDesign\Projektanker.Icons.Avalonia.MaterialDesign.csproj" />
     </ItemGroup>
 </Project>

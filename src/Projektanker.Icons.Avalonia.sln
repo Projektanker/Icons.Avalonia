@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektanker.Icons.Avalonia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektanker.Icons.Avalonia.MaterialDesign.Test", "Projektanker.Icons.Avalonia.MaterialDesign.Test\Projektanker.Icons.Avalonia.MaterialDesign.Test.csproj", "{A64323F1-3E17-4ABB-8E91-7D26A8865161}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "..\demo\Demo.csproj", "{A332E41F-95D9-4EA2-9525-9853B5419EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{90615CB8-E8CF-4773-AD10-653979586FBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,10 +52,10 @@ Global
 		{A64323F1-3E17-4ABB-8E91-7D26A8865161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A64323F1-3E17-4ABB-8E91-7D26A8865161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A64323F1-3E17-4ABB-8E91-7D26A8865161}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A332E41F-95D9-4EA2-9525-9853B5419EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A332E41F-95D9-4EA2-9525-9853B5419EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A332E41F-95D9-4EA2-9525-9853B5419EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A332E41F-95D9-4EA2-9525-9853B5419EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90615CB8-E8CF-4773-AD10-653979586FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90615CB8-E8CF-4773-AD10-653979586FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90615CB8-E8CF-4773-AD10-653979586FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90615CB8-E8CF-4773-AD10-653979586FBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
