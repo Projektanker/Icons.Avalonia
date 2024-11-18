@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.4.3](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.2...v9.4.3) (2024-11-18)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump Avalonia from 11.1.3 to 11.2.1 in /src in the avalonia group ([#162](https://github.com/Projektanker/Icons.Avalonia/issues/162)) ([bd53ed3](https://github.com/Projektanker/Icons.Avalonia/commit/bd53ed3cedd15a6818f1de851c945d5a42cd6c81))
+* **deps:** bump System.Text.Json from 8.0.5 to 9.0.0 in /src ([#163](https://github.com/Projektanker/Icons.Avalonia/issues/163)) ([9940214](https://github.com/Projektanker/Icons.Avalonia/commit/99402141eb7749ced8e303fb65422d509c82fb31))
+
 ## [9.4.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.1...v9.4.2) (2024-11-12)
 
 
