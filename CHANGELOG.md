@@ -1,5 +1,14 @@
 # Changelog
 
+## [9.4.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.1...v9.4.2) (2024-11-12)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump FluentAssertions from 6.12.1 to 6.12.2 in /src ([#160](https://github.com/Projektanker/Icons.Avalonia/issues/160)) ([05b7986](https://github.com/Projektanker/Icons.Avalonia/commit/05b7986ab17872d40fce5c36e8a6d0732f97fb63))
+* **deps:** bump NSubstitute from 5.1.0 to 5.3.0 in /src ([#157](https://github.com/Projektanker/Icons.Avalonia/issues/157)) ([17ce680](https://github.com/Projektanker/Icons.Avalonia/commit/17ce680326a1dfc3247e121271663de0fb721f26))
+* **deps:** bump System.Text.Json from 8.0.4 to 8.0.5 in /src ([#156](https://github.com/Projektanker/Icons.Avalonia/issues/156)) ([af35587](https://github.com/Projektanker/Icons.Avalonia/commit/af35587359b0842000945306fd6015a746941bf7))
+
 ## [9.4.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.0...v9.4.1) (2024-10-04)
 
 
