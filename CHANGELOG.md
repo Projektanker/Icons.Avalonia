@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.5.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.3...v9.5.0) (2024-11-24)
+
+
+### 🚀 Features
+
+* **FontAwesome:** 🔄 icons changed. ([#167](https://github.com/Projektanker/Icons.Avalonia/issues/167)) ([83e039f](https://github.com/Projektanker/Icons.Avalonia/commit/83e039faac52c5f85fe3748fbb084a5f2fe7d80c))
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump the avalonia group in /src with 5 updates ([#165](https://github.com/Projektanker/Icons.Avalonia/issues/165)) ([dac0f6f](https://github.com/Projektanker/Icons.Avalonia/commit/dac0f6f161a88b35c34c29ee2c89f98f5a5579d7))
+
 ## [9.4.3](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.2...v9.4.3) (2024-11-18)
 
 
