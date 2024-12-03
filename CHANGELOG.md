@@ -1,5 +1,14 @@
 # Changelog
 
+## [9.5.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.5.0...v9.5.1) (2024-12-03)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump FluentAssertions from 6.12.2 to 7.0.0 in /src ([#171](https://github.com/Projektanker/Icons.Avalonia/issues/171)) ([22f79af](https://github.com/Projektanker/Icons.Avalonia/commit/22f79af427e83fa1836c745d8fc415d1cbbade92))
+* **deps:** bump Microsoft.NET.Test.Sdk from 17.11.1 to 17.12.0 in /src ([#168](https://github.com/Projektanker/Icons.Avalonia/issues/168)) ([f96e86c](https://github.com/Projektanker/Icons.Avalonia/commit/f96e86c220a31cd1fbd1e88311ae7bd84f4f9e62))
+* **deps:** bump the avalonia group in /src with 6 updates ([#170](https://github.com/Projektanker/Icons.Avalonia/issues/170)) ([dc7934f](https://github.com/Projektanker/Icons.Avalonia/commit/dc7934fc4527867022a28009c6100299a245ba24))
+
 ## [9.5.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.3...v9.5.0) (2024-11-24)
 
 
