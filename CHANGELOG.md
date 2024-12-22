@@ -1,5 +1,22 @@
 # Changelog
 
+## [9.6.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.5.0...v9.6.0) (2024-12-22)
+
+
+### 🚀 Features
+
+* **FontAwesome:** 🔄 icons changed. ([#174](https://github.com/Projektanker/Icons.Avalonia/issues/174)) ([8390ff1](https://github.com/Projektanker/Icons.Avalonia/commit/8390ff144783007d2cf859fdf6dbc56cd6c3b226))
+
+
+### 📦️ Build System, Dependencies
+
+* Bump dotnet to 9.0.101 ([#175](https://github.com/Projektanker/Icons.Avalonia/issues/175)) ([897d5d6](https://github.com/Projektanker/Icons.Avalonia/commit/897d5d6040e72b0b82563699fb3e842c1091e153))
+* **deps:** bump FluentAssertions from 6.12.2 to 7.0.0 in /src ([#171](https://github.com/Projektanker/Icons.Avalonia/issues/171)) ([22f79af](https://github.com/Projektanker/Icons.Avalonia/commit/22f79af427e83fa1836c745d8fc415d1cbbade92))
+* **deps:** bump Microsoft.NET.Test.Sdk from 17.11.1 to 17.12.0 in /src ([#168](https://github.com/Projektanker/Icons.Avalonia/issues/168)) ([f96e86c](https://github.com/Projektanker/Icons.Avalonia/commit/f96e86c220a31cd1fbd1e88311ae7bd84f4f9e62))
+* **deps:** bump the avalonia group in /src with 6 updates ([#170](https://github.com/Projektanker/Icons.Avalonia/issues/170)) ([dc7934f](https://github.com/Projektanker/Icons.Avalonia/commit/dc7934fc4527867022a28009c6100299a245ba24))
+* **deps:** bump the avalonia group in /src with 6 updates ([#176](https://github.com/Projektanker/Icons.Avalonia/issues/176)) ([de638e9](https://github.com/Projektanker/Icons.Avalonia/commit/de638e93c00d92dedff07aea294f99ed5804af8a))
+* **deps:** bump xunit.runner.visualstudio from 2.8.2 to 3.0.0 in /src in the xunit group ([#173](https://github.com/Projektanker/Icons.Avalonia/issues/173)) ([47f0505](https://github.com/Projektanker/Icons.Avalonia/commit/47f05056bb90858a88bf7dd07be22d35dfe7936b))
+
 ## [9.5.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.4.3...v9.5.0) (2024-11-24)
 
 
