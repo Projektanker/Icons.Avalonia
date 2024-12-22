@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
     <ItemGroup>
-      <EmbeddedResource Include="icons.json" />
+        <EmbeddedResource Include="icons.json" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Skia" Version="11.2.2" />
@@ -21,6 +21,7 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
+        <ProjectReference
+            Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
     </ItemGroup>
 </Project>
