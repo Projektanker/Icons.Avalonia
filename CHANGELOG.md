@@ -1,5 +1,14 @@
 # Changelog
 
+## [9.6.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.6.0...v9.6.1) (2025-02-18)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump coverlet.collector from 6.0.2 to 6.0.4 in /src ([#180](https://github.com/Projektanker/Icons.Avalonia/issues/180)) ([ba6e3b9](https://github.com/Projektanker/Icons.Avalonia/commit/ba6e3b9989ad403c0522d8721daebd0718328cf2))
+* **deps:** bump System.Text.Json from 9.0.0 to 9.0.2 in /src ([#186](https://github.com/Projektanker/Icons.Avalonia/issues/186)) ([c9719f6](https://github.com/Projektanker/Icons.Avalonia/commit/c9719f61497881760461481fa290a01524ca135e))
+* **deps:** bump xunit from 2.9.2 to 2.9.3 in /src in the xunit group across 1 directory ([#184](https://github.com/Projektanker/Icons.Avalonia/issues/184)) ([eb50e49](https://github.com/Projektanker/Icons.Avalonia/commit/eb50e49bf7d630ca55b5170cce9af81cc8a36e23))
+
 ## [9.6.0](https://github.com/Projektanker/Icons.Avalonia/compare/v9.5.0...v9.6.0) (2024-12-22)
 
 
