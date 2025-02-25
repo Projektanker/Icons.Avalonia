@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.6.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.6.1...v9.6.2) (2025-02-25)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump the avalonia group in /src with 6 updates ([#187](https://github.com/Projektanker/Icons.Avalonia/issues/187)) ([ba2d985](https://github.com/Projektanker/Icons.Avalonia/commit/ba2d9851d45f505ccd285907e55b2e0d884761e5))
+
 ## [9.6.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.6.0...v9.6.1) (2025-02-18)
 
 
