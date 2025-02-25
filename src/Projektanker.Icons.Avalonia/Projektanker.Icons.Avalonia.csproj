@@ -4,6 +4,6 @@
         <AvaloniaNameGeneratorIsEnabled>false</AvaloniaNameGeneratorIsEnabled>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.2.3" />
+        <PackageReference Include="Avalonia" Version="11.2.4" />
     </ItemGroup>
 </Project>
