@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.6.2](https://github.com/Projektanker/Icons.Avalonia/compare/v9.6.1...v9.6.2) (2025-05-07)
+
+
+### 📦️ Build System, Dependencies
+
+* **deps:** bump Microsoft.NET.Test.Sdk from 17.12.0 to 17.13.0 in /src ([#190](https://github.com/Projektanker/Icons.Avalonia/issues/190)) ([991e44a](https://github.com/Projektanker/Icons.Avalonia/commit/991e44a7c4433a2d3a9fb8c792d06ba927b226c5))
+* **deps:** bump System.Text.Json from 9.0.2 to 9.0.4 in /src ([#198](https://github.com/Projektanker/Icons.Avalonia/issues/198)) ([087b27f](https://github.com/Projektanker/Icons.Avalonia/commit/087b27fe5ca07176fd67932f593abab8dcdad04c))
+* **deps:** bump the avalonia group across 1 directory with 6 updates ([#200](https://github.com/Projektanker/Icons.Avalonia/issues/200)) ([eb186eb](https://github.com/Projektanker/Icons.Avalonia/commit/eb186ebf53ac18bf80a6507fd4b11004350529b7))
+* **deps:** bump the avalonia group in /src with 6 updates ([#187](https://github.com/Projektanker/Icons.Avalonia/issues/187)) ([ba2d985](https://github.com/Projektanker/Icons.Avalonia/commit/ba2d9851d45f505ccd285907e55b2e0d884761e5))
+* **deps:** bump the avalonia group in /src with 6 updates ([#192](https://github.com/Projektanker/Icons.Avalonia/issues/192)) ([82db706](https://github.com/Projektanker/Icons.Avalonia/commit/82db70624c3f36079f09d3305a3e30c4fffae446))
+* **deps:** bump xunit.runner.visualstudio from 3.0.0 to 3.0.2 in /src in the xunit group ([#188](https://github.com/Projektanker/Icons.Avalonia/issues/188)) ([3b51eaa](https://github.com/Projektanker/Icons.Avalonia/commit/3b51eaa30d2b96aee71add5faa9e11b1a65b75c7))
+
 ## [9.6.1](https://github.com/Projektanker/Icons.Avalonia/compare/v9.6.0...v9.6.1) (2025-02-18)
 
 
