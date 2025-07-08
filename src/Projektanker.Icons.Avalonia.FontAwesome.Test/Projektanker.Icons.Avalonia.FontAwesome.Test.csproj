@@ -7,7 +7,7 @@
         <EmbeddedResource Include="icons.json" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Skia" Version="11.3.0" />
+        <PackageReference Include="Avalonia.Skia" Version="11.3.2" />
         <PackageReference Include="FluentAssertions" Version="7.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
         <PackageReference Include="xunit" Version="2.9.3" />
