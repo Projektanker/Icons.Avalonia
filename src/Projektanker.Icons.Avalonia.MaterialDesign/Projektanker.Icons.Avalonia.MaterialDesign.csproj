@@ -6,6 +6,7 @@
         <EmbeddedResource Include="Assets\*.svg" />
     </ItemGroup>
     <ItemGroup>
+      <PackageReference Include="Avalonia" Version="11.3.7" />
         <ProjectReference Include="..\Projektanker.Icons.Avalonia\Projektanker.Icons.Avalonia.csproj" />
     </ItemGroup>
 </Project>
