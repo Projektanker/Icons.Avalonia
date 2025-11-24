@@ -20,7 +20,7 @@ jobs:
       modified: ${{ steps.git-check.outputs.modified }}
     steps:
       - name: 🛒 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download icons.json
         run: wget -O Assets/icons.json https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/metadata/icons.json

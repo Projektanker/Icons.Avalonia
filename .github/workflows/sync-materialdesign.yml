@@ -16,7 +16,7 @@ jobs:
       modified: ${{ steps.git-check.outputs.modified }}
     steps:
       - name: 🛒 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download repository archive
         run: wget -O archive.zip https://github.com/Templarian/MaterialDesign-SVG/archive/master.zip
