@@ -2,17 +2,17 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <IsPackable>false</IsPackable>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net`0.0</TargetFramework>
         <AvaloniaNameGeneratorIsEnabled>false</AvaloniaNameGeneratorIsEnabled>
     </PropertyGroup>
     <PropertyGroup>
         <PublishTrimmed>true</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
-        <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="12.0.0-rc2" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.13" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.0-rc2" />
+        <PackageReference Include="Avalonia.Themes.Simple" Version="12.0.0-rc2" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Projektanker.Icons.Avalonia.FontAwesome\Projektanker.Icons.Avalonia.FontAwesome.csproj" />
