@@ -1,7 +1,8 @@
 <Project>
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-		<LangVersion>10</LangVersion>
+        <TargetFramework>net10.0</TargetFramework>
+		<LangVersion>14.0</LangVersion>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\obj\**;$(MSBuildProjectDirectory)\bin\**</DefaultItemExcludes>
         <Authors>Sebastian Rumohr</Authors>
         <Company>Projektanker GmbH</Company>
         <PackageProjectUrl></PackageProjectUrl>
@@ -16,7 +17,7 @@
 		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Projektanker.Icons.Avalonia.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(ProjectName.EndsWith(`Test`))' == 'false'">
+    <ItemGroup Condition="!$([System.String]::Copy('$(MSBuildProjectName)').EndsWith('Test'))">
         <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>

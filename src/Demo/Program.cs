@@ -1,7 +1,8 @@
-﻿using Avalonia;
+using Avalonia;
 using Projektanker.Icons.Avalonia;
 using Projektanker.Icons.Avalonia.FontAwesome;
 using Projektanker.Icons.Avalonia.MaterialDesign;
+
 
 namespace Demo
 {
@@ -24,8 +25,11 @@ namespace Demo
                 .Register<MaterialDesignIconProvider>();
 
             return AppBuilder.Configure<App>()
-                .UsePlatformDetect()
+                .UseWin32()
+                .UseSkia()
+                .UseHarfBuzz()
                 .LogToTrace();
         }
     }
 }
+

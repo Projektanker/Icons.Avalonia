@@ -37,12 +37,5 @@
 		<TransformGroup>
 			<RotateTransform />
 		</TransformGroup>
-	</TemplatedControl.RenderTransform>
-	<TemplatedControl.Template>
-		<ControlTemplate>
-			<Image Width="{TemplateBinding FontSize}"
-				   Height="{TemplateBinding FontSize}"
-				   Source="{TemplateBinding Image}" />
-		</ControlTemplate>
-	</TemplatedControl.Template>
+	</TemplatedControl.RenderTransform>	
 </TemplatedControl>
